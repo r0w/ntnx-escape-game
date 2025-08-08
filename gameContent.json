@@ -15,7 +15,7 @@
             "active": true,
             "Message": {
                 "en": "\nThank you\n\nPlease wait for agent contact\n#>P:5",
-                "fr": "\nMerci\n\nVeuillez patienter, un agent vs vous contacter.\n#>P:5"
+                "fr": "\nMerci\n\nVeuillez patienter, un agent va vous contacter.\n#>P:5"
             },
             "Color": "green",
             "CheckTask": "NeedRecovery"
@@ -146,7 +146,7 @@
             "active": true,
             "Message": {
                 "en": "\nPerfect, it is pretty discrete. The user #>V:ProdUsername# owns to 'Production' project only. He is not able to see assets from others projects. So, they won't see your VM, except if they look for it. We need to be careful.\n\nPlease, connect back with our admin user #>V:Trigram#-adm on Prism Central and hit 'Enter' when you are ready.\n#>P:6#Oh wait !!!#>P:5#They are scanning the server hosting our VM, shit. Move our VM to another one right now ! Go go go !\nHit 'Enter' when its done#>I:#",
-                "fr": "Parfait, c'est plutôt discret. L'utilisateur #>V:ProdUsername# n'a accés qu'au projet 'Production'. Il ne peut voir les objets des autres projets. Donc, ils ne verront pas notre VM, sauf si ils la chercheng vraiment. On doit être prudents.\n\nS'il vous plaît, reconnectez-vous avec votre utilsateur #>V:Trigram#-adm sur Prism Central, et pressez 'Entrée' quand vout êtes prêt.\n#>P:6#Oh, bougez pas !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Merde. Bougez la VM sur un autre hôte immédiattement ! Vite, vite, vite !\nAppuyez sur 'Entrée' quand c'est fait.#>I:#" 
+                "fr": "Parfait, c'est plutôt discret. L'utilisateur #>V:ProdUsername# n'a accés qu'au projet 'Production'. Il ne peut voir les objets des autres projets. Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. On doit être prudents.\n\nS'il vous plaît, reconnectez-vous avec votre utilsateur #>V:Trigram#-adm sur Prism Central, et pressez 'Entrée' quand vout êtes prêt.\n#>P:6#Oh, bougez pas !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Merde. Bougez la VM sur un autre hôte immédiattement ! Vite, vite, vite !\nAppuyez sur 'Entrée' quand c'est fait.#>I:#" 
             },
             "CheckTask": "CheckLiveMigration",
             "Color": "blue"
