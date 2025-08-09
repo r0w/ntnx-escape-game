@@ -273,7 +273,7 @@
         },
         {
             "id": 28,
-            "active": true,
+            "active": false,
             "Message": {
                 "en": "To secure our work, we are going to setup an approval workflow for snapshot deletion. It will avoid any deletion from our embarrassing friends.\n\nPlease, if it does not already exist, create a approval policy named '#>V:ApprovalPolicy#' requesting validation for deletions of our VM snapshots.#>P:3# You will need to add 3 approvers, use : Charlie, Thom and William (Do the search with lowercase names).#>P:3#\nWhen the policy is created, associate it to your protection policy '#>V:Trigram#-policy'. #>P:4#Then enter 'OK' here. #>I:#",
                 "fr": "Pour sécuriser notre travail, nous allons mettre en place un workflow d'approbation pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\nS'il n'existe pas déjà, créez une approval policy nommée '#>V:ApprovalPolicy#' demandant une validation pour les suppressions de nos snapshots de VM.#>P:3# Vous devrez ajouter 3 validateurs, utilisez : Charlie, Thom et William (Faites la recherche avec les noms en minuscules).#>P:3#\nLorsque la politique est créée, associez-la à votre protection policy '#>V:Trigram#-policy'. #>P:4#Ensuite, entrez 'OK' ici. #>I:#"
@@ -283,7 +283,7 @@
         },
         {
             "id": 29,
-            "active": true,
+            "active": false,
             "Message": {
                 "en": "Nice. I'll confirm this... 2s please.#>P:2#\n",
                 "fr": "Bien. Je vais confirmer cela... 2s s'il vous plaît.#>P:2#\n"
@@ -463,7 +463,7 @@
             "active": true,
             "Message": {
                 "en": "\nWe continue to trap this cluster... #>P:3#It seems they use Nutanix Self-Service, to create automation, and provide them in a marketplace for end-users. #>P:2#They have a blueprint to clone some VM into a dedicated private network (VPC), for testing purpose obviously. It could be interesting to execute it and I'll be quiet to investigate, far form production and potention trackers.\nPlease go in Self-Service > Blueprints, and launch 'CloneProd' with these parameters :\n - App Name : #>V:Trigram#-app\n - VPC name : #>V:Trigram#-vpc\n - Category : Environment\n - Category value : 'Production'\n - External Network Name : TestNetwork\n - Category for floating IP : 'Quarantine' (Actually we do not care for my usage)\n\nWrite 'OK' when blueprint is in 'running' state. #>I:#",
-                "fr": "\nNous continuons de piéger ce cluster... #>P:3#Il semble qu'ils utilisent Nutanix Self-Service, pour créer des automatisations, et les proposer dans une marketplace pour les utilisateurs finaux. #>P:2#Ils ont un blueprint pour cloner des VM dans un réseau privé dédié (VPC), à des fins de test évidemment. Il pourrait être intéressant de l'exécuter et je serai tranquille pour enquêter, loin de la production et des potentiels traceurs.\nAllez dans Self-Service > Blueprints, et lancez 'CloneProd' avec ces paramètres :\n - Nom de l'application : #>V:Trigram#-app\n - Nom du VPC : #>V:Trigram#-vpc\n - Catégorie : Environnement\n - Valeur de la catégorie : 'Production'\n - Nom du réseau externe : TestNetwork\n - Catégorie pour l'IP flottante : 'Quarantine' (En fait, nous n'en avons pas besoin pour mon usage)\n\nEcrivez 'OK' lorsque le blueprint est dans l'état 'running'. #>I:#"
+                "fr": "\nNous continuons de piéger ce cluster... #>P:3#Il semble qu'ils utilisent Nutanix Self-Service, pour créer des automatisations, et les proposer dans une marketplace pour les utilisateurs finaux. #>P:2#Ils ont un blueprint pour cloner des VM dans un réseau privé dédié (VPC), à des fins de test évidemment. Il pourrait être intéressant de l'exécuter et je serai tranquille pour enquêter, loin de la production et des potentiels traceurs.\nAllez dans Self-Service > Blueprints, et lancez 'CloneProd' avec ces paramètres :\n - Nom de l'application : #>V:Trigram#-app\n - Nom du VPC : #>V:Trigram#-vpc\n - Catégorie : Environment\n - Valeur de la catégorie : 'Production'\n - Nom du réseau externe : TestNetwork\n - Catégorie pour l'IP flottante : 'Quarantine' (En fait, nous n'en avons pas besoin pour mon usage)\n\nEcrivez 'OK' lorsque le blueprint est dans l'état 'running'. #>I:#"
             },
             "WaitForInputValue": "OK",
             "Color": "blue"
