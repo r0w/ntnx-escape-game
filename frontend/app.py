@@ -61,7 +61,7 @@ def ssh():
     Returns:
         str: Rendered HTML of the terminal page.
     """
-    return render_template('terminal2.html', hostname=os.getenv('FRONTENDHOST'), username=os.getenv('HOSTSSHUSERNAME'), password=base64.b64encode(os.getenv('HOSTSSHPASSWORD').encode("ascii")).decode('utf-8'))
+    return render_template('terminal2.html', hostname=os.getenv('FRONTENDHOST'), username=os.getenv('PLAYERSSHUSERNAME'), password=base64.b64encode(os.getenv('PLAYERSSHPASSWORD').encode("ascii")).decode('utf-8'))
 
 @app.route('/scoreboard')
 def scoreBoard():
