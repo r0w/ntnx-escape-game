@@ -293,9 +293,9 @@
         },
         {
             "id": 30,
-            "active": true,
+            "active": false,
             "Message": {
-                "en": "To be sure the recovery points are protected, just look back at the protection policy page, and ensure your policy has a 'secure' mention.#>P:2# Push 'Enter' when you ave checked. #>I:#\n",
+                "en": "To be sure the recovery points are protected, just look back at the protection policy page, and ensure your policy has a 'secure' mention.#>P:2# Push 'Enter' when you have checked. #>I:#\n",
                 "fr": "Pour être sûr que les recovery points sont protégés, retournez simplement sur la page de la protection policy, et assurez-vous que votre politique a une mention 'secure'.#>P:2# Appuyez sur 'Entrée' lorsque vous avez vérifié. #>I:#\n"
             },
             "Color": "blue"
