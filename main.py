@@ -103,14 +103,14 @@ if __name__ == "__main__":
     with open(contentJsonFile, 'r') as file:
         data = json.load(file)
 
-    # We brose all stages one by one
+    # We browse all stages one by one
     for stage in data['stages']:
         
         # We load the message
         message,color,expectedvalue,checkScript=stageMessage(stage['id'], contentJsonFile, variables['Language'])
         
         # Check if we need to recover the stage
-        if stage['id'] <= variables['RecoveryUntilStage']:
+        if stage['id'] <= variables['RecoveryUntilStage'] and stage['active'] == True:
             
             # We do not display the message, because we are recovering the stage
             
