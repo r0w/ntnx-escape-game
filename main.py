@@ -132,7 +132,7 @@ if __name__ == "__main__":
                 CheckStage(checkScript, variables, silent=silentMode)
 
         # Update the score file
-        UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage)
+        UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
 
     # Reset display color
     sys.stdout.write('\033[0m')
