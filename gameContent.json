@@ -42,7 +42,7 @@
             "id": 5,
             "active": true,
             "Message": {
-                "en": "First we have to create a new admin user, to avoid any password change impact. They share passwords in emails, but they probably have a change policy.\nPlease, connect on the cluster (Be carreful, 'admin' is a LOCAL accoount), create a new user #>V:Trigram#-adm. This is done in the 'Admin center' part of the GUI.\n",
+                "en": "First we have to create a new admin user, to avoid any password change impact. They share passwords in emails, but they probably have a change policy.\nPlease, connect on the cluster (Be careful, 'admin' is a LOCAL accoount), create a new user #>V:Trigram#-adm. This is done in the 'Admin center' part of the GUI.\n",
                 "fr": "Tout d'abord, nous devons créer un nouvel utilisateur administrateur, pour éviter tout impact de changement de mot de passe. Ils partagent des mots de passe dans des e-mails, mais ils ont probablement une politique de changement.\nVeuillez vous connecter sur le cluster (Soyez prudent, 'admin' est un compte LOCAL), créez un nouvel utilisateur #>V:Trigram#-adm. Cela se fait dans la partie 'admin center' de l'interface graphique.\nEcrivez ici 'OK' quand c'est... OK LOL. #>I:# \n"
             },
             "Color": "blue",
@@ -352,12 +352,12 @@
             "id": 36,
             "active": true,
             "Message": {
-                "en": "\nYou know what ? As we have a few time, we gonna use it to spy them a bit more.\n#>P:2#It would be great if you could sent to this discreet address (#>V:EmailReport#) a report containing the list of VMs, and send it each day at 3:00 AM. It will help us to know what they are doing.\n#>P:3#Reports are managed in the 'Intelligent-Ops' part of the GUI. #>P:1#Name your repport #>V:Trigram#-report. #>P:2#\n Put OK here when you have finished.#>I:#",
-                "fr": "\nVous savez quoi ? Comme nous avons un peu de temps, nous allons l'utiliser pour les espionner un peu plus.\n#>P:2#Ce serait génial si vous pouviez envoyer à cette adresse discrète (#>V:EmailReport#) un rapport contenant la liste des VM, et l'envoyer chaque jour à 3h00 du matin. Cela nous aidera à savoir ce qu'ils font.\n#>P:3#Les rapports sont gérés dans la partie 'Intelligent-Ops' de l'interface. #>P:1#Nommez votre rapport #>V:Trigram#-report. #>P:2#\n Mettez OK ici quand vous avez terminé.#>I:#"
+                "en": "\nYou know what? Since we have a bit of time, let’s spy on them. #>P:2#\nSend to this discreet address (#>V:EmailReport#) a report with the list of VMs, every day at 03:00 AM. #>P:3#\nReports are managed in the 'Intelligent-Ops' part of the GUI. Name it **#>V:Trigram#-report**. #>P:2#\nBut beware... the report editor has been sabotaged. #>P:2# If you try there, the schedule won’t apply correctly. #>P:2#\n👉 Do it from the 'Reports' page instead, that’s the only safe way. #>P:2#\nHeh... they’re really trying to mess with us again, aren’t they? #>P:2#\n\nWrite **OK** when it’s done. #>I:#",
+                "fr": "\nVous savez quoi ? Comme on a un peu de temps, espionnons-les. #>P:2#\nEnvoyez à cette adresse discrète (#>V:EmailReport#) un rapport avec la liste des VM, chaque jour à 03h00. #>P:3#\nLes rapports se gèrent dans la partie 'Intelligent-Ops' de l’interface. Nommez-le **#>V:Trigram#-report**. #>P:2#\nMais attention... l’éditeur de rapports a été saboté. #>P:2# Si vous passez par là, la planification ne sera pas appliquée correctement. #>P:2#\n👉 Faites-le depuis la page 'Rapports', c’est le seul moyen sûr. #>P:2#\nDécidément, ils aiment bien nous compliquer la vie… #>P:2#\n\nÉcrivez **OK** quand c’est fait. #>I:#"
             },
-            "WaitForInputValue": "OK",           
+            "WaitForInputValue": "OK",
             "Color": "blue"
-        },                        
+        },                      
         {
             "id": 37,
             "active": true,
