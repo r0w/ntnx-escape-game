@@ -255,8 +255,8 @@
             "id": 26,
             "active": true,
             "Message": {
-                "en": "\nWe have a last policy to setup : the protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\nCreate a new Protection policy named '#>V:Trigram#-prot-policy' with the following rules :\n - Take a snapshot every 1 hour\n - Keep 1 day of snapshots\n - It will be applied to VM with your categorie with value 'Critical'\nWe do not need to replicate here.\nAs you will see, you can also configure near-sync replication (1mn RPO) but it is not really interesting here, but I like the idea.\n#>P:2#Write 'OK' when it's done. #>I:#",
-                "fr": "\nNous avons une dernière politique à configurer : la politique de protection. C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\nCréez une nouvelle protection policy nommée '#>V:Trigram#-prot-policy' avec les règles suivantes :\n - Prendre un snapshot toutes les 1 heure\n - Conserver 1 jour de snapshots\n - Elle sera appliquée aux VM avec votre catégorie avec la valeur 'Critical'\nNous n'avons pas besoin de réplication ici.\nComme vous le verrez, vous pouvez également configurer une réplication near-sync (RPO de 1mn) ou synchrone (RPO 0) mais ce n'est pas vraiment intéressant ici, mais j'aime l'idée.\n#>P:2#Ecrivez 'OK' quand c'est fait. #>I:#"
+                "en": "\nWe have a last policy to setup : the protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\nCreate a new Protection policy named '#>V:Trigram#-prot-policy' with the following rules :\n - Take a snapshot every 1 hour\n - Keep 1 day of snapshots\n - It will be applied to VM with your categorie with value 'Critical'\nWe do not need to replicate here.\nAs you will see, you can also configure near-sync replication (1min RPO) but it is not really interesting here, but I like the idea.\n#>P:2#Write 'OK' when it's done. #>I:#",
+                "fr": "\nNous avons une dernière politique à configurer : la politique de protection. C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\nCréez une nouvelle protection policy nommée '#>V:Trigram#-prot-policy' avec les règles suivantes :\n - Prendre un snapshot toutes les 1 heure\n - Conserver 1 jour de snapshots\n - Elle sera appliquée aux VM avec votre catégorie avec la valeur 'Critical'\nNous n'avons pas besoin de réplication ici.\nComme vous le verrez, vous pouvez également configurer une réplication near-sync (RPO de 1min) ou synchrone (RPO 0) mais ce n'est pas vraiment intéressant ici, mais j'aime l'idée.\n#>P:2#Ecrivez 'OK' quand c'est fait. #>I:#"
             },
             "WaitForInputValue": "OK",
             "Color": "blue"
@@ -342,8 +342,8 @@
             "id": 35,
             "active": true,
             "Message": {
-                "en": "Good. Just 2 mn...#>P:2#\n",
-                "fr": "Bien. Laissez-moi 2 mn...#>P:2#\n"
+                "en": "Good. Just 2 min...#>P:2#\n",
+                "fr": "Bien. Laissez-moi 2 min...#>P:2#\n"
             },
             "CheckTask": "CheckRestoreVM",      
             "Color": "blue"
