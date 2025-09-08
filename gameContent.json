@@ -392,8 +392,8 @@
       "id": 40,
       "active": true,
       "Message": {
-        "en": "Nice ! #>P:3#Third and last check I need you do for me : #>P:1#From the Dashboard page of the Infrastructure, you should have a tile with security concerns. From here, display the full security Dashboard, and dig into it, takes some screenshot which will help us for upcoming operations. We will have to act quickly, this tool is very helpfull to identify all security issues of the platform, and they probably take care of it. #>P:5#Put 'OK' here when it's done. #>I:#\n",
-        "fr": "Bien ! #>P:3#Troisième et dernier check que je vous demande de faire pour moi : #>P:1#Depuis la page Dashboard de l'Infrastructure, vous devriez avoir une tuile avec des problèmes de sécurité. A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le, prenez quelques captures d'écran qui nous aideront pour les opérations à venir. Nous devrons agir rapidement, cet outil est très utile pour identifier tous les problèmes de sécurité de la plateforme, et ils l'utilisent probablement. #>P:5#Mettez 'OK' ici quand c'est fait. #>I:#\n"
+        "en": "\nNice ! #>P:3#Third and last check I need you do for me : #>P:1#From the Dashboard page of the Infrastructure, you should have a tile with security concerns. From here, display the full security Dashboard, and dig into it, takes some screenshot which will help us for upcoming operations. We will have to act quickly, this tool is very helpfull to identify all security issues of the platform, and they probably take care of it. #>P:5#Put 'OK' here when it's done. #>I:#\n",
+        "fr": "\nBien ! #>P:3#Troisième et dernier check que je vous demande de faire pour moi : #>P:1#Depuis la page Dashboard de l'Infrastructure, vous devriez avoir une tuile avec des problèmes de sécurité. A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le, prenez quelques captures d'écran qui nous aideront pour les opérations à venir. Nous devrons agir rapidement, cet outil est très utile pour identifier tous les problèmes de sécurité de la plateforme, et ils l'utilisent probablement. #>P:5#Mettez 'OK' ici quand c'est fait. #>I:#\n"
       },
       "WaitForInputValue": "OK",
       "Color": "blue"
@@ -432,8 +432,8 @@
       "id": 44,
       "active": true,
       "Message": {
-        "en": "Ok, #>P:3#Now go back on the first cluster please.#>P:3#\nWe are going to leverage Intelligent-Ops Low-Code capabilities from NCM. They call this feature X-play, and it is very useful to automate tasks. #>P:3#Can you create a new playbook\n - named '#>V:Trigram#-playbook'\n - it will send an email to #>V:EmailReport# as soon as a VM is 'Power cycled'\n - In the email body, put the VM ID please.\nDo not forget to enable it ;). I wait here for your 'OK'. #>I:#",
-        "fr": "Ok, #>P:3#Maintenant, retournez sur le premier cluster s'il vous plaît.#>P:3#\nNous allons exploiter les capacités Low-Code d'Intelligent-Ops de NCM. Ils appellent cette fonctionnalité X-play, et elle est très utile pour automatiser les tâches. #>P:3#Pouvez-vous créer un nouveau playbook\n - nommé '#>V:Trigram#-playbook'\n - il enverra un email à #>V:EmailReport# dès qu'une VM est 'Power cycled'\n - Dans le corps de l'email, mettez l'ID de la VM s'il vous plaît.\nN'oubliez pas de l'activer ;). J'attends votre 'OK'. #>I:#"
+        "en": "\nOk, #>P:3#Now go back on the first cluster please.#>P:3#\nWe are going to leverage Intelligent-Ops Low-Code capabilities from NCM. They call this feature X-play, and it is very useful to automate tasks. #>P:3#Can you create a new playbook\n - named '#>V:Trigram#-playbook'\n - it will send an email to #>V:EmailReport# as soon as a VM is 'Power cycled'\n - In the email body, put the VM ID please.\nDo not forget to enable it ;). I wait here for your 'OK'. #>I:#",
+        "fr": "\nOk, #>P:3#Maintenant, retournez sur le premier cluster s'il vous plaît.#>P:3#\nNous allons exploiter les capacités Low-Code d'Intelligent-Ops de NCM. Ils appellent cette fonctionnalité X-play, et elle est très utile pour automatiser les tâches. #>P:3#Pouvez-vous créer un nouveau playbook\n - nommé '#>V:Trigram#-playbook'\n - il enverra un email à #>V:EmailReport# dès qu'une VM est 'Power cycled'\n - Dans le corps de l'email, mettez l'ID de la VM s'il vous plaît.\nN'oubliez pas de l'activer ;). J'attends votre 'OK'. #>I:#"
       },
       "WaitForInputValue": "OK",
       "Color": "blue"
@@ -482,8 +482,8 @@
       "id": 49,
       "active": true,
       "Message": {
-        "en": "\nTo have a fresh config of prod VM on a daily basis, I would like you schedule an action named 'Refresh machines'. It can be done in the 'Self-Service > Policies' page. Name it '#>V:Trigram#-sched' please. FYI, your app is currently deployed in the 'Production' project'. Do a daily task, time does not matter. #>P:3#Enter 'OK' when the schedule is created. #>I:#",
-        "fr": "\nPour avoir une copie à jour des VM de prod quotidiennement, je voudrais que vous planifiiez une action nommée 'Refresh machines'. Cela peut être fait dans la page 'Self-Service > Policies'. Nommez-la '#>V:Trigram#-sched' s'il vous plaît. Pour info, votre application est actuellement déployée dans le projet 'Production'. Faites une tâche quotidienne, l'heure n'a pas d'importance. #>P:3#Entrez 'OK' lorsque la planification est créée. #>I:#"
+        "en": "\nTo have a fresh config of prod VM on a daily basis, I would like you schedule an action named 'Refresh VM'. It can be done in the 'Self-Service > Policies' page. Name it '#>V:Trigram#-sched' please. FYI, your app is currently deployed in the 'Production' project'. Do a daily task, time does not matter. #>P:3#Enter 'OK' when the schedule is created. #>I:#",
+        "fr": "\nPour avoir une copie à jour des VM de prod quotidiennement, je voudrais que vous planifiiez une action nommée 'Refresh VM'. Cela peut être fait dans la page 'Self-Service > Policies'. Nommez-la '#>V:Trigram#-sched' s'il vous plaît. Pour info, votre application est actuellement déployée dans le projet 'Production'. Faites une tâche quotidienne, l'heure n'a pas d'importance. #>P:3#Entrez 'OK' lorsque la planification est créée. #>I:#"
       },
       "WaitForInputValue": "OK",
       "Color": "blue"
