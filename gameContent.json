@@ -52,8 +52,8 @@
       "id": 6,
       "active": true,
       "Message": {
-        "en": "Perfect, let me check that... \n",
-        "fr": "Parfait, laissez-moi vérifier cela... \n"
+        "en": "\nPerfect, let me check that... \n",
+        "fr": "\nParfait, laissez-moi vérifier cela... \n"
       },
       "CheckTask": "CheckUser",
       "Color": "blue"
@@ -72,8 +72,8 @@
       "id": 8,
       "active": true,
       "Message": {
-        "en": "Great, I check that... \n",
-        "fr": "Top, laissez-moi checker cela... \n"
+        "en": "\nGreat, I check that... \n",
+        "fr": "\nTop, laissez-moi checker cela... \n"
       },
       "CheckTask": "CheckAuthPolicy",
       "Color": "blue"
@@ -146,7 +146,7 @@
       "active": true,
       "Message": {
         "en": "\nPerfect, it is pretty discrete. The user #>V:ProdUsername# owns to 'Production' project only. He is not able to see assets from others projects. So, they won't see your VM, except if they look for it. We need to be careful.\n\nPlease, connect back with our admin user #>V:Trigram#-adm on Prism Central and hit 'Enter' when you are ready.\n#>P:6#Oh wait !!!#>P:5#They are scanning the server hosting our VM, shit. Move our VM to another one right now ! Go go go !\nHit 'Enter' when its done#>I:#",
-        "fr": "Parfait, c'est plutôt discret. L'utilisateur #>V:ProdUsername# n'a accés qu'au projet 'Production'. Il ne peut voir les objets des autres projets. Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. On doit être prudents.\n\nS'il vous plaît, reconnectez-vous avec votre utilsateur #>V:Trigram#-adm sur Prism Central, et pressez 'Entrée' quand vout êtes prêt.\n#>P:6#Oh, bougez pas !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Merde. Bougez la VM sur un autre hôte immédiattement ! Vite, vite, vite !\nAppuyez sur 'Entrée' quand c'est fait.#>I:#"
+        "fr": "\nParfait, c'est plutôt discret. L'utilisateur #>V:ProdUsername# n'a accés qu'au projet 'Production'. Il ne peut voir les objets des autres projets. Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. On doit être prudents.\n\nS'il vous plaît, reconnectez-vous avec votre utilsateur #>V:Trigram#-adm sur Prism Central, et pressez 'Entrée' quand vout êtes prêt.\n#>P:6#Oh, bougez pas !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Merde. Bougez la VM sur un autre hôte immédiattement ! Vite, vite, vite !\nAppuyez sur 'Entrée' quand c'est fait.#>I:#"
       },
       "CheckTask": "CheckLiveMigration",
       "Color": "blue"
@@ -265,8 +265,8 @@
       "id": 27,
       "active": true,
       "Message": {
-        "en": "Good. I check again. Less risks, more fun !\n",
-        "fr": "Bien. Je vérifie à nouveau. Moins de risques, plus de fun !\n"
+        "en": "\nGood. I check again. Less risks, more fun !\n",
+        "fr": "\nBien. Je vérifie à nouveau. Moins de risques, plus de fun !\n"
       },
       "CheckTask": "CheckProtectionPolicy",
       "Color": "blue"
@@ -285,8 +285,8 @@
       "id": 29,
       "active": false,
       "Message": {
-        "en": "Nice. I'll confirm this... 2s please.#>P:2#\n",
-        "fr": "Bien. Je vais confirmer cela... 2s s'il vous plaît.#>P:2#\n"
+        "en": "\nNice. I'll confirm this... 2s please.#>P:2#\n",
+        "fr": "\nBien. Je vais confirmer cela... 2s s'il vous plaît.#>P:2#\n"
       },
       "CheckTask": "CheckApprovalPolicy",
       "Color": "blue"
@@ -342,8 +342,8 @@
       "id": 35,
       "active": true,
       "Message": {
-        "en": "Good. Just 2 min...#>P:2#\n",
-        "fr": "Bien. Laissez-moi 2 min...#>P:2#\n"
+        "en": "\nGood. Just 2 min...#>P:2#\n",
+        "fr": "\nBien. Laissez-moi 2 min...#>P:2#\n"
       },
       "CheckTask": "CheckRestoreVM",
       "Color": "blue"
@@ -362,8 +362,8 @@
       "id": 37,
       "active": true,
       "Message": {
-        "en": "Perfect... Let me few seconds...\n",
-        "fr": "Parfait... Laissez-moi quelques secondes...\n"
+        "en": "\nPerfect... Let me few seconds...\n",
+        "fr": "\nParfait... Laissez-moi quelques secondes...\n"
       },
       "CheckTask": "CheckReport",
       "Color": "blue"
@@ -412,8 +412,8 @@
       "id": 42,
       "active": true,
       "Message": {
-        "en": "Oh really ? \n",
-        "fr": "Ah vraiment ? \n"
+        "en": "\nOh really ? \n",
+        "fr": "\nAh vraiment ? \n"
       },
       "CheckTask": "CheckRunway",
       "Color": "blue"
@@ -442,8 +442,8 @@
       "id": 45,
       "active": true,
       "Message": {
-        "en": "Let me take a look...",
-        "fr": "Laissez-moi jeter un œil..."
+        "en": "\nLet me take a look...",
+        "fr": "\nLaissez-moi jeter un œil..."
       },
       "CheckTask": "CheckPlaybook",
       "Color": "blue"
