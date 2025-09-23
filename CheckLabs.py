@@ -211,6 +211,8 @@ def CheckVM(variables,recoveryMode):
     variables['VMUUID'] = response['ext_id']
     variables['HostUUID'] = response['host']['ext_id']
 
+    createVMRecoveryPoint(response['ext_id'], variables) 
+
     return True, -1 , None
 
 # =============================================================================

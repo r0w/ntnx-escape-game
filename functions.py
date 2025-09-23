@@ -12,6 +12,7 @@ import requests
 import json
 from jsonpath_ng.ext import parse
 import time
+import uuid
 
 
 # ========================================================================
@@ -302,6 +303,34 @@ def hasVMCloudinit(vmuuid, pc, user, password):
         return False
     
     return True
+
+# ========================================================================
+# = createVMRecoveryPoint
+# ========================================================================
+def createVMRecoveryPoint(vm_uuid, variables):
+    import uuid
+    
+    url = "https://%s:9440/api/dataprotection/v4.0/config/recovery-points" % variables['PC']
+    headers = {
+        "Content-Type": "application/json",
+        "Accept": "application/json",
+        "NTNX-Request-Id": str(uuid.uuid4())
+    }
+    
+    payload = {
+        "vmRecoveryPoints": [
+            {
+                "vmExtId": vm_uuid
+            }
+        ]
+    }
+
+    try:
+        response = requests.post(url, json=payload, headers=headers, verify=False, auth=(variables['PCUser'], variables['PCPassword']), timeout=30)
+        response.raise_for_status()
+        return True
+    except:
+        return False
 
 # ========================================================================
 # = retrieveCatID
