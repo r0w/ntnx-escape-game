@@ -273,7 +273,7 @@
     },
     {
       "id": 28,
-      "active": false,
+      "active": true,
       "Message": {
         "en": "To secure our work, we are going to setup an approval workflow for snapshot deletion. It will avoid any deletion from our embarrassing friends.\n\nPlease, if it does not already exist, create a approval policy named '#>V:ApprovalPolicy#' requesting validation for deletions of our VM snapshots.#>P:3# You will need to add 3 approvers, use : Charlie, Thom and William (Do the search with lowercase names).#>P:3#\nWhen the policy is created, associate it to your protection policy '#>V:Trigram#-policy'. #>P:4#Then enter 'OK' here. #>I:#",
         "fr": "Pour sécuriser notre travail, nous allons mettre en place un workflow d'approbation pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\nS'il n'existe pas déjà, créez une approval policy nommée '#>V:ApprovalPolicy#' demandant une validation pour les suppressions de nos snapshots de VM.#>P:3# Vous devrez ajouter 3 validateurs, utilisez : Charlie, Thom et William (Faites la recherche avec les noms en minuscules).#>P:3#\nLorsque la politique est créée, associez-la à votre protection policy '#>V:Trigram#-policy'. #>P:4#Ensuite, entrez 'OK' ici. #>I:#"
@@ -283,7 +283,7 @@
     },
     {
       "id": 29,
-      "active": false,
+      "active": true,
       "Message": {
         "en": "\nNice. I'll confirm this... 2s please.#>P:2#\n",
         "fr": "\nBien. Je vais confirmer cela... 2s s'il vous plaît.#>P:2#\n"
@@ -293,7 +293,7 @@
     },
     {
       "id": 30,
-      "active": false,
+      "active": true,
       "Message": {
         "en": "To be sure the recovery points are protected, just look back at the protection policy page, and ensure your policy has a 'secure' mention.#>P:2# Push 'Enter' when you have checked. #>I:#\n",
         "fr": "Pour être sûr que les recovery points sont protégés, retournez simplement sur la page de la protection policy, et assurez-vous que votre politique a une mention 'secure'.#>P:2# Appuyez sur 'Entrée' lorsque vous avez vérifié. #>I:#\n"
