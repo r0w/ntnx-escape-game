@@ -9,9 +9,9 @@ Roleplay to discover Nutanix platform
     - Self-Service enabled
     - Leap Enabled
     - Flow security enabled
-- In PC > Self-service, upload the **runbook**  `blueprint/EG-prerequisites.json` in the `lab` project 
+- In PC > Self-service, upload the **runbook**  `materials/EG-prerequisites.json` in the `lab` project 
 - Launch it
-- Upload the **blueprint** `blueprint/EG-EscapeGame.json` in the `lab` project (WARNING : Ensure you have launched the runbook first or you'll have problems)
+- Upload the **blueprint** `materials/EG-EscapeGame.json` in the `lab` project (WARNING : Ensure you have launched the runbook first or you'll have problems)
   - Then, in this blueprint :
     - Update NUTANIX credential with password `nutanix/4u` (in the credential menu)
     - Update PLAYER credential with password `keepgoing` (in the credential menu)
