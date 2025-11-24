@@ -3,7 +3,7 @@ Roleplay to discover Nutanix platform
 
 # Preparation
 - Book a HPOC with following characteristics : 
-    - 4 nodes cluster (no more, no less)
+    - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
     - AOS 7
     - PC2024.3.1+ (Need Calm 4.1 min)
     - Self-Service enabled
@@ -49,5 +49,5 @@ In the app description, you'll see dashboard URL. Display the dashboard on a scr
 # Tips
 - Unsuccesfull lab checks may happen even if the exercise is succesfully done. In this case, the player can refresh is web page, use the same trigram, and recovery mode will bring him to the same lab step, which could pass...
   - This is caused by ID memorized by script during execution, but not existing anymore (for exemple, if the player has deleted and recreated OS image, the game will wait the old ID, not the new one.)
-- If you need to setup a stage to a user, you can look at [gameContent.json](gameContent.json) file to identify the stage number you need to use. 
+- If you need to setup a stage to a user, you can look at [gameContent.json](gameContent.json) file to identify the stage number you need to use. You can then use a Day 2 Operations actions to make the user go to the desired stage using his 3-letters pseudo.
 
