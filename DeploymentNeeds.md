@@ -1,11 +1,11 @@
 # Prerequisites
-[x] HPOC with 3 nodes, and services activated :
+[x] HPOC with 4 nodes, and services activated :
   - Self service
   - Microseg
   - Leap
 [x] Versions :
- - AOS : 6.10
- - PC : 2024.2
+ - AOS : 7.3
+ - PC : 7.3.1
 
 Note : 
  - Policy engine and Intelligent Ops should be already activated/deployed
