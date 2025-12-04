@@ -4,8 +4,8 @@ Roleplay to discover Nutanix platform
 # Preparation
 - Book a HPOC with following characteristics : 
     - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
-    - AOS 7
-    - PC2024.3.1+ (Need Calm 4.1 min)
+    - AOS 7.3
+    - PC 7.3.1 (Need Calm 4.1 min)
     - Self-Service enabled
     - Leap Enabled
     - Flow security enabled
