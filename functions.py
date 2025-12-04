@@ -285,8 +285,8 @@ def getVMProjectUUID(vmuuid, pc, user, password):
 # ========================================================================
 # = hasVMCloudinit
 # ========================================================================
-# GL Todo : write with SDK when available
 def hasVMCloudinit(vmuuid, pc, user, password):
+    # SLQ : The below URL only works with API v3 and no more exists in API v4 for security reasons (confidential information may be present). Also PC 7.3 no more return the info in both API v3 and v4.
     url = "https://%s:9440/api/nutanix/v3/vms/%s"% (pc,vmuuid)
     headers = {
         "Content-Type": "application/json",
@@ -300,7 +300,8 @@ def hasVMCloudinit(vmuuid, pc, user, password):
         if response_data['spec']['resources']['guest_customization'] == None:
             return False
     except:
-        return False
+        # SLQ : If there is an error, we assume it's because of PC version >= 7.3.
+        return True
     
     return True
 
