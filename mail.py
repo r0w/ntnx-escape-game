@@ -32,8 +32,8 @@ payload = {
             }
         ],
     "from": {
-                "email": "me@golgautier.net",
-                "name": "Your new friend"
+                "email": "ego-escapegame@ntnxlab.com",
+                "name": "E.G.O. - The Nutanix Escape Game"
             },
     "subject": title,
     "html": html_content
