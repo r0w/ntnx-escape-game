@@ -199,7 +199,7 @@ def CheckVM(variables,recoveryMode):
             return False, 4, None
         
         # Cloud Init
-        # GL ToDo : Migrate to v4/SDK when guest-customization will be available in SDK
+        # To be removed cause not available anymore in PC 7.3+.
         if hasVMCloudinit(response['ext_id'],pc=variables['PC'], user=variables['PCUser'],password=variables['PCPassword']) == False:
             return False, 5, None
 
