@@ -10,13 +10,17 @@ import os
 # - variable name is the name of the dictionary key containing the value we check to validate the exercise. This value will be reasked by the engine if check is false
 
 
-def CheckTrigram(variables,recoveryMode):
+# =============================================================================
+# CheckTrigram - Done
+# =============================================================================
+def CheckTrigram(variables, recoveryMode):
     # We check trigram info...     
     if len(variables['Trigram']) != 3:
         # If trigram is not 3 characters, we return False
-        return False, 0, 'Trigram'
+        return False, 0, "Trigram"
 
     return True, -1, None
+
 
 # =============================================================================
 # NeedRecovery - Done

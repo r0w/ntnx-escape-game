@@ -15,8 +15,8 @@
             "checkFunction": "CheckTrigram",
             "clues": [
                 {
-                    "en": "Warning... It appears you are not familiar with charter 2354-C5 defining the good use of IT tools in Gov services: a trigram is composed of 3 letters, no more, no less. Hint: It is usually made of the first letter of the first name, followed by the first two letters of the last name.\nYou have a new try :",
-                    "fr": "PROBLEME... Il semble que vous ne soyez pas familier avec la charte 2354-C5 définissant les bon usages des outils informatique des services de l'état : un trigramme est composé de 3 lettres, ni plus, ni moins. Astuce : Il est généralement composé de la première lettre du prénom, suivie des 2 premières lettres du nom de famille.\nVous avez une nouvelle chance : "
+                    "en": "Warning... a trigram is composed of 3 letters, no more, no less. It is usually made of the first letter of the first name, followed by the first two letters of the last name.\n",
+                    "fr": "Attention ... un trigramme est composé de 3 lettres, ni plus, ni moins. Il est généralement composé de la première lettre du prénom, suivie des 2 premières lettres du nom de famille.\n"
                 }
             ]
         },
@@ -24,8 +24,8 @@
             "checkFunction": "CheckUser",
             "clues": [
                 {
-                    "en": "The user #>V:Trigram#-adm hasn't been found. Are you sure you've created it with the correct name?",
-                    "fr": "L'utilisateur #>V:Trigram#-adm n'a pas été trouvé. Êtes-vous sûr de l'avoir créé avec le bon nom ?"
+                    "en": "The user #>C:white##>V:Trigram#-adm#>D# hasn't been found. Are you sure you've created it with the correct name?",
+                    "fr": "L'utilisateur #>C:white##>V:Trigram#-adm#>D# n'a pas été trouvé. Êtes-vous sûr de l'avoir créé avec le bon nom ?"
                 }
             ]
         },
@@ -33,12 +33,12 @@
             "checkFunction": "CheckAuthPolicy",
             "clues": [
                 {
-                    "en": "The authorization policy #>V:Trigram#-auth is not created as requested. Are you sure you've created it with the correct name?",
-                    "fr": "La politique d'authorisation #>V:Trigram#-auth est absente. L'avez vous créée avec le bon nom ?"
+                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# is not created as requested. Are you sure you've created it with the correct name?",
+                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# est absente. L'avez-vous créée avec le bon nom ?"
                 },
                 {
-                    "en": "The authorization policy #>V:Trigram#-auth exists, but is not correctly assigning the role to the user. Are you sure you've assigned the correct ressources?",
-                    "fr": "La politique d'authorisation #>V:Trigram#-auth existe, mais n'assigne pas correctement le rôle à l'utilisateur. Êtes-vous sûr d'avoir assigné les bonnes ressources ?"
+                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# exists, but is not correctly assigning the role to the user. Are you sure you've assigned the correct ressources?",
+                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# existe, mais n'assigne pas correctement le rôle à l'utilisateur. Êtes-vous sûr d'avoir assigné les bonnes ressources ?"
                 }
                 
             ]

@@ -37,8 +37,8 @@ variables = {
     "frontendPort": os.getenv("FRONTENDPORT")
 }
 
-firstStage=1
-forceSilentModeDuringChecks = ['CheckTrigram','NeedRecovery']
+firstStage = 1
+forceSilentModeDuringChecks = ['NeedRecovery']
 
 # handling debug mode
 if os.getenv('DEBUG') == 'True':
@@ -105,9 +105,8 @@ if __name__ == "__main__":
 
     # We browse all stages one by one
     for stage in data['stages']:
-        
         # We load the message
-        message,color,expectedvalue,checkScript=stageMessage(stage['id'], contentJsonFile, variables['Language'])
+        prompt, messages, color, waitForInputValue, checkScript = stageMessage(stage['id'], contentJsonFile, variables['Language'])
         
         # Check if we need to recover the stage
         if stage['id'] <= variables['RecoveryUntilStage'] and stage['active'] == True:
@@ -116,12 +115,12 @@ if __name__ == "__main__":
             
             # ...but we check student work if needed, in silent mode
             if checkScript != '':
-                CheckStage(checkScript, variables, silent=True)
+                CheckStage(checkScript, prompt, color,variables, silent = True)
         
         elif stage['id'] >= firstStage and stage['active'] == True:
             
-            # We display the message because we are not recovering the stage and it is active            
-            display(message, variables, color, expectedvalue)
+            # We display the message because we are not recovering the stage and it is active           
+            display(prompt, messages, variables, color, waitForInputValue)
 
             # Check student work if needed
             if checkScript != '':
@@ -129,10 +128,11 @@ if __name__ == "__main__":
                     silentMode = True
                 else:
                     silentMode = False
-                CheckStage(checkScript, variables, silent=silentMode)
+                CheckStage(checkScript, prompt, color, variables, silent=silentMode)
 
         # Update the score file
-        UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
+        if(variables['Trigram']):
+            UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
 
     # Reset display color
     sys.stdout.write('\033[0m')
