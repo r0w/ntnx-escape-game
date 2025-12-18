@@ -1,6 +1,7 @@
 from functions import *
 from jsonpath_ng.ext import parse
 from main import contentJsonFile, scoreFolder
+from Sentences import *
 import os
 
 # Here are all the functions called by the game content to check labs
@@ -25,38 +26,40 @@ def CheckTrigram(variables, recoveryMode):
 # =============================================================================
 # NeedRecovery - Done
 # =============================================================================
-def NeedRecovery(variables,recoveryMode):
+def NeedRecovery(variables, recoveryMode):
 
     # Good moment to lower the trigram and language
-    variables['Trigram']=variables['Trigram'].lower()
-    variables['Language']=variables['Language'].lower()
+    variables['Trigram'] = variables['Trigram'].lower()
+    variables['Language'] = variables['Language'].lower()
     
     # Good moment to force language
     with open(contentJsonFile, 'r') as file:
         data = json.load(file)
     
     if not (variables['Language'] in data['supportedLanguages']):
-        variables['Language']='en'
+        variables['Language'] = 'en'
           
     # We check if the score file exists for this trigram
-    scoreFile=scoreFolder+"/"+variables['Trigram']+".json"
+    scoreFile = scoreFolder + "/" + variables['Trigram'] + ".json"
 
     if os.path.exists(scoreFile) and os.path.getsize(scoreFile) == 0:
-        data={}
+        data = {}
     else:
         # We try to load the score file
         try:
-            with open(scoreFolder+"/"+variables['Trigram']+".json", 'r') as fileScore:
+            with open(scoreFolder + "/" + variables['Trigram']+".json", 'r') as fileScore:
                 data = json.load(fileScore)
             
             if data and "username" in data:
                 variables["Username"] = data["username"]
         except:
             data={}
-        
-    if data!={} and data['value'] > 2:
-        variables['RecoveryUntilStage']=data['value']
-        print("\n\nSpecial event : Entering in recovery mode ( Recovery Code :",variables['RecoveryUntilStage'],")...\n\n")
+    #print(data)
+
+    if data != {} and data['value'] > 3 :
+        variables['RecoveryUntilStage'] = data['value']
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(" ***** " + labRecovery[variables['Language']] + str(variables['RecoveryUntilStage']) + " *****\n\n")
 
     return True, -1, None
 
@@ -64,7 +67,7 @@ def NeedRecovery(variables,recoveryMode):
 # =============================================================================
 # CheckUSer - Done
 # =============================================================================
-def CheckUser(variables,recoveryMode):
+def CheckUser(variables, recoveryMode):
     
     #retrieve the user by filtering by name
     userId = retrieveUserId(userName=variables['Trigram'] + "-adm", variables=variables) #non existing user
@@ -80,7 +83,7 @@ def CheckUser(variables,recoveryMode):
 # =============================================================================
 # CheckAuthPolicy - Done
 # =============================================================================
-def CheckAuthPolicy(variables,recoveryMode):
+def CheckAuthPolicy(variables, recoveryMode):
     
     # Store UserUUID in the variables
     userId = variables['UserUUID']
@@ -105,7 +108,7 @@ def CheckAuthPolicy(variables,recoveryMode):
 # =============================================================================
 # CheckProject - Done
 # =============================================================================
-def CheckProject(variables,recoveryMode):
+def CheckProject(variables, recoveryMode):
 
     response = retrieveProjectInfo(projectName=variables['Trigram'] + "-proj", variables=variables)
 
@@ -130,7 +133,7 @@ def CheckProject(variables,recoveryMode):
 # =============================================================================
 # Notes : We only verify if subnet, we do not really care of the configuration, as
 # it is not used later in the game
-def CheckNetwork(variables,recoveryMode):
+def CheckNetwork(variables, recoveryMode):
 
     response = retrieveSubnetID(subnet_name=variables['Trigram'] + "-subnet", variables=variables)
 
@@ -151,7 +154,7 @@ def CheckNetwork(variables,recoveryMode):
 # =============================================================================
 # CheckImage - Done
 # =============================================================================
-def CheckImage(variables,recoveryMode):
+def CheckImage(variables, recoveryMode):
 
     response = retrieveImageID(image_name=variables['Trigram'] + "-ubuntu", variables=variables)
 
@@ -166,7 +169,7 @@ def CheckImage(variables,recoveryMode):
 # =============================================================================
 # CheckImage - Done
 # =============================================================================
-def CheckVM(variables,recoveryMode):
+def CheckVM(variables, recoveryMode):
 
     found,response = retrieveVMInfo(vm_name=variables['Trigram'] + "-vm", variables=variables)
 
@@ -222,7 +225,7 @@ def CheckVM(variables,recoveryMode):
 # =============================================================================
 # CheckCat - Done
 # =============================================================================
-def CheckCat(variables,recoveryMode):
+def CheckCat(variables, recoveryMode):
     found,_ = retrieveCatID(variables['Trigram'] + "-cat", None, variables=variables)
 
     # Check for category key first
@@ -247,7 +250,7 @@ def CheckCat(variables,recoveryMode):
 # =============================================================================
 # CheckCatVM - Done
 # =============================================================================
-def CheckCatVM(variables,recoveryMode):
+def CheckCatVM(variables, recoveryMode):
     if recoveryMode:
         return True, -1 , None
 
@@ -266,7 +269,7 @@ def CheckCatVM(variables,recoveryMode):
 # =============================================================================
 # CheckStoragePolicy - Done
 # =============================================================================
-def CheckStoragePolicy(variables,recoveryMode):
+def CheckStoragePolicy(variables, recoveryMode):
     response = retrieveStoragePolicyID(policy_name=variables['Trigram'] + "-sto-policy", variables=variables)
 
     if response is None: 
@@ -280,7 +283,7 @@ def CheckStoragePolicy(variables,recoveryMode):
 # =============================================================================
 # CheckSecurityPolicy - Done
 # =============================================================================
-def CheckSecurityPolicy(variables,recoveryMode):
+def CheckSecurityPolicy(variables, recoveryMode):
     
     # Get info
     info = retrieveSecurityPolicyInfo(policy_name=variables['Trigram'] + "-mseg-policy", variables=variables)
@@ -317,7 +320,7 @@ def CheckSecurityPolicy(variables,recoveryMode):
 # =============================================================================
 # CheckSecurityPolicy2 - Done
 # =============================================================================
-def CheckSecurityPolicy2(variables,recoveryMode):
+def CheckSecurityPolicy2(variables, recoveryMode):
 
     # We get ssh service ID
     sshServiceUUID = retrieveFlowServiceID(service_name="ssh", variables=variables)
@@ -348,7 +351,7 @@ def CheckSecurityPolicy2(variables,recoveryMode):
 # =============================================================================
 # CheckProtectionPolicy - Done
 # =============================================================================
-def CheckProtectionPolicy(variables,recoveryMode):
+def CheckProtectionPolicy(variables, recoveryMode):
     
     info = retrieveProtectionPolicyInfo(variables['Trigram'] + "-prot-policy", variables=variables)
 
@@ -384,7 +387,7 @@ def CheckProtectionPolicy(variables,recoveryMode):
 # =============================================================================
 # CheckApprovalPolicy - Done
 # =============================================================================
-def CheckApprovalPolicy(variables,recoveryMode):
+def CheckApprovalPolicy(variables, recoveryMode):
 
     response = retrieveApprovalPolicyInfo(variables['ApprovalPolicy'], variables=variables)
 
@@ -408,7 +411,7 @@ def CheckApprovalPolicy(variables,recoveryMode):
 # =============================================================================
 # CheckRestoreVM - Done
 # =============================================================================
-def CheckRestoreVM(variables,recoveryMode):
+def CheckRestoreVM(variables, recoveryMode):
 
     found,response = retrieveVMInfo(vm_name=variables['Trigram'] + "-vm", variables=variables)
 
@@ -424,7 +427,7 @@ def CheckRestoreVM(variables,recoveryMode):
 # =============================================================================
 # CheckLiveMigration - Done
 # =============================================================================
-def CheckLiveMigration(variables,recoveryMode):
+def CheckLiveMigration(variables, recoveryMode):
    
     found,response = retrieveVMInfo(vm_name=variables['Trigram'] + "-vm", variables=variables)
 
@@ -436,7 +439,7 @@ def CheckLiveMigration(variables,recoveryMode):
 # =============================================================================
 # CheckLiveMigration - Done
 # =============================================================================
-def CheckReport(variables,recoveryMode):
+def CheckReport(variables, recoveryMode):
 
     found, info = retrieveReportInfo(variables['Trigram'] + "-report", variables=variables)
 
@@ -477,7 +480,7 @@ def CheckReport(variables,recoveryMode):
 # =============================================================================
 # CheckNewNode - Done
 # =============================================================================
-def CheckNewNode(variables,recoveryMode):
+def CheckNewNode(variables, recoveryMode):
         
     if recoveryMode:
         return True, -1, None
@@ -495,7 +498,7 @@ def CheckNewNode(variables,recoveryMode):
 # =============================================================================
 # CheckUpdates - Done
 # =============================================================================
-def CheckUpdates(variables,recoveryMode):
+def CheckUpdates(variables, recoveryMode):
     if recoveryMode:
         return True, -1, None    
 
@@ -514,7 +517,7 @@ def CheckUpdates(variables,recoveryMode):
 # =============================================================================
 # CheckRunway - Done
 # =============================================================================
-def CheckRunway(variables,recoveryMode):
+def CheckRunway(variables, recoveryMode):
         
     if recoveryMode:
         return True, -1, None    
@@ -529,7 +532,7 @@ def CheckRunway(variables,recoveryMode):
 # =============================================================================
 # CheckPlaybook - Done
 # =============================================================================
-def CheckPlaybook(variables,recoveryMode):
+def CheckPlaybook(variables, recoveryMode):
     
     response, info = retrievePlaybookInfo(variables['Trigram'] + "-playbook", variables=variables)
 
@@ -556,7 +559,7 @@ def CheckPlaybook(variables,recoveryMode):
 # =============================================================================
 # CheckCloneApp - Done
 # =============================================================================
-def CheckCloneApp(variables,recoveryMode):
+def CheckCloneApp(variables, recoveryMode):
     
     # Check App
     appId = retrieveAppId(variables['Trigram'] + "-app", variables=variables)
@@ -575,7 +578,7 @@ def CheckCloneApp(variables,recoveryMode):
 # =============================================================================
 # CheckCloneApp - Done
 # =============================================================================
-def CheckSchedDay2(variables,recoveryMode):
+def CheckSchedDay2(variables, recoveryMode):
     
     # Check Schedule
     response = retrieveScheduleInfo(variables['Trigram'] + "-sched", variables=variables)
@@ -592,7 +595,7 @@ def CheckSchedDay2(variables,recoveryMode):
 # =============================================================================
 # CheckCloneApp - Done
 # =============================================================================
-def CheckUpdateBP(variables,recoveryMode):
+def CheckUpdateBP(variables, recoveryMode):
     
     bpName = "bp-blankvm-prd"+variables['Vlanid']
     
