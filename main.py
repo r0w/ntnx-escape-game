@@ -30,7 +30,7 @@ variables = {
     "OldPCPassword": os.getenv('OLDPCPASSWORD'),
     "ApprovalPolicy": os.getenv('APPROVALPOLICY'),
     "EmailReport": os.getenv('EMAILREPORT'),
-    "Debug": False,
+    "Debug": True,
     "RecoveryUntilStage": 0,    
     "DockerRegistry": os.getenv('DOCKERREGISTRY'),
     "frontendHost": os.getenv("FRONTENDHOST"),
@@ -106,8 +106,10 @@ if __name__ == "__main__":
     # We browse all stages one by one
     for stage in data['stages']:
         # We load the message
-        prompt, messages, color, waitForInputValue, checkScript = stageMessage(stage['id'], contentJsonFile, variables['Language'])
-        
+        prompt, messages, color, waitForInputValue, checkScript, saveScore = stageMessage(stage['id'], contentJsonFile, variables['Language'])
+        #print(f"\n--- Stage {stage['id']} ---")
+        #print(f"(Debug) Stage active: {stage['active']}, RecoveryUntilStage: {variables['RecoveryUntilStage']}\n")
+
         # Check if we need to recover the stage
         if stage['id'] <= variables['RecoveryUntilStage'] and stage['active'] == True:
             
@@ -117,21 +119,22 @@ if __name__ == "__main__":
             if checkScript != '':
                 CheckStage(checkScript, prompt, color,variables, silent = True)
         
-        elif stage['id'] >= firstStage and stage['active'] == True:
+        elif stage['active'] == True:
             
             # We display the message because we are not recovering the stage and it is active           
             display(prompt, messages, variables, color, waitForInputValue)
 
             # Check student work if needed
             if checkScript != '':
-                if stage['id'] == 1:
-                    silentMode = True
-                else:
-                    silentMode = False
+                #if stage['id'] == 1:
+                #    silentMode = True
+                #else:
+                #    silentMode = False
+                silentMode = False
                 CheckStage(checkScript, prompt, color, variables, silent=silentMode)
 
         # Update the score file
-        if(variables['Trigram']):
+        if(saveScore and variables['Trigram']):
             UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
 
     # Reset display color

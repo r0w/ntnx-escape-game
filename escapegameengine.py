@@ -117,7 +117,7 @@ def display(prompt, inputStrings, variables, color = None, waitForInputValue = '
                                     if value:
                                         variables[element[3:]] = value
                                         stayInLoop = False
-                                    else:
+                                    else: 
                                         display("", ["Please enter a value..."], variables, color, waitForInputValue)
                                         
                                 except EOFError:
@@ -130,7 +130,7 @@ def display(prompt, inputStrings, variables, color = None, waitForInputValue = '
                             readInput = input()
                             sys.stdout.write(color_codes[color])
                             if readInput.lower() != waitForInputValue.lower() and waitForInputValue != '':
-                                display("", [labNotUnderstood[variables['Language']]], variables, color, waitForInputValue)
+                                display(prompt, [labNotUnderstood[variables['Language']]], variables, "red", waitForInputValue)
                         
                     # If we have a variable display action, we display the value of the variable specified in the string
                     elif element[1] == 'V':
@@ -157,7 +157,7 @@ def stageMessage(id_number, json_file_path, language='en'):
     with open(json_file_path, 'r') as file:
         data = json.load(file)
     
-    info = parse('$.stages[?(@.id='+str(id_number)+')]').find(data)[0].value
+    info = parse('$.stages[?(@.id=' + str(id_number) + ')]').find(data)[0].value
 
     if 'WaitForInputValue' in info:
         waitForInputValue = info['WaitForInputValue']
@@ -172,7 +172,7 @@ def stageMessage(id_number, json_file_path, language='en'):
     if language not in info['Messages'].keys():
         language = 'en'
  
-    return(info['Prompt'], info['Messages'][language], info['DefaultColor'], waitForInputValue, checkTask)
+    return(info['Prompt'] if 'Prompt' in info else "-:-", info['Messages'][language], info['DefaultColor'], waitForInputValue, checkTask, info['SaveScore'] if 'SaveScore' in info else True)
 
 
 # ========================================================================
@@ -232,15 +232,17 @@ def CheckStage(checkScript, prompt, color, variables, silent = False):
 
                 else:
                     if reenterValue != None:
-                        display(prompt, [ "#>C:orange#" + errorMessage + "#>D##>P:3#"], variables, color) 
-                        display(prompt, [ "#>C:orange#" + clue, retryMessage + "#>I:" + reenterValue], variables, color) 
+                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#"], variables, color) 
+                        display(prompt, [ "#>C:green#" + clue + "#>D"], variables, color) 
+                        display(prompt, [ retryMessage + "#>I:" + reenterValue], variables, color) 
                     else:
-                        display(prompt, [ "#>C:orange#" + errorMessage + "#>D##>P:3#"], variables, color) 
-                        display(prompt, [ "#>C:orange#" + clue, retryMessage + "#>I:"], variables, color) 
+                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#"], variables, color) 
+                        display(prompt, [ "#>C:green#" + clue + "#>D"], variables, color) 
+                        display(prompt, [ retryMessage + "#>I:"], variables, color) 
             else:
                 # If function returns successful message
                 if silent == False:
-                    display(prompt, ["#>P:3#" + random.choice(labOk[variables['Language']]) + "\n"], variables, color)
+                    display(prompt, [random.choice(labOk[variables['Language']]) + "#>P:3#\n\n"], variables, color)
     else:
         raise ValueError(f"Function {checkScript} is not defined.")
     
@@ -264,10 +266,6 @@ def UpdateScoreFile(scoreFolder, trigram, stage, maxStage, variables=None):
     
     # We setup the score filename for this user
     scoreFile=scoreFolder + "/" + trigram + ".json"
-    
-    # We do not update score file at this step 1 (Will break recovery mode)
-    if stage == 1:
-        return
     
     # Load the existing scores from the JSON file
     try:

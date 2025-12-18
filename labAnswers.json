@@ -24,8 +24,8 @@
             "checkFunction": "CheckUser",
             "clues": [
                 {
-                    "en": "The user #>C:white##>V:Trigram#-adm#>D# hasn't been found. Are you sure you've created it with the correct name?",
-                    "fr": "L'utilisateur #>C:white##>V:Trigram#-adm#>D# n'a pas été trouvé. Êtes-vous sûr de l'avoir créé avec le bon nom ?"
+                    "en": "The user #>C:white##>V:Trigram#-adm#>D# hasn't been found. Are you sure you've created it with the correct name?\n",
+                    "fr": "L'utilisateur #>C:white##>V:Trigram#-adm#>D# n'a pas été trouvé. Êtes-vous sûr de l'avoir créé avec le bon nom ?\n"
                 }
             ]
         },
@@ -33,12 +33,12 @@
             "checkFunction": "CheckAuthPolicy",
             "clues": [
                 {
-                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# is not created as requested. Are you sure you've created it with the correct name?",
-                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# est absente. L'avez-vous créée avec le bon nom ?"
+                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# is not created as requested. Are you sure you've created it with the correct name?\n",
+                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# est absente. L'avez-vous créée avec le bon nom ?\n"
                 },
                 {
-                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# exists, but is not correctly assigning the role to the user. Are you sure you've assigned the correct ressources?",
-                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# existe, mais n'assigne pas correctement le rôle à l'utilisateur. Êtes-vous sûr d'avoir assigné les bonnes ressources ?"
+                    "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# exists, but is not correctly assigning the role to the user. Are you sure you've assigned the correct ressources?\n",
+                    "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# existe, mais n'assigne pas correctement le rôle à l'utilisateur. Êtes-vous sûr d'avoir assigné les bonnes ressources ?\n"
                 }
                 
             ]
