@@ -66,4 +66,9 @@ labNotUnderstood={
     "en": "I did not understand what you said, please try again: #>I:",
     "fr": "Je n'ai pas compris ce que vous avez dit, réessayez s'il vous plaît : #>I:"
 }
+
+labRecovery={
+    "en": "Entering in recovery mode to stage: ",
+    "fr": "Récupération de votre progression jusqu'à l'étape : "
+}
     
