@@ -53,13 +53,13 @@ labKo={
 }
 
 labRetry={
-    "en": "Try again, and hit 'Enter' to validate your input:",
-    "fr": "Essayez à nouveau, et appuyez sur 'Entrée' pour valider votre saisie :"
+    "en": "Try again, and hit #>C:white#Enter#>C:white# to try to validate again...",
+    "fr": "Essayez à nouveau, et appuyez sur #>C:white#Entrée#>C:white# pour valider votre saisie à nouveau ..."
 }
 
 labRetryWithValue={
-    "en": "When it is ok, put the good value here and press 'Enter': ",
-    "fr": "Quand c'est bon, écrivez la bonne valeur ici et appuyez sur 'Entrée' : "
+    "en": "When it is ok, put the good value here and press #>C:white#Enter#>C:white#: ",
+    "fr": "Quand c'est bon, écrivez la bonne valeur ici et appuyez sur #>C:white#Entrée#>C:white# : "
 }
 
 labNotUnderstood={
