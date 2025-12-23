@@ -11,6 +11,12 @@ from main import labAnswersJsonFile,forceSilentModeDuringChecks
 import os
 import re
 
+# ========================================================================
+# = deleteEnptyStrings
+# ========================================================================
+# This function clean a list from empty strings
+def deleteEnptyStrings(tab):
+    return [s for s in tab if s != ""]
 
 # ========================================================================
 # = display
@@ -25,6 +31,7 @@ import re
 #  - #>C:<color>#, it will change the color of the text to <color>.
 #  - #>D#, it will switch back to the default color.
 #  - #>B#, it will clear the screen.
+#  - #>N#, no prompt (only works at the beginning of a line).
 
   
 def display(prompt, inputStrings, variables, color = None, waitForInputValue = '', delay=0.03):
@@ -58,15 +65,16 @@ def display(prompt, inputStrings, variables, color = None, waitForInputValue = '
         for inputString in inputStrings:
 
             # First we split the strings by the # character
-            inputString = inputString.split("#")
+            inputElements = deleteEnptyStrings(inputString.split("#"))
 
             # Has prompt to be printed before displaying any other element?
-            if (len(inputString) > 0) and (len(prompt) > 0) :
-                sys.stdout.write("<" + prompt + "> ")
-                sys.stdout.flush()
+            if (len(inputElements) > 0) and (len(prompt) > 0) :
+                if inputElements[0] != ">N" :
+                    sys.stdout.write("<" + prompt + "> ")
+                    sys.stdout.flush()
 
             # Then we iterate over the elements of the list
-            for element in inputString:
+            for element in inputElements:
 
                 # We check if we have a spcial action to do.
                 if len(element) > 0 and element[0] == '>' :
@@ -232,12 +240,12 @@ def CheckStage(checkScript, prompt, color, variables, silent = False):
 
                 else:
                     if reenterValue != None:
-                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#"], variables, color) 
-                        display(prompt, [ "#>C:green#" + clue + "#>D"], variables, color) 
+                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#\n"], variables, color) 
+                        display(prompt, [ clue], variables, color) 
                         display(prompt, [ retryMessage + "#>I:" + reenterValue], variables, color) 
                     else:
-                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#"], variables, color) 
-                        display(prompt, [ "#>C:green#" + clue + "#>D"], variables, color) 
+                        display(prompt, [ "#>C:red#" + errorMessage + "#>D##>P:3#\n"], variables, color) 
+                        display(prompt, [ clue], variables, color) 
                         display(prompt, [ retryMessage + "#>I:"], variables, color) 
             else:
                 # If function returns successful message

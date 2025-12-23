@@ -30,7 +30,7 @@ variables = {
     "OldPCPassword": os.getenv('OLDPCPASSWORD'),
     "ApprovalPolicy": os.getenv('APPROVALPOLICY'),
     "EmailReport": os.getenv('EMAILREPORT'),
-    "Debug": True,
+    "Debug": False,
     "RecoveryUntilStage": 0,    
     "DockerRegistry": os.getenv('DOCKERREGISTRY'),
     "frontendHost": os.getenv("FRONTENDHOST"),
