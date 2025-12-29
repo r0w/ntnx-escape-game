@@ -1,4 +1,4 @@
-labOk={
+labOk = {
     "en": [
         "We are good man!",
         "Wow, you rocks!",
@@ -31,7 +31,7 @@ labOk={
     ]
 }
 
-labKo={
+labKo = {
     "en": [
         'Oups, does not sound good. Please check it!',
         'Nope, try again!',
@@ -52,22 +52,22 @@ labKo={
     ]
 }
 
-labRetry={
-    "en": "Try again, and hit #>C:white#Enter#>C:white# to try to validate again...",
-    "fr": "Essayez à nouveau, et appuyez sur #>C:white#Entrée#>C:white# pour valider votre saisie à nouveau ..."
+labRetry = {
+    "en": "Try again, and hit #>C:white#Enter#>C:white# to try to validate your action...",
+    "fr": "Essayez à nouveau, et appuyez sur #>C:white#Entrée#>C:white# pour revalider votre action ..."
 }
 
-labRetryWithValue={
+labRetryWithValue = {
     "en": "When it is ok, put the good value here and press #>C:white#Enter#>C:white#: ",
     "fr": "Quand c'est bon, écrivez la bonne valeur ici et appuyez sur #>C:white#Entrée#>C:white# : "
 }
 
-labNotUnderstood={
+labNotUnderstood = {
     "en": "I did not understand what you said, please try again: #>I:",
     "fr": "Je n'ai pas compris ce que vous avez dit, réessayez s'il vous plaît : #>I:"
 }
 
-labRecovery={
+labRecovery = {
     "en": "Entering in recovery mode to stage: ",
     "fr": "Récupération de votre progression jusqu'à l'étape : "
 }

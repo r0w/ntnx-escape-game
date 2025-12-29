@@ -59,7 +59,7 @@ def NeedRecovery(variables, recoveryMode):
     if data != {} and data['value'] > 3 :
         variables['RecoveryUntilStage'] = data['value']
         os.system('cls' if os.name == 'nt' else 'clear')
-        print(" ***** " + labRecovery[variables['Language']] + str(variables['RecoveryUntilStage']) + " *****\n\n")
+        print("\n***** " + labRecovery[variables['Language']] + str(variables['RecoveryUntilStage']) + " *****\n")
 
     return True, -1, None
 
@@ -108,6 +108,7 @@ def CheckAuthPolicy(variables, recoveryMode):
 # =============================================================================
 # CheckProject - Done
 # =============================================================================
+# TODO : Check the configuration of the infrastructure (ex: wrong subnet added, etc.)
 def CheckProject(variables, recoveryMode):
 
     response = retrieveProjectInfo(projectName=variables['Trigram'] + "-proj", variables=variables)
