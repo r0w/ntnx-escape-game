@@ -3,7 +3,7 @@ body {
     background-size: contain; /* Ensures the image fits within the set dimensions */
     background-position: top; /* Positions the image at the top */
     background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-color: #030f1b; /* Fallback color in case the image doesn't load */
+    background-color: #0e0314; /* Fallback color in case the image doesn't load */
     max-width: 80%; /* Sets the maximum width of the body content */
     margin: 0 auto; /* Centers the body content horizontally */
     height: 100vh; /* Sets the height to full viewport height */
