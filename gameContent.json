@@ -360,16 +360,20 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "I am not very peaceful, there are many strange things happening around us.#>P:5#\n",
+          "Please, disconnect from Nutanix Prism Central and connect back with the Active Directory user #>C:white##>V:ProdUsername##>D# using password #>C:white##>V:ProdPassword##>D# ...\n\n",
+          "Then look at the VM list in the UI, and confirm the VM you have created is not listed.\n",
+          "Send #>C:white#Ok#>D# when you are in. #>I:#"
         ],
         "fr": [
+          "Je ne suis pas très serein, il se passe beaucoup de choses étranges autour de nous.#>P:5#\n",
+          "Merci de vous déconnecter de Nutanix Prism Central et vous reconnecter avec l'utilisateur Active Directory #>C:white##>V:ProdUsername##>D# ayant pour mot de passe #>C:white##>V:ProdPassword##>D# ...\n\n",
+          "Regardez la liste des VM dans l'interface, et confirmez que la VM que vous avez créée n'est pas répertoriée.\n",
+          "Envoyez un message #>C:white#Ok#>D# lorsque vous êtes connecté. #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nI am not very peaceful, there are many strange things happening around us.#>P:5#\nCan you disconnect from the Nutanix Prism Central and connect back with this AD user : #>V:ProdUsername# / #>V:ProdPassword# ? Look at the VM list in the UI, and confirm the VM you have created is not listed.\nSay 'Ok' when you are in. #>I:#",
-        "fr": "\nJe ne suis pas très serein, il se passe beaucoup de choses étranges autour de nous.#>P:5#\nPouvez-vous vous déconnecter de Nutanix Prism Central et vous reconnecter avec cet utilisateur AD : #>V:ProdUsername# / #>V:ProdPassword# ? Regardez la liste des VM dans l'interface, et confirmez que la VM que vous avez créée n'est pas répertoriée.\nDites 'Ok' lorsque vous êtes connecté. #>I:#"
-      },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 17,
@@ -377,16 +381,24 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "\nPerfect, it is pretty discrete. The user #>C:white##>V:ProdUsername##>D# owns to #>C:white#Production#>D# project only. He is not able to see assets from others projects.\n",
+          "So, they won't see your VM, except if they look for it. We need to be careful.\n\n",
+          "Please, connect back with our admin user #>C:white##>V:Trigram#-adm#>D# on Nutanix Prism Central and hit #>C:white#Enter#>D# when you are ready.\n",
+          "\n#>P:6#Oh wait !!!#>P:5#They are scanning the server hosting our VM. Whoopsie-daisy!\n",
+          "Move our VM to another one right now ! Go go go !\n",
+          "Hit #>C:white#Enter#>D# when its done#>I:#"
         ],
         "fr": [
+          "\nParfait, c'est plutôt discret. L'utilisateur #>C:white##>V:ProdUsername##>D# n'a accés qu'au projet #>C:white#Production#>D#. Il ne peut voir les objets des autres projets.\n",
+          "Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. Nous devons être prudents.\n\n",
+          "S'il vous plaît, reconnectez-vous avec votre utilsateur #>C:white##>V:Trigram#-adm#>D# sur Nutanix Prism Central et apuyez sur #>C:white#Entrée#>D# quand vout êtes prêt.\n",
+          "\n#>P:6#Oh, attendez !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Zut, flûte, crotte, caca-boudin !\n",
+          "Bougez la VM sur un autre hôte immédiatement ! Vite, vite, vite !\n",
+          "Appuyez sur #>C:white#Entrée#>D# quand c'est fait.#>I:#"
         ]
       },
-      "Message": {
-        "en": "\nPerfect, it is pretty discrete. The user #>V:ProdUsername# owns to 'Production' project only. He is not able to see assets from others projects. So, they won't see your VM, except if they look for it. We need to be careful.\n\nPlease, connect back with our admin user #>V:Trigram#-adm on Prism Central and hit 'Enter' when you are ready.\n#>P:6#Oh wait !!!#>P:5#They are scanning the server hosting our VM, shit. Move our VM to another one right now ! Go go go !\nHit 'Enter' when its done#>I:#",
-        "fr": "\nParfait, c'est plutôt discret. L'utilisateur #>V:ProdUsername# n'a accés qu'au projet 'Production'. Il ne peut voir les objets des autres projets. Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. On doit être prudents.\n\nS'il vous plaît, reconnectez-vous avec votre utilsateur #>V:Trigram#-adm sur Prism Central, et pressez 'Entrée' quand vout êtes prêt.\n#>P:6#Oh, bougez pas !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Merde. Bougez la VM sur un autre hôte immédiattement ! Vite, vite, vite !\nAppuyez sur 'Entrée' quand c'est fait.#>I:#"
-      },
       "CheckTask": "CheckLiveMigration",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 17,
