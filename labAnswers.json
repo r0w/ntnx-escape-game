@@ -116,19 +116,28 @@
             ]
         },
         {
+            "checkFunction": "CheckLiveMigration",
+            "clues": [
+                {
+                    "en": "The VM is still on the same host, move it right now please !\n",
+                    "fr": "La VM est toujours sur le même hôte, déplacez-la immédiatement s'il vous plaît !\n"
+                }
+            ]
+        },
+        {
             "checkFunction": "CheckCat",
             "clues": [
                 {
-                    "en": "The category #>V:Trigram#-cat doesn't exist. Are you sure you named it correctly?",
-                    "fr": "La catégorie #>V:Trigram#-cat n'existe pas. Êtes-vous sûr de l'avoir nommée correctement ?"
+                    "en": "The category #>C:white##>V:Trigram#-cat#>D# doesn't exist. Are you sure you named it correctly?\n",
+                    "fr": "La catégorie #>C:white##>V:Trigram#-cat#>D# n'existe pas. Êtes-vous sûr de l'avoir nommée correctement ?\n"
                 },
                 {
-                    "en": "The category #>V:Trigram#-cat exists, But I do not see the 'Test' value...",
-                    "fr": "La catégorie #>V:Trigram#-cat existe, mais je ne vois pas la valeur 'Test'..."
+                    "en": "The category #>C:white##>V:Trigram#-cat#>D# exists, but I do not see the #>C:white#Test#>D# value...\n",
+                    "fr": "La catégorie #>C:white##>V:Trigram#-cat#>D# existe, mais je ne vois pas la valeur #>C:white#Test#>D# ...\n"
                 },
                 {
-                    "en": "The category #>V:Trigram#-cat exists, But I do not see the 'Critical' value...",
-                    "fr": "La catégorie #>V:Trigram#-cat existe, mais je ne vois pas la valeur 'Critical'..."
+                    "en": "The category #>C:white##>V:Trigram#-cat#>D# exists, but I do not see the #>C:white#Critical#>D# value...\n",
+                    "fr": "La catégorie #>C:white##>V:Trigram#-cat#>D# existe, mais je ne vois pas la valeur #>C:white#Critical#>D# ...\n"
                 }
             ]
         },
@@ -136,8 +145,8 @@
             "checkFunction": "CheckCatVM",
             "clues": [
                 {
-                    "en": "The VM #>V:Trigram#-vm is not associated to the category #>V:Trigram#-cat with value 'Critical'. Can you fix it ?",
-                    "fr": "La VM #>V:Trigram#-vm n'est pas associée à la catégorie #>V:Trigram#-cat avec la valeur 'Critical'. Pouvez-vous corriger ça ?"
+                    "en": "The VM #>C:white##>V:Trigram#-vm#>D# is not associated to the category #>C:white##>V:Trigram#-cat#>D# with value #>C:white#Critical#>D#. Can you fix it?\n",
+                    "fr": "La VM #>C:white##>V:Trigram#-vm#>D# n'est pas associée à la catégorie #>C:white##>V:Trigram#-cat#>D# avec la valeur #>C:white#Critical#>D#. Pouvez-vous corriger çela ?\n"
                 }
             ]
         },
@@ -145,8 +154,8 @@
             "checkFunction": "CheckStoragePolicy",
             "clues": [
                 {
-                    "en": "Are you sure you created the storage policy #>V:Trigram#-sto-policy ? I did not find it...",
-                    "fr": "Etes-vous sûr d'avoir créé la storage policy #>V:Trigram#-sto-policy ? Je ne la trouve pas..."
+                    "en": "Are you sure you created the storage policy #>C:white##>V:Trigram#-sto-policy#>D#? I did not find it...\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique de stockage #>C:white##>V:Trigram#-sto-policy#>D# ? Je ne la trouve pas ...\n"
                 }
             ]
         },
@@ -154,20 +163,20 @@
             "checkFunction": "CheckSecurityPolicy",
             "clues": [
                 {
-                    "en": "Are you sure you created the security policy #>V:Trigram#-mseg-policy ? I guess you should double check ;-) ?",
-                    "fr": "Etes-vous sûr d'avoir créé la security policy #>V:Trigram#-mseg-policy ? Je pense que vous devriez vérifier ;-) ?"
+                    "en": "Are you sure you created the security policy #>C:white##>V:Trigram#-mseg-policy#>D#? I guess you should double check!\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique de sécurité #>C:white##>V:Trigram#-mseg-policy#>D# ? Je pense que vous devriez vérifier !\n"
                 },
                 {
-                    "en": "The security policy is not associated to your category. Can you check ?",
-                    "fr": "La security policy n'est pas associée à votre catégorie. Pouvez-vous vérifier ?"
+                    "en": "The security policy is not associated to your category. Can you check?\n",
+                    "fr": "La politique de sécurité n'est pas associée à votre catégorie. Pouvez-vous vérifier ?\n"
                 },
                 {
-                    "en": "The security policy is not in enforce mode. Can you change it ?",
-                    "fr": "La security policy n'est pas en mode enforce. Pouvez-vous la changer ?"
+                    "en": "The security policy is not in enforce mode. Can you change it?\n",
+                    "fr": "La politique de sécurité n'est pas en mode enforce. Pouvez-vous la changer ?\n"
                 },
                 {
-                    "en": "The security policy seems not authorize all outbound protocols. Can you check ?",
-                    "fr": "La security policy ne semble pas autoriser tous les protocoles sortants. Pouvez-vous vérifier ?"
+                    "en": "The security policy seems not authorize all outbound protocols. Can you check?\n",
+                    "fr": "La politique de sécurité ne semble pas autoriser tous les protocoles sortants. Pouvez-vous vérifier ?\n"
                 }
 
             ]
@@ -176,16 +185,16 @@
             "checkFunction": "CheckSecurityPolicy2",
             "clues": [
                 {
-                    "en": "Are you sure you created the security policy #>V:Trigram#-mseg-policy ? I guess you should double check ;-) ?",
-                    "fr": "Etes-vous sûr d'avoir créé la security policy #>V:Trigram#-mseg-policy ? Je pense que vous devriez vérifier ;-) ?"
+                    "en": "Are you sure you created the security policy #>C:white##>V:Trigram#-mseg-policy#>D#? I guess you should double check!\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique de sécurité #>C:white##>V:Trigram#-mseg-policy#>D# ? Je pense que vous devriez vérifier !\n"
                 },
                 {
-                    "en": "The security policy seems not authorize the ssh service. Can you check ?",
-                    "fr": "La security policy ne semble pas autoriser le service ssh. Pouvez-vous vérifier ?"
+                    "en": "The security policy seems not authorize the ssh service. Can you check?\n",
+                    "fr": "La politique de sécurité ne semble pas autoriser le service ssh. Pouvez-vous vérifier ?\n"
                 },
                 {
-                    "en": "The security policy seems not authorize the icmp service. Can you check ?",
-                    "fr": "La security policy ne semble pas autoriser le service icmp. Pouvez-vous vérifier ?"
+                    "en": "The security policy seems not authorize the icmp service. Can you check?\n",
+                    "fr": "La politique de sécurité ne semble pas autoriser le service icmp. Pouvez-vous vérifier ?\n"
                 }
             ]
         },
@@ -193,24 +202,24 @@
             "checkFunction": "CheckProtectionPolicy",
             "clues": [
                 {
-                    "en": "Are you sure you created the protection policy #>V:Trigram#-prot-policy ? I did not find it?",
-                    "fr": "Etes-vous sûr d'avoir créé la protection policy #>V:Trigram#-prot-policy ? Je ne la trouve pas ?"
+                    "en": "Are you sure you created the protection policy #>C:white##>V:Trigram#-prot-policy#>D#? I did not find it!\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique de protection #>C:white##>V:Trigram#-prot-policy#>D# ? Je ne la trouve pas !\n"
                 },
                 {
-                    "en": "It looks like the snapshot schedule is not set to 1 hour. Can you fix it ?",
-                    "fr": "Il semble que le snapshot schedule ne soit pas configuré à 1 heure. Pouvez-vous le corriger ?"
+                    "en": "It looks like the snapshot schedule is not set to 1 hour. Can you fix it?\n",
+                    "fr": "Il semble que le snapshot schedule ne soit pas configuré à 1 heure. Pouvez-vous le corriger ?\n"
                 },
                 {
-                    "en": "It looks like the snapshot retention is not set to 1 day. Can you fix it ?",
-                    "fr": "Il semble que la rétention des snapshots ne soit pas configurée à 1 jour. Pouvez-vous le corriger ?"
+                    "en": "It looks like the snapshot retention is not set to 1 day. Can you fix it?\n",
+                    "fr": "Il semble que la rétention des snapshots ne soit pas configurée à 1 jour. Pouvez-vous le corriger ?\n"
                 },
                 {
-                    "en": "It looks like the category filter is not set correctly. Can you fix it ?",
-                    "fr": "Il semble que le filtre de catégorie ne soit pas configuré correctement. Pouvez-vous le corriger ?"
+                    "en": "It looks like the category filter is not set correctly. Can you fix it?\n",
+                    "fr": "Il semble que le filtre de catégorie ne soit pas configuré correctement. Pouvez-vous le corriger ?\n"
                 },
                 {
-                    "en": "It looks like the category value is not set correctly. Can you fix it ?",
-                    "fr": "Il semble que la valeur de catégorie ne soit pas configurée correctement. Pouvez-vous le corriger ?"
+                    "en": "It looks like the category value is not set correctly. Can you fix it?\n",
+                    "fr": "Il semble que la valeur de catégorie ne soit pas configurée correctement. Pouvez-vous le corriger ?\n"
                 }
             ]
         },
@@ -237,15 +246,6 @@
                 {
                     "en": "The VM #>V:Trigram#-vm is not started. Can you fix this?",
                     "fr": "La VM #>V:Trigram#-vm n'est pas démarrée. Vous pouvwz corriger le souci ?"
-                }
-            ]
-        },
-        {
-            "checkFunction": "CheckLiveMigration",
-            "clues": [
-                {
-                    "en": "The VM is still on the same host, move it right now please !",
-                    "fr": "La VM est toujours sur le même hôte, déplacez-la immédiatement s'il vous plaît !"
                 }
             ]
         },

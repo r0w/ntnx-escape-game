@@ -23,7 +23,7 @@
       "Prompt": "system",
       "Messages": {
         "en": [ 
-          "Automatic translation requested and on the way...#>P:2#\n\n",
+          "Then, no need to translate...#>P:2#\n\n",
           "Please, enter your Agent Trigram #>C:red#(always reuse the same 3 letters if you have been disconnected)#>D#: #>I:Trigram#>P:3#"
         ],
         "fr": [
@@ -33,6 +33,7 @@
       },
       "DefaultColor": "white",
       "CheckTask": "CheckTrigram",
+      "SilentOnSuccess": true,
       "SaveScore": false
     },
     {
@@ -41,10 +42,10 @@
       "Prompt": "system",
       "Messages": {
         "en": [ 
-          "Please wait for agent contact...\n#>P:5#"
+          "Thank you! Now, please wait for agent contact...\n#>P:5#"
         ],
         "fr": [
-          "Veuillez patienter, un agent va vous contacter ...\n#>P:5#"
+          "Merci ! Maintenant, veuillez patienter, un agent va vous contacter ...\n#>P:5#"
         ]
       },
       "DefaultColor": "white",
@@ -78,7 +79,7 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "#>C:white##>V:Username##>D#, we have intercepted a message from the bad guys, and we now have access to their Nutanix cluster.\n",
+          "#>C:white##>V:Username##>D#, we have intercepted a message from the vilains, and we now have access to their Nutanix cluster.\n",
           "They don't care about elementary security rules, it is our chance.\n\n"
         ],
         "fr": [
@@ -116,16 +117,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "First we have to create a new local administrator for this Cluster, in case the bad guys change the password. They share passwords in emails, but they probably have a change policy.\n",
+          "First we have to create a new local administrator for this Cluster, in case the vilains change the password. They share passwords in emails, but they probably have a change policy.\n",
           "Please, connect to the cluster and create a new user #>C:white##>V:Trigram#-adm#>D#. This can be done in the #>C:white#Admin Center#>D# part of the GUI.\n",
           "#>C:red#Be careful when you login, the #>C:white##>V:PCUser##>C:red# user is a local account!#>D#\n",
-          "Send #>C:white#Ok#>D# here, when it's done: #>I:#\n"
+          "Send me #>C:white#Ok#>D# here, when it's done: #>I:#\n"
         ],
         "fr": [
           "Tout d'abord, nous devons créer un nouvel administrateur local du Cluster, au cas où les méchants changeraient le mot de passe. Ils partagent des mots de passe dans des e-mails, mais ils ont probablement une politique de changement.\n",
           "Veuillez vous connecter sur le cluster et créer un nouvel utilisateur #>C:white##>V:Trigram#-adm#>D#. Cela se fait dans la section #>C:white#Admin Center#>D# de l'interface graphique.\n",
           "#>C:red#Attention, quand vous vous connectez, l'utilisateur #>C:white##>V:PCUser##>C:red# est un compte local !#>D#\n",
-          "Envoyez un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#\n"
+          "Envoyez moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#\n"
         ]
       },
       "DefaultColor": "magenta",
@@ -153,11 +154,11 @@
       "Messages": {
         "en": [ 
           "Now create an #>C:white#Authorization Policy#>D# named #>C:white##>V:Trigram#-auth#>D# to give #>C:white#Super Admin#>D# rights to #>C:white##>V:Trigram#-adm#>D#.\n",
-          "Send #>C:white#Ok#>D# here, when it's done: #>I:#\n"
+          "Send me #>C:white#Ok#>D# here, when it's done: #>I:#\n"
         ],
         "fr": [
           "Maintenant il faut créer une #>C:white#Authorization Policy#>D#, avec le nom #>C:white##>V:Trigram#-auth#>D#, pour donner les droits #>C:white#Super admin#>D# à l'utilisateur #>C:white##>V:Trigram#-adm#>D#.\n",
-          "Envoyez un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#\n"
+          "Envoyez moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#\n"
         ]
       },
       "DefaultColor": "magenta",
@@ -204,7 +205,7 @@
           "Add member:\n",
           " - #>C:white#TheProjectManager#>D# (AD user) as #>C:white#Project Admin#>D#.\n\n",
           "Finally, after having created the project, go in the #>C:white#Infrastructure#>D# tab of this project, add a new infrastructure with our Nutanix cluster and the VLAN named #>C:white#secondary#>D#.\n",
-          "Send #>C:white#Ok#>D# here when the project is created. #>I:#\n"
+          "Send me #>C:white#Ok#>D# here when the project is created. #>I:#\n"
         ],
         "fr": [
           "Vérifions que vous êtes bien connecté, #>C:white##>V:Username##>D# ! #>P:3#Super.\n\n",
@@ -213,7 +214,7 @@
           "Ajoutez un membre :\n",
           " - #>C:white#TheProjectManager#>D# (utilisateur AD) en #>C:white#Project Admin#>D#.\n\n",
           "Enfin, après avoir créé le projet, allez dans l'onglet #>C:white#Infrastructure#>D# de ce projet, ajoutez une nouvelle infrastructure avec notre cluster Nutanix et utilisez le VLAN nommé #>C:white#secondary#>D#.\n",
-          "Envoyez un message #>C:white#Ok#>D# ici lorsque le projet est créé. #>I:#\n"
+          "Envoyez moi un message #>C:white#Ok#>D# ici lorsque le projet est créé. #>I:#\n"
         ]
       },
       "CheckTask": "CheckProject",
@@ -226,7 +227,7 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "You know what ?#>P:2# I already like you, we are great teammates!#>P:3#\n\n",
+          "You know what?#>P:1# I already like you, we are great teammates!#>P:3#\n\n",
           "Bob has updated switch configuration. You need to create a new subnet in the Nutanix cluster to use it. It should help us to extract data outside without being detected.\n\n",
           "Go in the #>C:white#Infrastructure#>D# menu, and create a new subnet named #>C:white##>V:Trigram#-subnet#>D# with the VLAN ID #>C:white##>V:Vlanid##>D#.\n",
           "Subnet can provide IP to VM like a DHCP and that's very useful for us. This is called #>C:white#Nutanix IPAM#>D# and please ensure to use it!\n\n",
@@ -234,12 +235,12 @@
           " - Virtual switch: #>C:white#vs0#>D#\n",
           " - Network address: #>C:white#192.168.#>V:Vlanid#.0/24#>D#\n",
           " - Gateway: #>C:white#192.168.#>V:Vlanid#.1#>D#\n",
-          " - IP Pool: #>C:white#192.168.#>V:Vlanid#.50#>D# - #>C:white#192.168.#>V:Vlanid#.115#>C:white#\n",
+          " - IP Pool: #>C:white#192.168.#>V:Vlanid#.50#>D# - #>C:white#192.168.#>V:Vlanid#.115#>D#\n",
           "#>C:red# - Important: Uncheck Basic networking in the advanced configuration.#>D#\n",
-          "I am waiting for your feedback. Send #>C:white#Ok#>D# when the subnet is setup: #>I:#"
+          "I am waiting for your feedback. Send me #>C:white#Ok#>D# when the subnet is setup: #>I:#"
         ],
         "fr": [
-          "Vous savez quoi ?#>P:2# Je vous aime déjà, nous sommes de super coéquipiers!#>P:3#\n\n",
+          "Vous savez quoi ?#>P:1# Je vous aime déjà, nous sommes de super coéquipiers!#>P:3#\n\n",
           "Bob a mis à jour la configuration du switch. Vous devez créer un nouveau subnet dans le cluster Nutanix pour l'utiliser. Cela devrait nous aider à extraire des données à l'extérieur sans être détecté.\n\n",
           "Allez dans le menu #>C:white#Infrastructure#>D# et créez un nouveau subnet nommé #>C:white##>V:Trigram#-subnet#>D# avec l'ID VLAN #>C:white##>V:Vlanid##>D#.\n",
           "Le sous-réseau peut fournir une IP aux VM comme un DHCP, ce qui sera très utile pour nous. C'est ce que l'on appelle un #>C:white#Nutanix IPAM#>D# et SVP, assurez-vous de l'utiliser !\n\n",
@@ -249,7 +250,7 @@
           " - Passerelle : #>C:white#192.168.#>V:Vlanid#.1#>D#\n",
           " - Pool IP : #>C:white#192.168.#>V:Vlanid#.50#>D# - #>C:white#192.168.#>V:Vlanid#.115#>D#\n",
           "#>C:red# - Important : Décochez Basic networking dans la configuration avancée.#>D#\n",
-          "J'attends votre signal. Envoyez un message #>C:white#Ok#>D# lorsque le sous-réseau est configuré : #>I:#"
+          "J'attends votre signal. Envoyez moi un message #>C:white#Ok#>D# lorsque le sous-réseau est configuré : #>I:#"
         ]
       },
       "CheckTask": "CheckNetwork",
@@ -267,7 +268,7 @@
           "Add a disk image named #>C:white##>V:Trigram#-ubuntu#>D# in the image library from this URL:\n",
           "#>C:white##>V:ImageURL##>D#\n\n",
           "#>C:red#Warning: Please ensure the image is a disk image, not an ISO image.#>D#\n",
-          "Send #>C:white#Ok#>D# when the image is available on the cluster. #>I:#"
+          "Send me #>C:white#Ok#>D# when the image is available on the cluster: #>I:#"
         ],
         "fr": [
           "Nous sommes bons, surtout vous. #>P:4#\n\n",
@@ -275,7 +276,7 @@
           "Ajoutez une image de disque nommée #>C:white##>V:Trigram#-ubuntu#>D# dans la bibliothèque d'images à partir de cette URL :\n",
           "#>C:white##>V:ImageURL##>D#\n\n",
           "#>C:red#Attention : Veuillez vous assurer que l'image est bien une image de disque, pas une image ISO.#>D#\n",
-          "Envoyez un message #>C:white#Ok#>D# lorsque l'image est disponible sur le cluster. #>I:#"
+          "Envoyez moi un message #>C:white#Ok#>D# lorsque l'image est disponible sur le cluster : #>I:#"
         ]
       },
       "CheckTask": "CheckImage",
@@ -316,7 +317,7 @@
           "#>N##>C:white#ssh_pwauth: true#>D#\n",
           "---------------\n\n",
           "After that, move your VM into your project, it's done with #>C:white#Manage ownership#>D# action in the VM contextual menu.\n",
-          "When it is done, start the VM, and send #>C:white#Ok#>D# when you have finished. #>I:#"
+          "When it is done, start the VM, and send me #>C:white#Ok#>D# when you have finished: #>I:#"
         ],
         "fr": [
           "Nous sommes dans les temps, et c'est bien, mais nous devons quand-même nous dépêcher. J'ai détecté une activité des autres ... ils nous cherchent. Nous devons travailler avec prudence.\n",
@@ -347,7 +348,7 @@
           "#>N##>C:white#ssh_pwauth: true#>D#\n",
           "---------------\n\n",
           "Après cela, déplacez votre VM dans votre projet, c'est fait avec l'action #>C:white#Manage ownership#>D# dans le menu contextuel de la VM.\n",
-          "Lorsque c'est fait, démarrez la VM, et envoyez un message #>C:white#Ok#>D# lorsque vous avez terminé. #>I:#"
+          "Lorsque c'est fait, démarrez la VM, et envoyez moi un message #>C:white#Ok#>D# lorsque vous avez terminé : #>I:#"
         ]
       },
       "CheckTask": "CheckVM",
@@ -363,13 +364,13 @@
           "I am not very peaceful, there are many strange things happening around us.#>P:5#\n",
           "Please, disconnect from Nutanix Prism Central and connect back with the Active Directory user #>C:white##>V:ProdUsername##>D# using password #>C:white##>V:ProdPassword##>D# ...\n\n",
           "Then look at the VM list in the UI, and confirm the VM you have created is not listed.\n",
-          "Send #>C:white#Ok#>D# when you are in. #>I:#"
+          "Send me #>C:white#Ok#>D# when you've checked: #>I:#"
         ],
         "fr": [
           "Je ne suis pas très serein, il se passe beaucoup de choses étranges autour de nous.#>P:5#\n",
           "Merci de vous déconnecter de Nutanix Prism Central et vous reconnecter avec l'utilisateur Active Directory #>C:white##>V:ProdUsername##>D# ayant pour mot de passe #>C:white##>V:ProdPassword##>D# ...\n\n",
           "Regardez la liste des VM dans l'interface, et confirmez que la VM que vous avez créée n'est pas répertoriée.\n",
-          "Envoyez un message #>C:white#Ok#>D# lorsque vous êtes connecté. #>I:#"
+          "Envoyez moi un message #>C:white#Ok#>D# lorsque vous avez vérifié : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
@@ -381,18 +382,18 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nPerfect, it is pretty discrete. The user #>C:white##>V:ProdUsername##>D# owns to #>C:white#Production#>D# project only. He is not able to see assets from others projects.\n",
+          "Perfect, it is pretty discrete. The user #>C:white##>V:ProdUsername##>D# owns to #>C:white#Production#>D# project only. He is not able to see assets from others projects.\n",
           "So, they won't see your VM, except if they look for it. We need to be careful.\n\n",
-          "Please, connect back with our admin user #>C:white##>V:Trigram#-adm#>D# on Nutanix Prism Central and hit #>C:white#Enter#>D# when you are ready.\n",
-          "\n#>P:6#Oh wait !!!#>P:5#They are scanning the server hosting our VM. Whoopsie-daisy!\n",
+          "Please, connect back with our admin user #>C:white##>V:Trigram#-adm#>D# on Nutanix Prism Central and hit #>C:white#Enter#>D# when you are ready.\n\n",
+          "#>P:6#Oh wait !!!#>P:2#They are scanning the server hosting our VM. Whoopsie-daisy!\n",
           "Move our VM to another one right now ! Go go go !\n",
-          "Hit #>C:white#Enter#>D# when its done#>I:#"
+          "Hit #>C:white#Enter#>D# when its done.#>I:#"
         ],
         "fr": [
-          "\nParfait, c'est plutôt discret. L'utilisateur #>C:white##>V:ProdUsername##>D# n'a accés qu'au projet #>C:white#Production#>D#. Il ne peut voir les objets des autres projets.\n",
+          "Parfait, c'est plutôt discret. L'utilisateur #>C:white##>V:ProdUsername##>D# n'a accés qu'au projet #>C:white#Production#>D#. Il ne peut voir les objets des autres projets.\n",
           "Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. Nous devons être prudents.\n\n",
-          "S'il vous plaît, reconnectez-vous avec votre utilsateur #>C:white##>V:Trigram#-adm#>D# sur Nutanix Prism Central et apuyez sur #>C:white#Entrée#>D# quand vout êtes prêt.\n",
-          "\n#>P:6#Oh, attendez !!!#>P:5#Ils sont en train de scanner la machine qui porte notre VM. Zut, flûte, crotte, caca-boudin !\n",
+          "S'il vous plaît, reconnectez-vous avec votre utilsateur #>C:white##>V:Trigram#-adm#>D# sur Nutanix Prism Central et apuyez sur #>C:white#Entrée#>D# quand vout êtes prêt.\n\n",
+          "#>P:6#Oh, attendez !!!#>P:2#Ils sont en train de scanner la machine qui porte notre VM. Zut, flûte, crotte, caca-boudin !\n",
           "Bougez la VM sur un autre hôte immédiatement ! Vite, vite, vite !\n",
           "Appuyez sur #>C:white#Entrée#>D# quand c'est fait.#>I:#"
         ]
@@ -401,38 +402,25 @@
       "DefaultColor": "magenta"
     },
     {
-      "id": 17,
-      "active": true,
-      "Prompt": "ego",
-      "Messages": {
-        "en": [ 
-        ],
-        "fr": [
-        ]
-      },
-      "Message": {
-        "en": "\nThanks god, they have not detected the VM... huhu, it was VERY hot !\n\nNow we are starting serious things. Unfortunately, you are not Nutanix certified, but it is not a big deal. They makes things simple with their interface, and you should find how to do that by yourself#>P:4#\nIn the 'Infrastructure' page, you should find something to manage categories. Nutanix uses Catagories to manage all the policies on the cluster, it is very efficient.#>P:3#\nCreate a new category #>V:Trigram#-cat with 2 values : 'Critical' and 'Test'.#>P:3# I am waiting for your 'Ok'. #>I:",
-        "fr": "\nDieu merci, ils n'ont pas détecté la VM... hehe, c'était TRÈS chaud !\n\nMaintenant, nous allons commencer les choses sérieuses. Malheureusement, vous n'êtes pas certifié Nutanix, mais ce n'est pas grave. Ils simplifient les choses avec leur interface, et vous devriez trouver comment faire par vous-même assez facilement#>P:4#\nDans la page 'Infrastructure', vous devriez trouver quelque chose pour gérer les catégories. Nutanix utilise les catégories pour gérer toutes les politiques sur le cluster, c'est très efficace.#>P:3#\nCréez une nouvelle catégorie #>V:Trigram#-cat avec 2 valeurs : 'Critical' et 'Test'.#>P:3# J'attends votre 'Ok'. #>I:"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
-    },
-    {
       "id": 18,
       "active": true,
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Thanks god, they have not detected the VM... Wooow, it was very hot!\n\n",
+          "Now we are starting serious things. Unfortunately, you are not Nutanix certified, but it is not a big deal. They makes things simple with their interface and you should find how to do that by yourself.#>P:4#\n\n",
+          "In the #>C:white#Admin Center#>D# page, you should find something to manage categories. Nutanix uses Catagories to manage all the policies on the cluster, it is very efficient.#>P:3#\n",
+          "Create a new category #>C:white##>V:Trigram#-cat#>D# with 2 values : #>C:white#Critical#>D# and #>C:white#Test#>D#.#>P:3# I am waiting for your feedback ... send me #>C:white#Ok#>D# when it's done: #>I:"
         ],
         "fr": [
+          "Dieu merci, ils n'ont pas détecté la VM... Wooow, c'était très chaud !\n\n",
+          "Maintenant, nous allons commencer les choses sérieuses. Malheureusement, vous n'êtes pas certifié Nutanix, mais ce n'est pas grave. Ils simplifient les choses avec leur interface et vous devriez trouver comment faire par vous-même assez facilement.#>P:4#\n\n",
+          "Dans la page #>C:white#Admin Center#>D#, vous devriez trouver quelque chose pour gérer les catégories. Nutanix utilise les catégories pour gérer toutes les politiques sur le cluster, c'est très efficace.#>P:3#\n",
+          "Créez une nouvelle catégorie #>C:white##>V:Trigram#-cat#>D# avec 2 valeurs : #>C:white#Critical#>D# et #>C:white#Test#>D#.#>P:3# J'attends votre retour ... envoyez moi un message #>C:white#Ok#>D# quand c'est fait : #>I:"
         ]
       },
-      "Message": {
-        "en": "\nNice, you work quickly. I expect you don't do it dirty ;) #>P:4#\nLet me check this category... \n",
-        "fr": "\nBien, vous travaillez vite. J'espère que vous ne l'avez pas trop fait à l'arrache ;) #>P:4#\nLaissez-moi vérifier cette catégorie... \n"
-      },
-      "CheckTask": "CheckCat",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 19,
@@ -440,16 +428,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Nice, you work quickly. I expect you don't do it dirty... #>P:4#\n",
+          "Let me check this category... \n"
         ],
         "fr": [
+          "Bien, vous travaillez vite. J'espère que vous ne l'avez pas trop fait à l'arrache ... #>P:4#\n",
+          "Laissez-moi vérifier cette catégorie... \n"
         ]
       },
-      "Message": {
-        "en": "\nCan you go back on your VM view, and apply this category with value 'Critical' to it please ? #>P:3#Write 'Ok' when it's done. #>I:#",
-        "fr": "\nPouvez-vous retourner sur la vue de votre VM, et appliquer cette catégorie avec la valeur 'Critical' dessus s'il vous plaît ? #>P:3#Ecrivez 'Ok' quand c'est fait. #>I:#"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "CheckTask": "CheckCat",
+      "DefaultColor": "magenta"
     },
     {
       "id": 20,
@@ -457,16 +445,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Can you go back in the #>C:white#Infrastructure#>D# page on your VM view and apply the category #>C:white##>V:Trigram#-cat#>D#with value #>C:white#Critical#>D# to it please?\n",
+          "#>P:3#Send me #>C:white#Ok#>D# when it's done: #>I:#"
         ],
         "fr": [
+          "Pouvez-vous retourner sur la vue de votre VM et appliquer la catégorie #>C:white##>V:Trigram#-cat#>D# avec la valeur #>C:white#Critical#>D# dessus s'il vous plaît ?\n",
+          "#>P:3#Envoyez moi un message #>C:white#Ok#>D# quand c'est fait : #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nOne second...\n",
-        "fr": "\nUne seconde...\n"
-      },
-      "CheckTask": "CheckCatVM",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 21,
@@ -474,33 +462,35 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Give me one second...\n"
         ],
         "fr": [
+          "Donnez-moi une seconde ...\n"
         ]
       },
-      "Message": {
-        "en": "\nNow we are going to create different policies to protect our VM.\nFirst we are going to encrypt our VM. #>P:3#You need to create a Storage policy '#>V:Trigram#-sto-policy' enabling the encryption. You can use the default values for others, we do not really care here, but if you are curious, take a look at them, it is interesting.\nApply it to VMs with your category, and the value 'Critical'.\nWrite 'Ok' when it's done. #>I:#",
-        "fr": "\nMaintenant, nous allons créer différentes politiques pour protéger notre VM.\nTout d'abord, nous allons chiffrer notre VM. #>P:3#Vous devez créer une storage policy '#>V:Trigram#-sto-policy' activant le chiffrement. Vous pouvez utiliser les valeurs par défaut pour les autres champs, nous n'en avons pas vraiment besoin ici, mais si vous êtes curieux, jetez-y un œil, c'est intéressant.\nAppliquez-le aux VM avec votre catégorie, et la valeur 'Critical'.\nEcrivez 'Ok' quand c'est fait. #>I:#"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "CheckTask": "CheckCatVM",
+      "DefaultColor": "magenta"
     },
     {
       "id": 22,
       "active": true,
       "Prompt": "ego",
       "Messages": {
-        "en": [ 
+        "en": [
+          "Now we are going to create different policies to protect our VM and first we are going to encrypt it!\n",
+          "#>P:3#For that, you need to create a Storage policy #>C:white##>V:Trigram#-sto-policy#>D# enabling the encryption. You can use the default values for others, we do not really care here, but if you are curious, take a look at them, it is interesting.\n",
+          "Apply it to VMs with your category #>C:white##>V:Trigram#-cat#>D# and the value #>C:white#Critical#>D#.\n",
+          "Send me #>C:white#Ok#>D# when it's done: #>I:#" 
         ],
         "fr": [
+          "Maintenant, nous allons créer différentes politiques pour protéger notre VM et tout d'abord, nous allons la chiffrer !\n",
+          "#>P:3#Pour cela, vous devez créer une politique de stockage (Storage Policy) #>C:white##>V:Trigram#-sto-policy#>D# activant le chiffrement. Vous pouvez utiliser les valeurs par défaut pour les autres champs, nous n'en avons pas vraiment besoin ici, mais si vous êtes curieux, jetez-y un œil, c'est intéressant.\n",
+          "Appliquez-la aux VM avec votre catégorie #>C:white##>V:Trigram#-cat#>D# et la valeur #>C:white#Critical#>D#.\n",
+          "Envoyez moi un message #>C:white#Ok#>D# quand c'est fait : #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nLet me check this storage policy... \n",
-        "fr": "\nLaissez-moi vérifier cette politique de stockage... \n"
-      },
-      "CheckTask": "CheckStoragePolicy",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 23,
@@ -508,16 +498,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Let me check this storage policy...\n"
         ],
         "fr": [
+          "Laissez-moi vérifier cette politique de stockage ...\n"
         ]
       },
-      "Message": {
-        "en": "\nOK...#>P:4#\n\nNext step, create a microsegmentation policy to protect our VM.#>P:3# It is a way to control network exchange between the VM and other elements of the network. It is very useful to avoid any data leak or attack. #>P:3# It is a bit embarrassing to have this feature and not use it. It would have annoyed us in our mission... If they knew :D ... #>P:5#\nCreate a new Security policy named '#>V:Trigram#-mseg-policy' with the following rules :\n - Apply it to your category with value 'Critical'\n - Refuse all inboud traffic to the VM\n - Allow all outbound traffic\n - Enforce mode (to apply the rule)\n\nWrite 'Ok' when it's done. #>I:#",
-        "fr": "\nOK...#>P:4#\n\nProchaine étape, créez une politique de microsegmentation pour protéger notre VM.#>P:3# C'est une manière de contrôler les échanges réseau entre la VM et les autres éléments du réseau. C'est très utile pour éviter toute fuite de données ou attaque. #>P:3# C'est un peu gênant d'avoir cette fonctionnalité et de ne pas l'utiliser. Cela nous aurait ennuyé dans notre mission... S'ils savaient :D ... #>P:5#\nCréez une nouvelle politique de sécurité nommée '#>V:Trigram#-mseg-policy' avec les règles suivantes :\n - Appliquez-la à votre catégorie avec la valeur 'Critical'\n - Refusez tout le trafic entrant (inbound) vers la VM\n - Autorisez tout le trafic sortant (outbound)\n - Enforce Mode (pour appliquer la règle)\n\nEcrivez 'Ok' quand c'est fait. #>I:#"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "CheckTask": "CheckStoragePolicy",
+      "DefaultColor": "magenta"
     },
     {
       "id": 24,
@@ -525,16 +513,32 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Now, create a security policy to enable microsegmentation and protect our VM.\n",
+          "#>P:3#It is a way to control network exchange between the VM and other elements of the network. It is very useful to avoid any data leak or attack. \n",
+          "#>P:3#It's a bit of a shame to have this feature and not use it. It would have hampered our mission if the villains had known about it and used it... #>P:5#\n\n",
+          "Anyway... Create a new Security policy named #>C:white##>V:Trigram#-mseg-policy#>D# with the following rules:\n",
+          " - Type: #>C:white#Application: Secure Entities#>D#\n",
+          " - #>C:white#Deny all inboud/incoming traffic#>D# to the VM\n",
+          " - Apply it to your category #>C:white##>V:Trigram#-cat#>D# with value #>C:white#Critical#>D#\n",
+          " - #>C:white#Allow all outbound/outgoing traffic#>D#\n",
+          " - #>C:white#Enforce mode#>D# (to apply the rule)\n",
+          "Send me #>C:white#Ok#>D# when it's done: #>I:#"
         ],
         "fr": [
+          "Maintenant, créez une politique de sécurité (Security Policy) pour faire de la microsegmentation et protéger notre VM.\n",
+          "#>P:3#C'est une manière de contrôler les échanges réseau entre la VM et les autres éléments du réseau. C'est très utile pour éviter toute fuite de données ou attaque. \n",
+          "#>P:3#C'est un peu dommage d'avoir cette fonctionnalité et de ne pas l'utiliser. Cela nous aurait ennuyé dans notre mission si les méchants l'avaient su et utilisée ... #>P:5#\n\n",
+          "Quoi qu'il en soit ... Créez une nouvelle politique de sécurité nommée #>C:white##>V:Trigram#-mseg-policy#>D# avec les règles suivantes :\n",
+          " - Type: #>C:white#Application: Secure Entities#>D#\n",
+          " - #>C:white#Refusez tout le trafic entrant#>D# (inbound/incoming) vers la VM\n",
+          " - Appliquez-la à votre catégorie #>C:white##>V:Trigram#-cat#>D# avec la valeur #>C:white#Critical#>D#\n",
+          " - #>C:white#Autorisez tout le trafic sortant#>D# (outbound/outgoing)\n",
+          " - #>C:white#Enforce Mode#>D# (pour appliquer la règle)\n",
+          "Envoyez moi un message #>C:white#Ok#>D# quand c'est fait : #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nI am going to check that... \n",
-        "fr": "\nJe vais vérifier cela... \n"
-      },
-      "CheckTask": "CheckSecurityPolicy",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 25,
@@ -542,16 +546,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "I am going to check that security policy...\n"
         ],
         "fr": [
+          "Je vais vérifier cette politique de sécurité ...\n"
         ]
       },
-      "Message": {
-        "en": "\nNext step, connect with ssh on #>V:Trigram#-vm\n#>P:5#As a reminder, the user and password defined in the cloud-init were 'admin' and 'MyPassword'. Your turn... #>P:5#\nOh wait, it won't work with our security policy... My bad :'-(.#>P:2#\nFirst check if our Security policy is working as we expect, with a simple ping from to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on http://#>V:frontendHost#:#>V:frontendPort#/ssh. It will run a new terminal session on a VM on the Nutanix cluster.\n#>P:4#Then update the policy to allow the SSH and icmp traffic. Add 2 Inboud rules :\n - Service 'ssh' from this IP #>V:frontendHost# only\n - ICMP (Type : 8 - Code : 0) from all everywhere.#>P:3#\nAfter Security policy update, check again the ping and put 'Ok' here. #>I:#",
-        "fr": "\nProchaine étape, connectez-vous en ssh sur #>V:Trigram#-vm\n#>P:5#Pour rappel, l'utilisateur et le mot de passe définis dans le cloud-init étaient 'admin' et 'MyPassword'. A vous de jouer... #>P:5#\nOh, attendez, ça ne fonctionnera pas avec notre politique de sécurité... Désolé :'-(.#>P:2#\nCommencez par vérifier si notre politique de sécurité fonctionne comme prévu, avec un simple ping de votre VM. Cela ne devrait pas fonctionner.#>P:2# Pour exécuter votre ping, veuillez ouvrir une nouvelle page web sur http://#>V:frontendHost#:#>V:frontendPort#/ssh. Cela lancera une nouvelle session de terminal sur une VM du cluster Nutanix.\n#>P:4#Ensuite, mettez à jour la security policy pour autoriser le trafic SSH et icmp. Ajoutez 2 règles entrantes :\n - Service 'ssh' depuis cette IP #>V:frontendHost# uniquement\n - ICMP (Type : 8 - Code : 0) depuis partout.#>P:3#\nAprès la mise à jour de la politique de sécurité, vérifiez à nouveau le ping et écrivez 'Ok' ici. #>I:#"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "CheckTask": "CheckSecurityPolicy",
+      "DefaultColor": "magenta"
     },
     {
       "id": 26,
@@ -559,16 +561,28 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Next step, connect with ssh on #>C:white##>V:Trigram#-vm#>D#...\n",
+          "#>P:5#As a reminder, the user and password defined in the cloud-init were #>C:white#admin#>D# and #>C:white#MyPassword#>D#. Your turn... #>P:5#\n",
+          "Oh wait, it won't work with our security policy... My bad!#>P:2#\n\n",
+          "First check if our Security policy is working as we expect, with a simple ping from to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. It will run a new terminal session on a VM on the Nutanix cluster.\n",
+          "#>P:4#Then update the policy to allow the SSH and icmp traffic. Add 2 Inboud rules:\n",
+          " - Service #>C:white#ssh#>D# from this IP #>C:white##>V:frontendHost##>D# only\n",
+          " - #>C:white#ICMP (Type : 8 - Code : 0)#>D# from all everywhere.#>P:3#\n",
+          "After Security policy update, check again the ping and send me #>C:white#Ok#>D# here: #>I:#"
         ],
         "fr": [
+          "Prochaine étape, connectez-vous en ssh sur #>C:white##>V:Trigram#-vm#>D# ...\n",
+          "#>P:5#Pour rappel, l'utilisateur et le mot de passe définis dans le cloud-init étaient #>C:white#admin#>D# et #>C:white#MyPassword#>D#. A vous de jouer... #>P:5#\n",
+          "Oh, attendez, ça ne fonctionnera pas avec notre politique de sécurité... Désolé !#>P:2#\n\n",
+          "Commencez par vérifier si notre politique de sécurité fonctionne comme prévu, avec un simple ping de votre VM. Cela ne devrait pas fonctionner.#>P:2# Pour exécuter votre ping, veuillez ouvrir une nouvelle page web sur #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. Cela lancera une nouvelle session de terminal sur une VM du cluster Nutanix.\n",
+          "#>P:4#Ensuite, mettez à jour la security policy pour autoriser le trafic SSH et icmp. Ajoutez 2 règles entrantes :\n",
+          " - Service #>C:white#ssh#>D# depuis cette IP #>C:white##>V:frontendHost##>D# uniquement\n",
+          " - #>C:white#ICMP (Type : 8 - Code : 0)#>D# depuis partout.#>P:3#\n",
+          "Après la mise à jour de la politique de sécurité, vérifiez à nouveau le ping et envoyez moi un message #>C:white#Ok#>D# ici : #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nI trust you but I prefer to double-check that buddy... \n",
-        "fr": "\nJe vous fais confiance mais je préfère vérifier ça 2x... \n"
-      },
-      "CheckTask": "CheckSecurityPolicy2",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 27,
@@ -576,16 +590,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "I trust you but I prefer to double-check that buddy...\n"
         ],
         "fr": [
+          "Je vous fais confiance mais je préfère vérifier ça deux-fois, très cher ... \n"
         ]
       },
-      "Message": {
-        "en": "\nWe have a last policy to setup : the protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\nCreate a new Protection policy named '#>V:Trigram#-prot-policy' with the following rules :\n - Take a snapshot every 1 hour\n - Keep 1 day of snapshots\n - Retention Type must be 'Roll-up'\n - It will be applied to VM with your categorie with value 'Critical'\nWe do not need to replicate here.\nAs you will see, you can also configure near-sync replication (1mn RPO) but it is not really interesting here, but I like the idea.\n#>P:2#Write 'Ok' when it's done. #>I:#",
-        "fr": "\nNous avons une dernière politique à configurer : la politique de protection. C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\nCréez une nouvelle protection policy nommée '#>V:Trigram#-prot-policy' avec les règles suivantes :\n - Prendre un snapshot toutes les 1 heure\n - Conserver 1 jour de snapshots\n - Le type de rétention doit être 'Roll-up'\n - Elle sera appliquée aux VM avec votre catégorie avec la valeur 'Critical'\nNous n'avons pas besoin de réplication ici.\nComme vous le verrez, vous pouvez également configurer une réplication near-sync (RPO de 1mn) ou synchrone (RPO 0) mais ce n'est pas vraiment intéressant ici, mais j'aime l'idée.\n#>P:2#Ecrivez 'Ok' quand c'est fait. #>I:#"
-      },
-      "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "CheckTask": "CheckSecurityPolicy2",
+      "DefaultColor": "magenta"
     },
     {
       "id": 28,
@@ -593,19 +605,48 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "We have a last policy to setup: a protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\n",
+          "Create a new Protection policy named #>C:white##>V:Trigram#-prot-policy#>D# with the following properties:\n",
+          " - No need to replicate, so #>C:white#no need for a Recovery Location#>D#\n",
+          " - Just a #>C:white#local schedule#>D#, with the below settings:\n",
+          "   . Take a snapshot every #>C:white#1 hour#>D#\n",
+          "   . Retention Type must be #>C:white#Roll-up#>D#\n",
+          "   . Keep #>C:white#1 day#>D# of snapshots\n",
+          " - Applied to VM with your categorie #>C:white##>V:Trigram#-cat#>D# and value #>C:white#Critical#>D#\n",
+          "#>P:2#Send me #>C:white#Ok#>D# when it's done: #>I:#"
         ],
         "fr": [
+          "Nous avons une dernière politique à configurer : une politique de protection (Protection Policy). C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\n",
+          "Créez une nouvelle politique de protection nommée #>C:white##>V:Trigram#-prot-policy#>D# avec les propriétés suivantes :\n",
+          " - Pas besoin de réplication, donc #>C:white#pas de Recovery Location#>D#\n",
+          " - Juste un #>C:white#ordonnancement local#>D# (local schedule), avec les paramètres ci-dessous :\n",
+          "   . Prendre un snapshot toutes les #>C:white#1 heure#>D#\n",
+          "   . Le type de rétention doit être #>C:white#Roll-up#>D#\n",
+          "   . Conserver #>C:white#1 jour#>D# de snapshots\n",
+          " - Appliquée aux VM avec votre catégorie #>C:white##>V:Trigram#-cat#>D# et la valeur #>C:white#Critical#>D#\n",
+          "#>P:2#Envoyez moi un message #>C:white#Ok#>D# quand c'est fait : #>I:#"
         ]
       },
-      "Message": {
-        "en": "\nGood. I check again. Less risks, more fun !\n",
-        "fr": "\nBien. Je vérifie à nouveau. Moins de risques, plus de fun !\n"
-      },
-      "CheckTask": "CheckProtectionPolicy",
-      "DefaultColor": "blue"
+      "WaitForInputValue": "Ok",
+      "DefaultColor": "magenta"
     },
     {
       "id": 29,
+      "active": true,
+      "Prompt": "ego",
+      "Messages": {
+        "en": [ 
+          "Good. I check again. Less risks, more fun!\n"
+        ],
+        "fr": [
+          "Bien. Je vérifie à nouveau. Moins de risques, plus de fun !\n"
+        ]
+      },
+      "CheckTask": "CheckProtectionPolicy",
+      "DefaultColor": "magenta"
+    },
+    {
+      "id": 30,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -622,7 +663,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 30,
+      "id": 31,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -639,7 +680,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 30,
+      "id": 32,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -655,7 +696,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 31,
+      "id": 33,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -671,7 +712,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 32,
+      "id": 34,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -687,7 +728,7 @@
       "DefaultColor": "green"
     },
     {
-      "id": 33,
+      "id": 35,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -704,7 +745,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 34,
+      "id": 36,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -721,7 +762,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 35,
+      "id": 37,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -738,7 +779,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 36,
+      "id": 38,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -755,7 +796,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 37,
+      "id": 39,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -772,7 +813,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 38,
+      "id": 40,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -789,7 +830,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 39,
+      "id": 41,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -806,7 +847,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 40,
+      "id": 42,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -823,7 +864,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 41,
+      "id": 43,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -840,7 +881,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 42,
+      "id": 44,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -857,7 +898,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 43,
+      "id": 45,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -874,7 +915,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 44,
+      "id": 46,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -891,7 +932,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 45,
+      "id": 47,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -908,7 +949,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 46,
+      "id": 48,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -925,7 +966,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 47,
+      "id": 49,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -942,7 +983,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 48,
+      "id": 50,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -959,7 +1000,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 49,
+      "id": 51,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -976,7 +1017,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 50,
+      "id": 52,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -993,7 +1034,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 51,
+      "id": 53,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -1010,7 +1051,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 52,
+      "id": 54,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -1027,7 +1068,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 53,
+      "id": 55,
       "active": true,
       "Prompt": "ego",
       "Messages": {
@@ -1043,7 +1084,7 @@
       "DefaultColor": "blue"
     },
     {
-      "id": 54,
+      "id": 56,
       "active": true,
       "Prompt": "system",
       "Messages": {

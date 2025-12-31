@@ -106,7 +106,7 @@ if __name__ == "__main__":
     # We browse all stages one by one
     for stage in data['stages']:
         # We load the message
-        prompt, messages, color, waitForInputValue, checkScript, saveScore = stageMessage(stage['id'], contentJsonFile, variables['Language'])
+        prompt, messages, color, waitForInputValue, checkScript, saveScore, SilentOnSuccess = stageMessage(stage['id'], contentJsonFile, variables['Language'])
         #print(f"\n--- Stage {stage['id']} ---")
         #print(f"(Debug) Stage active: {stage['active']}, RecoveryUntilStage: {variables['RecoveryUntilStage']}\n")
 
@@ -117,7 +117,7 @@ if __name__ == "__main__":
             
             # ...but we check student work if needed, in silent mode
             if checkScript != '':
-                CheckStage(checkScript, prompt, color,variables, silent = True)
+                CheckStage(checkScript, prompt, color, variables, "Full")
         
         elif stage['active'] == True:
             
@@ -126,12 +126,7 @@ if __name__ == "__main__":
 
             # Check student work if needed
             if checkScript != '':
-                #if stage['id'] == 1:
-                #    silentMode = True
-                #else:
-                #    silentMode = False
-                silentMode = False
-                CheckStage(checkScript, prompt, color, variables, silent=silentMode)
+                CheckStage(checkScript, prompt, color, variables, "NoSuccess" if SilentOnSuccess else "None")
 
         # Update the score file
         if(saveScore and variables['Trigram']):

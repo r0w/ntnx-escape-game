@@ -1,0 +1,32 @@
+#cloud-config
+keyboard:
+  layout: fr
+users:
+  - name: admin
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+chpasswd:
+  list: |
+    admin:MyPassword
+  expire: False
+ssh_pwauth: true
+
+
+#cloud-config
+users:
+  - name: nutanix
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+  - name: admin
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    primary_group: users
+    groups: [sudo]
+    no_user_group: true 
+chpasswd:
+  list: |
+    nutanix:MyPassword
+    admin:MyPassword
+  expire: false
+
+ssh_pwauth: true
