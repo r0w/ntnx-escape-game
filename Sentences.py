@@ -8,7 +8,7 @@ labOk = {
         "You are the best of the best!",
         "Perfect, it's here!",
         "You are impressive!",
-        "You did that all your life?",
+        "Seems that you did that all your life, didn't you?",
         "You are a genius!",
         "Nice, you are a pro!",
         "You are a master!",
@@ -45,7 +45,7 @@ labKo = {
         'Oups, ça ne semble pas bon !',
         'Non, réessayez !',
         'Hum, ça ne colle pas !',
-        'Ça me semble être une mauvaise saisie !',
+        'Ça me semble être une mauvaise manipulation ou un oubli !',
         'Il y a un truc qui cloche !',
         'Ça ne va pas !',
         'Je te croyais meilleur en fait !',
@@ -53,13 +53,13 @@ labKo = {
 }
 
 labRetry = {
-    "en": "Try again, and hit #>C:white#Enter#>C:white# to try to validate your action...",
-    "fr": "Essayez à nouveau, et appuyez sur #>C:white#Entrée#>C:white# pour revalider votre action ..."
+    "en": "Try again and hit #>C:white#Enter#>D# when I can check again...",
+    "fr": "Essayez encore et appuyez sur #>C:white#Entrée#>D# quand je peux vérifier à nouveau ..."
 }
 
 labRetryWithValue = {
-    "en": "When it is ok, put the good value here and press #>C:white#Enter#>C:white#: ",
-    "fr": "Quand c'est bon, écrivez la bonne valeur ici et appuyez sur #>C:white#Entrée#>C:white# : "
+    "en": "When it is ok, put the good value here and press #>C:white#Enter#>D#: ",
+    "fr": "Quand c'est bon, écrivez la bonne valeur ici et appuyez sur #>C:white#Entrée#>D# : "
 }
 
 labNotUnderstood = {

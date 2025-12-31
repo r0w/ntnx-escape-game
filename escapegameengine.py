@@ -32,8 +32,6 @@ def deleteEnptyStrings(tab):
 #  - #>D#, it will switch back to the default color.
 #  - #>B#, it will clear the screen.
 #  - #>N#, no prompt (only works at the beginning of a line).
-
-  
 def display(prompt, inputStrings, variables, color = None, waitForInputValue = '', delay=0.03):
     # Setting up colors.
     # https://www.geeksforgeeks.org/python/print-colors-python-terminal/
@@ -138,7 +136,7 @@ def display(prompt, inputStrings, variables, color = None, waitForInputValue = '
                             readInput = input()
                             sys.stdout.write(color_codes[color])
                             if readInput.lower() != waitForInputValue.lower() and waitForInputValue != '':
-                                display(prompt, [labNotUnderstood[variables['Language']]], variables, "red", waitForInputValue)
+                                display(prompt, ["#>C:red#" + labNotUnderstood[variables['Language']] + "#>D#"], variables, color, waitForInputValue)
                         
                     # If we have a variable display action, we display the value of the variable specified in the string
                     elif element[1] == 'V':
@@ -160,7 +158,6 @@ def display(prompt, inputStrings, variables, color = None, waitForInputValue = '
 # = stageMessage
 # ========================================================================
 # This function reads a JSON file and returns the message of a specific stage
-
 def stageMessage(id_number, json_file_path, language='en'):
     with open(json_file_path, 'r') as file:
         data = json.load(file)
@@ -180,7 +177,7 @@ def stageMessage(id_number, json_file_path, language='en'):
     if language not in info['Messages'].keys():
         language = 'en'
  
-    return(info['Prompt'] if 'Prompt' in info else "-:-", info['Messages'][language], info['DefaultColor'], waitForInputValue, checkTask, info['SaveScore'] if 'SaveScore' in info else True)
+    return(info['Prompt'] if 'Prompt' in info else "-:-", info['Messages'][language], info['DefaultColor'], waitForInputValue, checkTask, info['SaveScore'] if 'SaveScore' in info else True, info['SilentOnSuccess'] if 'SilentOnSuccess' in info else False)
 
 
 # ========================================================================
@@ -206,18 +203,18 @@ def clueMessage(checkScript, messageNumber, language='en'):
 # = CheckStage
 # ========================================================================
 # This function checks the script of a stage to validate stage completion
-def CheckStage(checkScript, prompt, color, variables, silent = False):
+def CheckStage(checkScript, prompt, color, variables, silent = "None"):
     if checkScript in globals():
         ret = False
         
         # We do force silent mode for predefinied checks.
         if checkScript in forceSilentModeDuringChecks:
-            silent = True
+            silent = "Full"
         
         while not ret:
-            ret, messageNumber, reenterValue = globals()[checkScript](variables, recoveryMode = silent)
+            ret, messageNumber, reenterValue = globals()[checkScript](variables, recoveryMode = (silent == "Full"))
                 
-            if silent:
+            if silent == "Full":
                 errorMessage = ""
                 retryMessage = ""
 
@@ -235,7 +232,7 @@ def CheckStage(checkScript, prompt, color, variables, silent = False):
                 
                 clue = clueMessage(checkScript, messageNumber, variables['Language'])
                 
-                if silent :
+                if silent == "Full":
                         display(prompt, ["#>P:3#" + clue], variables, color) 
 
                 else:
@@ -249,7 +246,7 @@ def CheckStage(checkScript, prompt, color, variables, silent = False):
                         display(prompt, [ retryMessage + "#>I:"], variables, color) 
             else:
                 # If function returns successful message
-                if silent == False:
+                if silent == "None":
                     display(prompt, [random.choice(labOk[variables['Language']]) + "#>P:3#\n\n"], variables, color)
     else:
         raise ValueError(f"Function {checkScript} is not defined.")
@@ -263,7 +260,7 @@ def GetSupportedLanguages(json_file_path):
     with open(json_file_path, 'r') as file:
         data = json.load(file)
     
-    return ",".join(data['supportedLanguages'])
+    return ", ".join(data['supportedLanguages'])
 
 
 # ========================================================================
