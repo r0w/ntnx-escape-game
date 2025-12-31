@@ -1,7 +1,7 @@
 from functions import *
 from jsonpath_ng.ext import parse
 from main import contentJsonFile, scoreFolder
-from Sentences import *
+from sentences import *
 import os
 
 # Here are all the functions called by the game content to check labs
@@ -390,7 +390,7 @@ def CheckProtectionPolicy(variables, recoveryMode):
 # =============================================================================
 def CheckApprovalPolicy(variables, recoveryMode):
 
-    response = retrieveApprovalPolicyInfo(variables['ApprovalPolicy'], variables=variables)
+    response = retrieveApprovalPolicyInfo(variables['Trigram'] + "-appr-policy", variables=variables)
 
     # We check if policy is created
     if response is None: 

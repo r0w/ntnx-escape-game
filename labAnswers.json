@@ -227,12 +227,12 @@
             "checkFunction": "CheckApprovalPolicy",
             "clues": [
                 {
-                    "en": "Are you sure you created the approval policy #>V:ApprovalPolicy#? I did not see it.",
-                    "fr": "Etes-vous sûr d'avoir créé l'approval policy #>V:ApprovalPolicy# ? Je ne la vois pas."
+                    "en": "Are you sure you created the approval policy #>C:white##>V:ApprovalPolicy##>D#? I can't see it!\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique d'approbation #>C:white##>V:ApprovalPolicy##>D# ? Je ne la vois pas.\n"
                 },
                 {
-                    "en": "The approval policy is not linked to the previous protection policy. Can you fix it ?",
-                    "fr": "L'approval policy n'est pas liée à la protection policy précédente. Pouvez-vous corriger ça ?"
+                    "en": "The approval policy is not linked to the previous protection policy. Can you fix it?\n",
+                    "fr": "La politique d'approbation n'est pas liée à la politique de protection précédente. Pouvez-vous corriger ça ?\n"
                 }
             ]
         },

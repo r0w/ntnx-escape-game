@@ -8,10 +8,10 @@ import os
 import uuid
 
 # ====================================================================================================
-# lowercaseTrigram - Done
+# deleteVM
 # ====================================================================================================
 # This function delete VM identified in the variables
-def DeleteVM(variables):
+def deleteVM(variables):
 
     # Configure the client
     sdkConfig = confSDKClient(variables['PC'], variables['PCUser'], variables['PCPassword'])
@@ -35,15 +35,11 @@ def DeleteVM(variables):
     return True
 
 # ====================================================================================================
-# DeployBP
+# deployBlueprint
 # ====================================================================================================
 # To Do : Migrate to v4 API/SDK when available
-def DeployBP( variables ):
-    
-    # 
-    # 
-    
-    # Get BP ID
+def deployBlueprint( variables ):
+    # Get Blueprint ID
     url = "https://%s:9440/api/nutanix/v3/blueprints/list" % variables['PC']
     headers = {
         'Content-Type': 'application/json',
@@ -60,7 +56,7 @@ def DeployBP( variables ):
     for match in jsonpath_expr.find(response_data):
         bpUuid=match.value
 
-    # We Clone it
+    # We clone it
     url = "https://%s:9440/api/nutanix/v3/blueprints/%s/clone" % (variables['PC'], bpUuid)
     payload={
         "blueprint_name": "bp-blankvm-prd"+variables['Vlanid'],

