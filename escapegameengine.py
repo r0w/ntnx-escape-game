@@ -3,9 +3,9 @@ import sys
 import json
 from jsonpath_ng.ext import parse
 import cursor
-from CheckLabs import *
+from checkLabs import *
 import random
-from Sentences import *
+from sentences import *
 from actions import *
 from main import labAnswersJsonFile,forceSilentModeDuringChecks
 import os
@@ -200,10 +200,10 @@ def clueMessage(checkScript, messageNumber, language='en'):
 
 
 # ========================================================================
-# = CheckStage
+# = checkStage
 # ========================================================================
 # This function checks the script of a stage to validate stage completion
-def CheckStage(checkScript, prompt, color, variables, silent = "None"):
+def checkStage(checkScript, prompt, color, variables, silent = "None"):
     if checkScript in globals():
         ret = False
         
@@ -253,10 +253,10 @@ def CheckStage(checkScript, prompt, color, variables, silent = "None"):
     
 
 # ========================================================================
-# = GetSupportedLanguages
+# = getSupportedLanguages
 # ========================================================================
 # This function reads a JSON file and returns the list of supported languages
-def GetSupportedLanguages(json_file_path):
+def getSupportedLanguages(json_file_path):
     with open(json_file_path, 'r') as file:
         data = json.load(file)
     
@@ -264,10 +264,10 @@ def GetSupportedLanguages(json_file_path):
 
 
 # ========================================================================
-# = UpdateScoreFile
+# = updateScoreFile
 # ========================================================================
 # This function updates the score file with the format Trigram:Stage
-def UpdateScoreFile(scoreFolder, trigram, stage, maxStage, variables=None):
+def updateScoreFile(scoreFolder, trigram, stage, maxStage, variables=None):
     
     # We setup the score filename for this user
     scoreFile=scoreFolder + "/" + trigram + ".json"
@@ -318,10 +318,10 @@ def UpdateScoreFile(scoreFolder, trigram, stage, maxStage, variables=None):
 
 
 # ========================================================================
-# = gameClean
+# = cleanScoreFiles
 # ========================================================================
-# This function clean the scoreboard file
-def gameClean(scoreFolder,maxStages):
+# This function clean the score and scoreboard files
+def cleanScoreFiles(scoreFolder,maxStages):
     
     # We check if the score folder exists, if not we create it
     if not os.path.exists(scoreFolder):

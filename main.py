@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import json
 import os
-from escapegameengine import *
+from escapeGameEngine import *
 from functions import *
 import urllib3
 import sys
@@ -72,7 +72,7 @@ if __name__ == "__main__":
     # Check for -clean parameter
     if '-clean' in sys.argv:
         maxStages=max(stage['id'] for stage in data['stages'])
-        gameClean(scoreFolder, maxStages)
+        cleanScoreFiles(scoreFolder, maxStages)
         print('Game cleaned')
         sys.exit(0)
 
@@ -88,13 +88,13 @@ if __name__ == "__main__":
             sys.exit(1)
 
         # Update score file
-        UpdateScoreFile(scoreFolder, trigram, stageId, maxStage)
+        updateScoreFile(scoreFolder, trigram, stageId, maxStage)
         print('Stage changed to', stageId, 'for user', trigram)
         
         # Exit 
         sys.exit(0)
 
-    variables['SupportedLanguages'] = GetSupportedLanguages(contentJsonFile)
+    variables['SupportedLanguages'] = getSupportedLanguages(contentJsonFile)
 
     # Clear the output screen
     os.system('cls' if os.name == 'nt' else 'clear')
@@ -117,7 +117,7 @@ if __name__ == "__main__":
             
             # ...but we check student work if needed, in silent mode
             if checkScript != '':
-                CheckStage(checkScript, prompt, color, variables, "Full")
+                checkStage(checkScript, prompt, color, variables, "Full")
         
         elif stage['active'] == True:
             
@@ -126,11 +126,11 @@ if __name__ == "__main__":
 
             # Check student work if needed
             if checkScript != '':
-                CheckStage(checkScript, prompt, color, variables, "NoSuccess" if SilentOnSuccess else "None")
+                checkStage(checkScript, prompt, color, variables, "NoSuccess" if SilentOnSuccess else "None")
 
         # Update the score file
         if(saveScore and variables['Trigram']):
-            UpdateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
+            updateScoreFile(scoreFolder, variables['Trigram'].lower(), stage['id'], maxStage, variables)
 
     # Reset display color
     sys.stdout.write('\033[0m')
