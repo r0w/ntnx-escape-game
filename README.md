@@ -2,7 +2,7 @@
   - Roleplay to discover the **Nutanix Cloud Platform** (NCP).
 
 # Preparation
-1) Book a Nutanix HPoC with following characteristics : 
+1) Book a Nutanix HPoC with the following characteristics: 
   - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
   - AOS 7.5 (do not use another version).
   - PC 7.5 (do not use another version).
