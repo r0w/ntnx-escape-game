@@ -227,8 +227,8 @@
             "checkFunction": "CheckApprovalPolicy",
             "clues": [
                 {
-                    "en": "Are you sure you created the approval policy #>C:white##>V:ApprovalPolicy##>D#? I can't see it!\n",
-                    "fr": "Etes-vous sûr d'avoir créé la politique d'approbation #>C:white##>V:ApprovalPolicy##>D# ? Je ne la vois pas.\n"
+                    "en": "Are you sure you created the approval policy #>C:white##>V:Trigram#-appr-policy#>D#? I can't see it!\n",
+                    "fr": "Etes-vous sûr d'avoir créé la politique d'approbation #>C:white##>V:Trigram#-appr-policy#>D# ? Je ne la vois pas.\n"
                 },
                 {
                     "en": "The approval policy is not linked to the previous protection policy. Can you fix it?\n",
@@ -300,8 +300,8 @@
             "checkFunction": "CheckRunway",
             "clues": [
                 {
-                    "en": "The runway is not the one expected. Can you verify it ? ",
-                    "fr": "Le temps avant remplissage n'est pas celui que je pensais. Pouvez-vous vérifier ?"
+                    "en": "The runway is not the one expected. Can you check it?\n",
+                    "fr": "L'autonomie avant atteinte de la capacité maixmale n'est pas celle que je pensais. Pouvez-vous vérifier ?\n"
                 }
             ]
         },
@@ -309,20 +309,20 @@
             "checkFunction": "CheckPlaybook",
             "clues": [
                 {
-                    "en": "The playbook #>V:Trigram#-playbook is not on the cluster. Are you sure you named it correctly?",
-                    "fr": "Le playbook #>V:Trigram#-playbook n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommé correctement ?"
+                    "en": "The playbook #>C:white##>V:Trigram#-playbook#>D# is not on the cluster. Are you sure you named it correctly?\n",
+                    "fr": "Le playbook #>C:white##>V:Trigram#-playbook#>D# n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommé correctement ?\n"
                 },
                 {
-                    "en": "Are you sure your trigger is correctly set ?",
-                    "fr": "Etes-vous sûr que votre déclencheur est correctement configuré ?"
+                    "en": "Are you sure your trigger is correctly set?\n",
+                    "fr": "Etes-vous sûr que votre déclencheur est correctement configuré ?\n"
                 },
                 {
-                    "en": "It is strange, actions are wrong. We need only one action which sends an email. Can you fix it ?",
-                    "fr": "C'est étrange, les actions sont incorrectes. Nous avons besoin d'une seule action qui envoie un email. Pouvez-vous corriger ça ?"
+                    "en": "It is strange, actions are wrong. We need only one action which sends an email. Can you fix it?\n",
+                    "fr": "C'est étrange, les actions sont incorrectes. Nous avons besoin d'une seule action qui envoie un email. Pouvez-vous corriger cela ?\n"
                 },
                 {
-                    "en": "The playbook is not enabled. Can you fix it ?",
-                    "fr": "Le playbook n'est pas activé. Pouvez-vous corriger ça ?"
+                    "en": "The playbook is not enabled. Can you fix that?\n",
+                    "fr": "Le playbook n'est pas activé. Pouvez-vous corriger cela ?\n"
                 }
             ]
         },
@@ -330,12 +330,12 @@
             "checkFunction": "CheckCloneApp",
             "clues": [
                 {
-                    "en": "The app #>V:Trigram#-app is not on the cluster. Are you sure you named it correctly?",
-                    "fr": "L'application #>V:Trigram#-app n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommée correctement ?"
+                    "en": "The app #>C:white##>V:Trigram#-app#>D# is not on the cluster. Are you sure you named it correctly?\n",
+                    "fr": "L'application #>C:white##>V:Trigram#-app#>D# n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommée correctement ?\n"
                 },
                 {
-                    "en": "Automation has not created VPC #>V:Trigram#-vpc, that is weird. Can you check apps log in its audit panel? You can delete it and redeploy app if you used a bad vpc name.",
-                    "fr": "L'automatisation n'a pas créé le VPC #>V:Trigram#-vpc, c'est bizarre. Pouvez-vous vérifier les logs de l'application dans son panneau d'audit ? Vous pouvez le supprimer et redéployer l'application si vous avez utilisé un mauvais nom de VPC."
+                    "en": "Automation has not created VPC #>C:white##>V:Trigram#-vpc#>D#, that is weird! Can you check apps log in its audit panel? You can delete it and redeploy app if you used the wrong VPC name.\n",
+                    "fr": "L'automatisation n'a pas créé le VPC #>C:white##>V:Trigram#-vpc#>D#, c'est bizarre ! Pouvez-vous vérifier les logs de l'application dans son panneau d'audit ? Vous pouvez le supprimer et redéployer l'application si vous avez utilisé un mauvais nom de VPC.\n"
                 }
             ]
         },
@@ -343,12 +343,12 @@
             "checkFunction": "CheckSchedDay2",
             "clues": [
                 {
-                    "en": "The schedule #>V:Trigram#-sched is not associated to the app. Can you fix it ?",
-                    "fr": "Le schedule #>V:Trigram#-sched n'est pas associé à l'application. Pouvez-vous corriger ça ?"
+                    "en": "The schedule #>C:white##>V:Trigram#-sched#>D# is not associated to the app. Can you fix that?\n",
+                    "fr": "Le schedule #>C:white##>V:Trigram#-sched#>D# n'est pas associé à l'application. Pouvez-vous corriger cela ?\n"
                 },
                 {
-                    "en": "You have created #>V:Trigram#-sched ?? It seems not to be the case... Can you check it ?",
-                    "fr": "Vous avez créé le schedule #>V:Trigram#-sched ?? On ne dirait pas... Pouvez-vous corriger ça ?"
+                    "en": "Have you created the schedule #>C:white##>V:Trigram#-sched#>D#? It seems no... Can you check that?\n",
+                    "fr": "Avez-vous créé le schedule #>C:white##>V:Trigram#-sched#>D# ? On ne dirait pas ... Pouvez-vous corriger cela ?\n"
                 }
                 
             ]
@@ -357,11 +357,11 @@
             "checkFunction": "CheckUpdateBP",
             "clues": [
                 {
-                    "en": "The blueprint bp-blankvm-prd#>V:Vlanid# is not on the cluster. Have you changed his name?",
-                    "fr": "Le blueprint bp-blankvm-prd#>V:Vlanid# n'est pas sur le cluster. Avez-vous changé son nom ?"
+                    "en": "The blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# is not on the cluster. Have you changed his name?\n",
+                    "fr": "Le blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# n'est pas sur le cluster. Avez-vous changé son nom ?\n"
                 },{
-                    "en": "I do not see the 'foo' task in the create action of your VM, please check it.",
-                    "fr": "Je ne vois pas la tâche 'foo' dans l'action de création de votre VM, merci de vérifier."
+                    "en": "I do not see the #>C:white#foo#>D# task in the create action of your VM, please check it!\n",
+                    "fr": "Je ne vois pas la tâche #>C:white#foo#>D# dans l'action de création de votre VM, merci de vérifier!\n"
                 }
             ]
         }           

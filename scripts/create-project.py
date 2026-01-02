@@ -630,4 +630,7 @@ response_data=response.json()
 
 print("Project created and updated successfully!")
 
+# DO NOT REMOVE - Used by Self-Service and other scripts
+print("ProjectUUID=" + projectUUID)
+
 exit(0)

@@ -27,7 +27,8 @@
           "Please, enter your Agent Trigram #>C:red#(always reuse the same 3 letters if you have been disconnected)#>D#: #>I:Trigram#>P:3#"
         ],
         "fr": [
-          "Traduction en Français demandée et en chemin ...#>P:2#\n\n",
+          "Traduction en Français demandée et en cours de téléchargement ...#>P:2#\n",
+          "Langue de Molière disponible !#>P:2#\n\n",
           "Veuillez entrer votre Trigramme d'Agent #>C:red#(réutilisez toujours les mêmes 3 lettres si vous avez été déconnecté)#>D# : #>I:Trigram#>P:3#"
         ]
       },
@@ -878,14 +879,22 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nNice ! #>P:3#Third and last check I need you do for me : #>P:1#From the Dashboard page of the Infrastructure, you should have a tile with security concerns. From here, display the full security Dashboard, and dig into it, takes some screenshot which will help us for upcoming operations. We will have to act quickly, this tool is very helpfull to identify all security issues of the platform, and they probably take care of it. #>P:5#Put 'Ok' here when it's done. #>I:#\n"
+          "Nice! #>P:3#There is one last check I need you to do...#>P:1#\n",
+          "From the #>C:white#Dashboard#>D# page of the #>C:white#Infrastructure#>D#, you should have a tile with security concerns.\n",
+          "From here, display the full security Dashboard. and dig into it. Take some screenshot which will help us for upcoming operations.\n",
+          "We will have to act quickly, this tool is very helpfull to identify all security issues of the platform and they probably take care of it. #>P:5#\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\nBien ! #>P:3#Troisième et dernier check que je vous demande de faire pour moi : #>P:1#Depuis la page Dashboard de l'Infrastructure, vous devriez avoir une tuile avec des problèmes de sécurité. A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le, prenez quelques captures d'écran qui nous aideront pour les opérations à venir. Nous devrons agir rapidement, cet outil est très utile pour identifier tous les problèmes de sécurité de la plateforme, et ils l'utilisent probablement. #>P:5#Mettez 'Ok' ici quand c'est fait. #>I:#\n"
+          "Très bien !#>P:3# Il y a une dernière vérification que j'ai besoin que vous fassiez ... #>P:1#\n",
+          "Depuis la page #>C:white#Dashboard#>D# de la partie #>C:white#Infrastructure#>D#, vous devriez avoir une tuile avec des problèmes de sécurité.\n",
+          "A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le. Prenez quelques captures d'écran qui nous aideront pour les opérations à venir.\n",
+          "Nous devrons agir rapidement, cet outil est très utile pour identifier tous les problèmes de sécurité de la plateforme et ils l'utilisent probablement. #>P:5#\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 43,
@@ -893,14 +902,30 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Bob as intercepted a new account for another cluster. #>P:2#Not a big catch, it seems to be the account of the guy who monitors clusters capacity and node procurement.#>P:2# Can you quickly connect on this cluster, check runway values and give me the number of days remaining on this cluster ?#>P:3# Connection info are :\n - Prism Central : #>V:OldPC#\n - User : #>V:OldPCUsername# (it's a local user)\n - Password : #>V:OldPCPassword#\n#>P:3#You should find info in the 'Intelligent Operations' page. Put the number of days here when you have it (only numbers, no symbols): #>I:Runway#"
+          "#>N#\n",
+          "We have intercepted a new account for another cluster. #>P:2#\n",
+          "Not a big catch, it seems to be the account of the person who monitors clusters capacity and node procurement.#>P:2#\n\n",
+          "Can you connect on this cluster now, check runway values and give me the number of days remaining on this cluster?#>P:3#\n",
+          "Required informations to connect are below:\n",
+          " - Prism Central: #>C:white##>V:OldPC##>D#\n",
+          " - User: #>C:white##>V:OldPCUsername##>D# #>C:red#(it's a local user)#>D#\n",
+          " - Password: #>C:white##>V:OldPCPassword##>D#\n\n#>P:3#",
+          "You should find info in the #>C:white#Intelligent Operations#>D# page. Just send the #>C:white#number of days#>D# here when you have it #>C:red#(only numbers, nothing else)#>D#: #>I:Runway#"
         ],
         "fr": [
-          "Bob a intercepté un nouveau compte pour un autre cluster. #>P:2#C'est pas une grosse prise, il semble que ce soit le compte du gars qui surveille la capacité des clusters et l'approvisionnement en noeuds.#>P:2# Pouvez-vous vous connecter rapidement sur ce cluster, vérifier les infos du capacity planning et me donner le nombre de jours restants sur ce cluster ?#>P:3# Les infos de connexion sont :\n - Prism Central : #>V:OldPC#\n - Utilisateur : #>V:OldPCUsername# (c'est un utilisateur local)\n - Mot de passe : #>V:OldPCPassword#\n#>P:3#Vous devriez trouver des informations dans la page 'Intelligent Operations'. Mettez le nombre de jours ici quand vous l'avez (juste les chiffres, pas les symboles) : #>I:Runway#"
+          "#>N#\n",
+          "Nous avons intercepté un nouveau compte pour un autre cluster. #>P:2#\n",
+          "Ce n'est pas une grosse prise, mais il semble que cela soit le compte de la personne qui surveille la capacité des clusters et l'approvisionnement en noeuds.#>P:2#\n\n",
+          "Pouvez-vous vous connecter rapidement sur ce cluster, vérifier les informations d'autonomie (Runway) et me donner le nombre de jours restants davant d'atteindre la capacité maximale ce cluster ?#>P:3#\n",
+          "Voici les informations de connexion :\n",
+          " - Prism Central: #>C:white##>V:OldPC##>D#\n",
+          " - Utilisateur: #>C:white##>V:OldPCUsername##>D# #>C:red#(c'est un utilisateur local)#>D#\n",
+          " - Mot de passe: #>C:white##>V:OldPCPassword##>D#\n\n#>P:3#",
+          "Vous devriez trouver des informations dans la page #>C:white#Intelligent Operations#>D#. Envoyez-moi simplement #>C:white#le nombre de jours#>D# ici quand vous l'avez #>C:red#(juste un nombre, rien d'autre)#>D# : #>I:Runway#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 44,
@@ -908,14 +933,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nOh really ? \n"
+          "Oh, really?\n"
         ],
         "fr": [
-          "\nAh vraiment ? \n"
+          "Ah, vraiment ?\n"
         ]
       },
       "CheckTask": "CheckRunway",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 45,
@@ -923,14 +948,20 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Nutanix provides advices to optimize VM size and reduce the footprint on the cluster. They will probably use it to reduce the cost of the platform and push back the node procurement. #>P:3#Can you check how many resources can ben saved on the cluster ? #>P:3#If I remember well you have to find an 'Optimize resources' button in the capacity-planning page. Take a screenshot for later please it will help us to estimate nodes addons date. Then Write 'Ok' here. #>I:#"
+          "Nutanix provides advices to optimize VM size and reduce the footprint on the cluster. They will probably use it to reduce the cost of the platform and push back the node procurement. #>P:3#\n\n",
+          "Can you check how many resources can ben saved on the cluster? #>P:3#\n",
+          "If the informations we have are accurate, you have to find an #>C:white#Optimize Resources#>D# button in the left pane. Take a screenshot for later please it will help us to estimate new nodes addons date.\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "Nutanix fournit des conseils pour optimiser la taille des VM et réduire leur empreinte sur le cluster. Ils l'utiliseront probablement pour réduire le coût de la plateforme et repousser l'approvisionnement en noeuds. #>P:3#Pouvez-vous vérifier combien de ressources peuvent être économisées sur le cluster ? #>P:3#Si je me souviens bien, vous devez trouver un bouton 'Optimiser les ressources' sur le capacity-planning. Prenez une capture d'écran pour plus tard s'il vous plaît, cela nous aidera à estimer la date d'ajout de noeuds. Ecrivez ensuite 'Ok' ici. #>I:#"
+          "Nutanix fournit des conseils pour optimiser la taille des VM et réduire leur empreinte sur le cluster. Ils l'utiliseront probablement pour réduire le coût de la plateforme et repousser l'approvisionnement en noeuds. #>P:3#\n\n",
+          "Pouvez-vous vérifier combien de ressources peuvent être économisées sur le cluster ? #>P:3#\n",
+          "Si les informations que nous avons sont exactes, vous devriez trouver un bouton #>C:white#Optimize Resources#>D# sur le panneau de gauche. Prenez une capture d'écran pour plus tard s'il vous plaît, cela nous aidera à estimer la date d'ajout de nouveaux noeuds.\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 46,
@@ -938,14 +969,30 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nOk, #>P:3#Now go back on the first cluster please.#>P:3#\nWe are going to leverage Intelligent-Ops Low-Code capabilities from NCM. They call this feature X-play, and it is very useful to automate tasks. #>P:3#Can you create a new playbook\n - named '#>V:Trigram#-playbook'\n - it will send an email to #>V:EmailReport# as soon as a VM is 'Power cycled'\n - In the email body, put the VM ID please.\nDo not forget to enable it ;). I wait here for your 'Ok'. #>I:#"
+          "#>N#\n",
+          "Ok! #>P:3#Now go back on the first cluster please.#>P:3#\n",
+          "We are going to leverage #>C:white#Intelligent Operations Low-Code#>D# capabilities from #>C:white#NCM#>D#. They also call this feature #>C:white#X-Play#>D# and it is very useful to automate tasks. #>P:3#\n\n",
+          "Can you create a new playbook with the below settings:\n",
+          " - Name: #>C:white##>V:Trigram#-playbook#>D#\n",
+          " - Actions: Send an email to #>C:white##>V:Trigram##>V:EmailReport##>D# as soon as a an event happens about a VM that is #>C:white#Power Cycled#>D#.\n",
+          " - Details: In the email body, put the #>C:white#VM ID#>D# please.\n\n",
+          "#>C:red#And do not forget to enable it!#>D#\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\nOk, #>P:3#Maintenant, retournez sur le premier cluster s'il vous plaît.#>P:3#\nNous allons exploiter les capacités Low-Code d'Intelligent-Ops de NCM. Ils appellent cette fonctionnalité X-play, et elle est très utile pour automatiser les tâches. #>P:3#Pouvez-vous créer un nouveau playbook\n - nommé '#>V:Trigram#-playbook'\n - il enverra un email à #>V:EmailReport# dès qu'une VM est 'Power cycled'\n - Dans le corps de l'email, mettez l'ID de la VM s'il vous plaît.\nN'oubliez pas de l'activer ;). J'attends votre 'Ok'. #>I:#"
+          "#>N#\n",
+          "Ok ! #>P:3#Maintenant, retournez sur le premier cluster s'il vous plaît.#>P:3#\n",
+          "Nous allons exploiter les capacités #>C:white#Low-Code d'Intelligent Operations#>D# de #>C:white#NCM#>D#. Ils appellent aussi cette fonctionnalité #>C:white#X-Play#>D# et elle est très utile pour automatiser les tâches. #>P:3#\n\n",
+          "Pouvez-vous créer un nouveau playbook avec les paramètres suivants :\n",
+          " - Nom : #>C:white##>V:Trigram#-playbook#>D#\n",
+          " - Actions : Envoyer un email à #>C:white##>V:Trigram##>V:EmailReport##>D# dès qu'un événement #>C:white#Power Cycled#>D# à propos d'une VM est détecté.\n",
+          " - Détails : Dans le corps de l'email, mettez #>C:white#l'ID de la VM#>D# s'il vous plaît.\n\n",
+          "#>C:red#Et surtout, n'oubliez pas de l'activer !#>D#\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 47,
@@ -953,14 +1000,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nLet me take a look..."
+          "#>N#\n",
+          "Let me have a look..."
         ],
         "fr": [
-          "\nLaissez-moi jeter un œil..."
+          "#>N#\n",
+          "Laissez-moi jeter un oeil ..."
         ]
       },
       "CheckTask": "CheckPlaybook",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 48,
@@ -968,14 +1017,20 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nI think we need to check this. Can you 'Power Cycle' the VM #>V:Trigram#-vm and then verify the playbook has been played ? #>P:2#If my memories are good, in the playbook page, you have a 'Plays' menu with execution history.#>P:2# I wait here for your 'Ok'. #>I:#"
+          "I think we need to do a test. Can you #>C:white#Power Cycle#>D# the VM #>C:white##>V:Trigram#-vm#>D# and then verify the playbook has been played? #>P:2#\n",
+          "If my informations are accurates, in the playbook page, you have a #>C:white#Plays#>D# tab with the execution history.#>P:2#\n",
+          "Do not hesitate to look at the details of the last execution and verify that the body of the sent email is compliant.#>P:2#\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\nJe pense que nous devons vérifier cela. Pouvez-vous 'Power Cycle' la VM #>V:Trigram#-vm et ensuite vérifier que le playbook a été joué ? #>P:2#Si mes souvenirs sont bons, dans la page du playbook, vous avez un menu 'Plays' avec l'historique des exécutions.#>P:2# J'attends votre 'Ok'. #>I:#"
+          "Je pense que nous devrions tester cela. Pouvez-vous #>C:white#redémarrer (Power Cycle)#>D# la VM #>C:white##>V:Trigram#-vm#>D# et vérifier ensuite que le playbook a été joué ? #>P:2#\n",
+          "Si mes informations sont bonnes, dans la page du playbook, vous avez un onglet #>C:white#Plays#>D# avec l'historique des exécutions.#>P:2#\n",
+          "N'hésitez pas à regarder les détails de la dernière exécution et vérifiez que le corps de l'email envoyé est conforme.#>P:2#\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 49,
@@ -983,14 +1038,40 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nWe continue to trap this cluster... #>P:3#It seems they use Nutanix Self-Service, to create automation, and provide them in a marketplace for end-users. #>P:2#They have a blueprint to clone some VM into a dedicated private network (VPC), for testing purpose obviously. It could be interesting to execute it and I'll be quiet to investigate, far form production and potention trackers.\nPlease go in Self-Service > Blueprints, and launch 'CloneProd' with these parameters :\n - App Name : #>V:Trigram#-app\n - VPC name : #>V:Trigram#-vpc\n - Category : Environment\n - Category value : 'Production'\n - External Network Name : TestNetwork\n - Category for floating IP : 'Quarantine' (Actually we do not care for my usage)\n\nWrite 'Ok' when blueprint is in 'running' state. #>I:#"
+          "#>N#\n",
+          "Let's continue to trap this cluster... #>P:3#\n\n",
+          "It seems they are using #>C:white#Nutanix Self-Service#>D# to create automation and provide applications in a marketplace for their end-users. #>P:2#\n",
+          "They have a blueprint to clone some VM into a dedicated network, a.k.a. #>C:white#a Virtual Private Cloud (VPC)#>D#, for testing purpose obviously. It could be interesting to execute it and I'll be quiet to investigate, not in production and far from potential trackers.\n\n",
+          "Please go in #>C:white#Self-Service > Blueprints#>D# and open the blueprint #>C:white#CloneProd#>D#. Click on the #>C:white#Credentials#>D# button to update the password of the #>C:white##>V:PCUser##>D# account which allows access to Prism Central. As a reminder, its password is: #>C:white##>V:PCPassword##>D# ...\n\n", 
+          "#>C:red#Don't forget to save the changes before continuing!#>D#\n",
+          "Then, launch #>C:white#CloneProd#>D# with the below settings:\n",
+          " - Application Name: #>C:white##>V:Trigram#-app#>D#\n",
+          " - VPC name: #>C:white##>V:Trigram#-vpc#>D#\n",
+          " - Category: #>C:white#Environment#>D#\n",
+          " - Category value: #>C:white#Production'#>D#\n",
+          " - External Network Name: #>C:white#TestNetwork#>D#\n",
+          " - Category for floating IP: #>C:white#Quarantine#>D# (in fact, we don't care about it cause we won't use it)\n\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\nNous continuons de piéger ce cluster... #>P:3#Il semble qu'ils utilisent Nutanix Self-Service, pour créer des automatisations, et les proposer dans une marketplace pour les utilisateurs finaux. #>P:2#Ils ont un blueprint pour cloner des VM dans un réseau privé dédié (VPC), à des fins de test évidemment. Il pourrait être intéressant de l'exécuter et je serai tranquille pour enquêter, loin de la production et des potentiels traceurs.\nAllez dans Self-Service > Blueprints, et lancez 'CloneProd' avec ces paramètres :\n - Nom de l'application : #>V:Trigram#-app\n - Nom du VPC : #>V:Trigram#-vpc\n - Catégorie : Environment\n - Valeur de la catégorie : 'Production'\n - Nom du réseau externe : TestNetwork\n - Catégorie pour l'IP flottante : 'Quarantine' (En fait, nous n'en avons pas besoin pour mon usage)\n\nEcrivez 'Ok' lorsque le blueprint est dans l'état 'running'. #>I:#"
+          "#>N#\n",
+          "Continuons de piéger ce cluster ... #>P:3#\n\n",
+          "Il semble qu'ils utilisent #>C:white#Nutanix Self-Service#>D# pour créer des automatisations et proposer des applications dans une marketplace pour leurs utilisateurs. #>P:2#\n",
+          "Ils ont un blueprint pour cloner des VM dans un réseau dédié, i.e. #>C:white#un Virtual Private Cloud (VPC)#>D#, à des fins de test évidemment. Il pourrait être intéressant de l'exécuter et je serai tranquille pour enquêter, loin de la production et des potentiels traceurs.\n\n",
+          "Allez dans #>C:white#Self-Service > Blueprints#>D# et ouvrez le blueprint #>C:white#CloneProd#>D#. Cliquez sur le bouton #>C:white#Credentials#>D# pour mettre à jour le mot de passe du compte #>C:white##>V:PCUser##>D# qui permet l'accès à Prism Central. Pour rappel, son mot de passe est : #>C:white##>V:PCPassword##>D# ...\n\n",
+          "#>C:red#N'oubliez pas de sauvegarder les modifications avant de continuer !#>D#\n",
+          "Maintenant, lancez le blueprint #>C:white#CloneProd#>D# avec ces paramètres :\n",
+          " - Nom de l'application : #>C:white##>V:Trigram#-app#>D#\n",
+          " - Nom du VPC : #>C:white##>V:Trigram#-vpc#>D#\n",
+          " - Catégorie : Environment\n",
+          " - Valeur de la catégorie : #>C:white#Production'#>D#\n",
+          " - Nom du réseau externe : #>C:white#TestNetwork#>D#\n",
+          " - Catégorie pour l'IP flottante : #>C:white#Quarantine#>D# (en fait, peu importe la valeur, cela ne sera pas utilisé)\n\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 50,
@@ -998,10 +1079,10 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nNice, let me confirm it is ok...#>P:2#\n"
+          "Nice, let me check that it's ok...#>P:2#\n"
         ],
         "fr": [
-          "\nBien, laissez-moi confirmer que tout est ok...#>P:2#\n"
+          "Bien, laissez-moi vérifier que tout est ok ...#>P:2#\n"
         ]
       },
       "CheckTask": "CheckCloneApp",
@@ -1058,14 +1139,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nPerfect... I check#>P:2#\n"
+          "#>N#\n",
+          "Perfect! I'm checking that now...#>P:2#\n"
         ],
         "fr": [
-          "\nExcellent... Je vérifie#>P:2#\n"
+          "#>N#\n",
+          "Excellent ! Je vérifie de suite ...#>P:2#\n"
         ]
       },
       "CheckTask": "CheckUpdateBP",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 55,
@@ -1073,13 +1156,13 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Thank you #>V:Username# it was so great, your help was precious for your country. Close your session. I wait for you to the basecamp, I owe you a beer or two! Do not forget to bring the screenshots with you.\n"
+          "Thank you agent #>V:Username#! It was so great to have you working on this mission and your help was decisive and valuable for your country. Close your session. I wait for you to the basecamp, I owe you a beer or two! Do not forget to bring the screenshots with you.\n"
         ],
         "fr": [
-          "Merci #>V:Username# c'était super, votre aide a été précieuse pour votre pays. Fermez votre session. Je vous attends au camp de base, je vous dois une bière ou deux ! N'oubliez pas d'apporter les screenshots avec vous.\n"
+          "Merci agent #>V:Username#! C'était un plaisir de vous avoir sur cette mission et votre aide a été précieuse pour votre pays. Fermez votre session. Je vous attends au camp de base, je vous dois une bière ou deux ! N'oubliez pas d'apporter les screenshots avec vous.\n"
         ]
       },
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 56,
@@ -1087,10 +1170,16 @@
       "Prompt": "system",
       "Messages": {
         "en": [ 
-          "Connection is closing....#>P:3#\nDeleting all traces...#>P:3#\n\nConnection closed.\n"
+          "#>B#\n",
+          "All traces have been deleted!#>P:3#\n",
+          "Closing connection... #>P:3#\n\n",
+          "Connection closed!"
         ],
         "fr": [
-          "Connection is closing....#>P:3#\nDeleting all traces...#>P:3#\n\nConnection closed.\n"
+          "#>B#\n",
+          "Suppression des traces effectuées !#>P:3#\n",
+          "Fermeture de la connexion en cours ... #>P:3#\n\n",
+          "Connexion fermée !"
         ]
       },
       "DefaultColor": "white"
