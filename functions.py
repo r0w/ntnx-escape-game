@@ -1,5 +1,5 @@
-from checkLabs import *
-from sentences import *
+from CheckLabs import *
+from Sentences import *
 import ntnx_networking_py_client.models.networking.v4.config 
 import ntnx_iam_py_client
 import ntnx_networking_py_client

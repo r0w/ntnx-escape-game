@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 import json
 import os
-from escapeGameEngine import *
+from escapegameengine import *
 from functions import *
 import urllib3
 import sys
@@ -28,7 +28,6 @@ variables = {
     "OldPC": os.getenv('OLDPC'),
     "OldPCUsername": os.getenv('OLDPCUSERNAME'),
     "OldPCPassword": os.getenv('OLDPCPASSWORD'),
-    "ApprovalPolicy": os.getenv('APPROVALPOLICY'),
     "EmailReport": os.getenv('EMAILREPORT'),
     "Debug": False,
     "RecoveryUntilStage": 0,    
