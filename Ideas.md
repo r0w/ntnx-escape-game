@@ -46,3 +46,5 @@
 - Create file share
 - Create DB
 - Create bucket
+
+- If you need to setup a stage to a user, you can look at [gameContent.json](gameContent.json) file to identify the stage number you need to use. You can then use a Day 2 Operations actions to make the user go to the desired stage using his 3-letters pseudo.

@@ -32,26 +32,26 @@
 
 # Known Issues: 
   - **!!! IMPORTANT !!!**
-  - 1st time you try to import the installation Blueprint may fail on a newly deployed HPoC. Retry and upload will work.
-  - Please confirm the cluster has only 3 nodes (I experienced an issue once, because of erasure-coding). If not, please remove 4th node.
+  - 1st time importing the installation blueprint (step 3) may fail on a newly deployed HPoC. Retry and 2nd upload should works.
+  - Please confirm the cluster has only 3 nodes at the end of the installation (experienced an issue once, because of erasure-coding). If not, please remove 4th node manually.
 
 # Player prerequisites
   - Internet Access.
   - If you want to use VPN access, ensure your players have installed and tested it first.
 
-# Game launch
-  - In the deployed application description, you'll find the URL to play, as it will be mentioned in the invitation email too.
+# Game and Dashboard
+  - Look at the description of the application deployed by the blueprint, you'll find:
+    - The URL to access the ChatBot and play and it will be mentioned in the invitation email too.
+    - The URL of the scoreboard, that is a sort of dashboard monitoring the progress of all the players. We recommand to display the scoreboard on a screen, cause it will improve game feeling for players.
+
   - Use Day 2 actions of the blueprint to:
     - Launch invitation email to your players, but you'll have to enter recipients list.
     - Launch "End of lab" email. Then used recipients list to send invites will be used.
 
 Note : Day-2 operations can be found clicking on `Self-Service > Application > {your application} > Manage tab`, and you will run them by clicking on play icon, just after the day-2 action name.
 
-# Dashboard
-In the app description, you'll see dashboard URL. Display the dashboard on a screen, it will improve game feeling for players.
-
 # Tips
-  - Unsuccesfull lab checks may happen even if the exercise is succesfully done. In this case, the player can refresh is web page, use the same trigram, and recovery mode will bring him to the same lab step, which could pass...
-  - This is caused by ID memorized by script during execution, but not existing anymore (for exemple, if the player has deleted and recreated OS image, the game will wait the old ID, not the new one.)
-  - If you need to setup a stage to a user, you can look at [gameContent.json](gameContent.json) file to identify the stage number you need to use. You can then use a Day 2 Operations actions to make the user go to the desired stage using his 3-letters pseudo.
+  - Unsuccesfull lab checks may happen even if the exercise is succesfully done. In this case, the player can refresh is web page, use the same trigram, and recovery mode will bring him to the same lab step, that could then be checked again and passed successfully.
+  - This is caused by ID memorized by script during execution, but not existing anymore (for exemple, if the player has deleted and recreated OS image, the game will wait the old ID, not the new one).
+  
 
