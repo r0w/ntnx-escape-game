@@ -2,7 +2,7 @@
 Roleplay to discover Nutanix platform
 
 # Preparation
-- 1) Book a HPOC with following characteristics : 
+1) Book a HPOC with following characteristics : 
     - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
     - AOS 7.5
     - PC 7.5 
@@ -10,12 +10,12 @@ Roleplay to discover Nutanix platform
     - Leap Enabled.
     - Flow security enabled.
 
-- 2) In PC > Self-service, upload the **runbook** `materials/EG-Runbook-Prerequisites.json` in the `lab` project.
+2) In PC > Self-service, upload the **runbook** `materials/EG-Runbook-Prerequisites.json` in the `lab` project.
     - !!! WARNING !!! 
         - Ensure you are in the **Runbooks** section (and not in Blueprints) or upload will fail.
-    - Launch the runbook.
+      - Launch the runbook.
 
-- 3) Upload the **blueprint** `materials/EG-Blueprint-Installation.json` in the `lab` project.
+3) Upload the **blueprint** `materials/EG-Blueprint-Installation.json` in the `lab` project.
     - !!! WARNING !!! 
         - Ensure you have launched the runbook first or you'll have problems.
         - 1st task of the blueprint checks AD credential. If tasks fails, please delete the app, change AD Endpoint credentials, and then redeploy the app from the BP.
