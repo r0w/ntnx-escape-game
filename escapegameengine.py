@@ -203,7 +203,7 @@ def clueMessage(checkScript, messageNumber, language='en'):
 # = checkStage
 # ========================================================================
 # This function checks the script of a stage to validate stage completion
-def checkStage(checkScript, prompt, color, variables, silent = "None"):
+def checkStage(checkScript, prompt, color, variables, recoveryMode, silent = "None"):
     if checkScript in globals():
         ret = False
         
@@ -212,7 +212,7 @@ def checkStage(checkScript, prompt, color, variables, silent = "None"):
             silent = "Full"
         
         while not ret:
-            ret, messageNumber, reenterValue = globals()[checkScript](variables, recoveryMode = (silent == "Full"))
+            ret, messageNumber, reenterValue = globals()[checkScript](variables, recoveryMode)
                 
             if silent == "Full":
                 errorMessage = ""
