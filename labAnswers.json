@@ -240,12 +240,12 @@
             "checkFunction": "CheckRestoreVM",
             "clues": [
                 {
-                    "en": "The VM #>V:Trigram#-vm is not on the cluster. Are you sure you restored it correctly?",
-                    "fr": "La VM #>V:Trigram#-vm n'est pas sur le cluster. Êtes-vous sûr de l'avoir restaurée sous le bon nom ?"
+                    "en": "The VM #>C:white##>V:Trigram#-vm#>D# is not on the cluster. Are you sure you restored it correctly and using the right name?\n",
+                    "fr": "La VM #>C:white##>V:Trigram#-vm#>D# n'est pas sur le cluster. Êtes-vous sûr de l'avoir restaurée correctement et avec le bon nom ?\n"
                 },
                 {
-                    "en": "The VM #>V:Trigram#-vm is not started. Can you fix this?",
-                    "fr": "La VM #>V:Trigram#-vm n'est pas démarrée. Vous pouvwz corriger le souci ?"
+                    "en": "The VM #>C:white##>V:Trigram#-vm#>D# is not started. Can you fix this?\n",
+                    "fr": "La VM #>C:white##>V:Trigram#-vm#>D# n'est pas démarrée. Pouvez-vous corriger cela ?\n"
                 }
             ]
         },
@@ -253,20 +253,20 @@
             "checkFunction": "CheckReport",
             "clues": [
                 {
-                    "en": "The report #>V:Trigram#-report is not on the cluster. Are you sure you named it correctly?",
-                    "fr": "Le rapport #>V:Trigram#-report n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommé correctement ?"
+                    "en": "The report #>C:white##>V:Trigram#-report#>D# is not on the cluster. Are you sure you named it correctly?\n",
+                    "fr": "Le rapport #>C:white##>V:Trigram#-report#>D# n'est pas sur le cluster. Êtes-vous sûr de l'avoir nommé correctement ?\n"
                 },
                 {
-                    "en": "The report #>V:Trigram#-report should be scheduled daily. Can you fix it ?",
-                    "fr": "Le rapport #>V:Trigram#-report devrait être planifié quotidiennement. Pouvez-vous corriger ça ?"
+                    "en": "The report #>C:white##>V:Trigram#-report#>D# should be scheduled on a daily basis. Can you fix it?\n",
+                    "fr": "Le rapport #>C:white##>V:Trigram#-report#>D# devrait être planifié quotidiennement. Pouvez-vous corriger cela ?\n"
                 },
                 {
-                    "en": "The report does not have te good recipient. Can you check that ?",
-                    "fr": "Le rapport n'a pas le bon destinataire. Pouvez-vous vérifier ça ?"
+                    "en": "The report does not have the good recipient. Can you check that?\n",
+                    "fr": "Le rapport n'a pas le bon destinataire. Pouvez-vous vérifier cela ?\n"
                 },
                 {
-                    "en": "The report #>V:Trigram#-report should just have a table with a list of all the VMs. Can you fix it ?",
-                    "fr": "Le rapport #>V:Trigram#-report devrait simplement comporter un tableau avec la liste des VMs. Pouvez-vous corriger ça ?"
+                    "en": "The report #>C:white##>V:Trigram#-report#>D# should just have a table with a list of all the VMs. Can you fix it?\n",
+                    "fr": "Le rapport #>C:white##>V:Trigram#-report#>D# devrait simplement comporter un tableau avec la liste des VMs. Pouvez-vous corriger cela ?\n"
                 }
             ]
         },
@@ -274,12 +274,12 @@
             "checkFunction": "CheckNewNode",
             "clues": [
                 {
-                    "en": "I did not find the serial number of the new node. Can you check it ?",
-                    "fr": "Je n'ai pas trouvé le numéro de série du nouveau noeud. Pouvez-vous vérifier ?"
+                    "en": "I did not find the serial number of the new node. Can you check it?\n",
+                    "fr": "Je n'ai pas trouvé le numéro de série du nouveau noeud. Pouvez-vous vérifier ?\n"
                 },
                 {
-                    "en": "This serial is really weird... Please double-check !",
-                    "fr": "Ce numéro de série est vraiment bizarre... Merci de vérifier !"
+                    "en": "This serial is really weird... Please double-check!\n",
+                    "fr": "Ce numéro de série est vraiment bizarre ... Merci de vérifier !\n"
                 }
             ]
         },
@@ -287,12 +287,12 @@
             "checkFunction": "CheckUpdates",
             "clues": [
                 {
-                    "en": "The number of updates is not the one expected. Can you double-check it ?",
-                    "fr": "Le nombre de mises à jour n'est pas celui que je pensais. Pouvez-vous vérifier ?"
+                    "en": "The number of updates is not the one expected. Can you double-check it?\n",
+                    "fr": "Le nombre de mises à jour n'est pas celui que j'espérais. Pouvez-vous vérifier ?\n"
                 },
                 {
-                    "en": "Hum, I need a number normally, I do not understand... ",
-                    "fr": "Euh, il me faut un nombre normalement, je ne comprends pas... "
+                    "en": "Hum, I need a number normally, I do not understand... \n",
+                    "fr": "Euh, il me faut un nombre normalement, je ne comprends pas ... \n"
                 }
             ]
         },

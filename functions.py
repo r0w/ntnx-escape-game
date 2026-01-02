@@ -548,7 +548,7 @@ def retrieveReportInfo( reportName, variables):
 # This function is returning the number of updates avaialble
 # GL ToDo : write with SDK when available (return was not relevent)
 def getNumberOfUpdates( variables):
-    nbupdates=0
+    nbupdates = 0
      
     url="https://%s:9440/api/lcm/v4.0.a1/resources/entities" % variables['PC']
     
@@ -557,12 +557,12 @@ def getNumberOfUpdates( variables):
         "Accept": "application/json"
     }
     
-    response = requests.get(url, headers=headers, verify=False, auth=(variables['PCUser'], variables['PCPassword']))
+    response = requests.get(url, headers = headers, verify = False, auth = (variables['PCUser'], variables['PCPassword']))
     response_data = json.loads(response.text)
 
     for elt in response_data['data']:
         if "availableVersions" in elt.keys():
-            nbupdates+=1
+            nbupdates += 1
             
     return nbupdates
 
@@ -573,7 +573,7 @@ def getNumberOfUpdates( variables):
 # ToDo : rewrite with SDK when available (seems broken because of authentication)
 def getNewNodeSerial(variables):
     
-    clusterUUID=getClusterUUID(variables) 
+    clusterUUID = getClusterUUID(variables) 
     
     url="https://%s:9440/api/clustermgmt/v4.0.b2/config/clusters/%s/rackable-units" % (variables['PC'],clusterUUID)
     headers = {

@@ -172,11 +172,11 @@ def CheckImage(variables, recoveryMode):
 # =============================================================================
 def CheckVM(variables, recoveryMode):
 
-    found,response = retrieveVMInfo(vm_name=variables['Trigram'] + "-vm", variables=variables)
-
+    found, response = retrieveVMInfo(vm_name = variables['Trigram'] + "-vm", variables = variables)
 
     if found == False:
         return False, 0 , None
+
     elif recoveryMode == False:
         # We check VM details
         
@@ -458,7 +458,7 @@ def CheckReport(variables, recoveryMode):
 
         # Recipients
         try:
-            if not (len(info['spec']['resources']['notification_policy']['email_config']['recipient_list'])!=0 and info['spec']['resources']['notification_policy']['email_config']['recipient_list'][0]['email_address']==variables['EmailReport']):
+            if not (len(info['spec']['resources']['notification_policy']['email_config']['recipient_list'])!=0 and info['spec']['resources']['notification_policy']['email_config']['recipient_list'][0]['email_address'] == (variables['Trigram'] + variables['EmailReport'])):
                 return False, 2, None
         except:
             return False, 2, None
@@ -503,7 +503,6 @@ def CheckUpdates(variables, recoveryMode):
     if recoveryMode:
         return True, -1, None    
 
-    
     response = int(getNumberOfUpdates(variables))
     
     try:

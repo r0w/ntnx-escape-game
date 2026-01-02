@@ -117,7 +117,7 @@ if __name__ == "__main__":
             
             # ...but we check student work if needed, in silent mode
             if checkScript != '':
-                checkStage(checkScript, prompt, color, variables, "Full")
+                checkStage(checkScript, prompt, color, variables, True, "Full")
         
         elif stage['active'] == True:
             
@@ -126,7 +126,7 @@ if __name__ == "__main__":
 
             # Check student work if needed
             if checkScript != '':
-                checkStage(checkScript, prompt, color, variables, "NoSuccess" if SilentOnSuccess else "None")
+                checkStage(checkScript, prompt, color, variables, False, "NoSuccess" if SilentOnSuccess else "None")
 
         # Update the score file
         if(saveScore and variables['Trigram']):
