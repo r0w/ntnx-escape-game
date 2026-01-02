@@ -1,7 +1,7 @@
 from functions import *
 from jsonpath_ng.ext import parse
 from main import contentJsonFile, scoreFolder
-from sentences import *
+from Sentences import *
 import os
 
 # Here are all the functions called by the game content to check labs

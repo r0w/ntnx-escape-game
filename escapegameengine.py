@@ -3,9 +3,9 @@ import sys
 import json
 from jsonpath_ng.ext import parse
 import cursor
-from checkLabs import *
+from CheckLabs import *
 import random
-from sentences import *
+from Sentences import *
 from actions import *
 from main import labAnswersJsonFile,forceSilentModeDuringChecks
 import os
