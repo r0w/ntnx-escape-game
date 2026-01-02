@@ -1,12 +1,12 @@
 # ntnx-escape-game
-Roleplay to discover Nutanix platform
+  - Roleplay to discover the **Nutanix Cloud Platform** (NCP).
 
 # Preparation
-1) Book a HPOC with following characteristics : 
+1) Book a Nutanix HPoC with following characteristics : 
   - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
-  - AOS 7.5
-  - PC 7.5 
-  - Self-Service enabled and version 4.3 or higher.
+  - AOS 7.5 (do not use another version).
+  - PC 7.5 (do not use another version).
+  - Self-Service enabled and version 4.3 (do not use another version).
   - Leap Enabled.
   - Flow security enabled.
 
@@ -40,7 +40,7 @@ Roleplay to discover Nutanix platform
   - If you want to use VPN access, ensure your players have installed and tested it first.
 
 # Game launch
-  - Self-Service Application description will provide the URL to play, as it will be mentioned in the invitation email too.
+  - In the deployed application description, you'll find the URL to play, as it will be mentioned in the invitation email too.
   - Use Day 2 actions of the blueprint to:
     - Launch invitation email to your players, but you'll have to enter recipients list.
     - Launch "End of lab" email. Then used recipients list to send invites will be used.
