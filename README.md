@@ -47,11 +47,11 @@
   - Use Day 2 actions of the blueprint to:
     - Launch invitation email to your players, but you'll have to enter recipients list.
     - Launch "End of lab" email. Then used recipients list to send invites will be used.
-    - Note : Day-2 operations can be found clicking on `Self-Service > Application > {your application} > Manage tab`. You can run them by clicking on play icon, just after the day-2 action name.
+    - **Note:** Day-2 operations can be found clicking on `Self-Service > Application > {your application} > Manage tab`. You can run them by clicking on play icon, just after the day-2 action name.
 
 # Tips
   - Unsuccesfull lab checks may happen even if the exercise is succesfully done. In this case, the player can refresh is web page, use the same trigram, and recovery mode will bring him to the same lab step, that could then be checked again and passed successfully.
-  
+
   - This is caused by ID memorized by script during execution, but not existing anymore (for exemple, if the player has deleted and recreated OS image, the game will wait the old ID, not the new one).
   
 
