@@ -234,6 +234,7 @@
           "Subnet can provide IP to VM like a DHCP and that's very useful for us. This is called #>C:white#Nutanix IPAM#>D# and please ensure to use it!\n\n",
           "Please configure your subnet with these informations:\n",
           " - Virtual switch: #>C:white#vs0#>D#\n",
+          " - VLAN ID: #>C:white##>V:Vlanid##>D#\n",
           " - Network address: #>C:white#192.168.#>V:Vlanid#.0/24#>D#\n",
           " - Gateway: #>C:white#192.168.#>V:Vlanid#.1#>D#\n",
           " - IP Pool: #>C:white#192.168.#>V:Vlanid#.50#>D# - #>C:white#192.168.#>V:Vlanid#.115#>D#\n",
@@ -241,12 +242,13 @@
           "I am waiting for your feedback. Send me a #>C:white#Ok#>D# message when the subnet is setup: #>I:#"
         ],
         "fr": [
-          "Vous savez quoi ?#>P:1# Je vous aime déjà, nous sommes de super coéquipiers!#>P:3#\n\n",
+          "Vous savez quoi ?#>P:1# Je vous aime déjà, nous sommes de supers coéquipiers!#>P:3#\n\n",
           "Bob a mis à jour la configuration du switch. Vous devez créer un nouveau subnet dans le cluster Nutanix pour l'utiliser. Cela devrait nous aider à extraire des données à l'extérieur sans être détecté.\n\n",
           "Allez dans le menu #>C:white#Infrastructure#>D# et créez un nouveau subnet nommé #>C:white##>V:Trigram#-subnet#>D# avec l'ID VLAN #>C:white##>V:Vlanid##>D#.\n",
           "Le sous-réseau peut fournir une IP aux VM comme un DHCP, ce qui sera très utile pour nous. C'est ce que l'on appelle un #>C:white#Nutanix IPAM#>D# et SVP, assurez-vous de l'utiliser !\n\n",
           "Veuillez configurer votre sous-réseau avec ces informations :\n",
           " - Switch virtuel: #>C:white#vs0#>D#\n",
+          " - VLAN ID: #>C:white##>V:Vlanid##>D#\n",
           " - Adresse réseau : #>C:white#192.168.#>V:Vlanid#.0/24#>D#\n",
           " - Passerelle : #>C:white#192.168.#>V:Vlanid#.1#>D#\n",
           " - Pool IP : #>C:white#192.168.#>V:Vlanid#.50#>D# - #>C:white#192.168.#>V:Vlanid#.115#>D#\n",
@@ -290,7 +292,7 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "We are on time, and that is good, but we need to hurry up. I have detected an activity from the others... they are looking for us. We need to work carefully.\n",
+          "We are on time and that is good, but we need to hurry up. I have detected an activity from the others... they are looking for us. We need to work carefully.\n",
           "Please, create a new VM named #>C:white##>V:Trigram#-vm#>D# with the following configuration:\n",
           " - #>C:white#2#>D# vCPU\n",
           " - #>C:white#4GB#>D# RAM\n",
@@ -317,11 +319,11 @@
           "#>N##>C:white#  expire: false#>D#\n",
           "#>N##>C:white#ssh_pwauth: true#>D#\n",
           "---------------\n\n",
-          "After that, move your VM into your project, it's done with #>C:white#Manage ownership#>D# action in the VM contextual menu.\n",
+          "After that, move your VM into your project, it's done with #>C:white#Manage Ownership#>D# action in the VM contextual menu.\n",
           "When it is done, start the VM, and send me a #>C:white#Ok#>D# message when you have finished: #>I:#"
         ],
         "fr": [
-          "Nous sommes dans les temps, et c'est bien, mais nous devons quand-même nous dépêcher. J'ai détecté une activité des autres ... ils nous cherchent. Nous devons travailler avec prudence.\n",
+          "Nous sommes dans les temps et c'est bien, mais nous devons quand-même nous dépêcher. J'ai détecté une activité des autres ... ils nous cherchent. Nous devons travailler avec prudence.\n",
           "Veuillez créer une nouvelle VM nommée #>C:white##>V:Trigram#-vm#>D# avec la configuration suivante :\n",
           " - #>C:white#2#>D# vCPU\n",
           " - #>C:white#4 Go#>D# de RAM\n",
@@ -348,7 +350,7 @@
           "#>N##>C:white#  expire: false#>D#\n",
           "#>N##>C:white#ssh_pwauth: true#>D#\n",
           "---------------\n\n",
-          "Après cela, déplacez votre VM dans votre projet, c'est fait avec l'action #>C:white#Manage ownership#>D# dans le menu contextuel de la VM.\n",
+          "Après cela, déplacez votre VM dans votre projet, c'est fait avec l'action #>C:white#Manage Ownership#>D# dans le menu contextuel de la VM.\n",
           "Lorsque c'est fait, démarrez la VM, et Envoyez-moi un message #>C:white#Ok#>D# lorsque vous avez terminé : #>I:#"
         ]
       },
