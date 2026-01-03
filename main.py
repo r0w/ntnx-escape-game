@@ -110,7 +110,7 @@ if __name__ == "__main__":
         #print(f"(Debug) Stage active: {stage['active']}, RecoveryUntilStage: {variables['RecoveryUntilStage']}\n")
 
         # Check if we need to recover the stage
-        if stage['id'] <= variables['RecoveryUntilStage'] and stage['active'] == True:
+        if stage['id'] <= variables['RecoveryUntilStage'] and stage['active']:
             
             # We do not display the message, because we are recovering the stage
             
@@ -118,7 +118,7 @@ if __name__ == "__main__":
             if checkScript != '':
                 checkStage(checkScript, prompt, color, variables, True, "Full")
         
-        elif stage['active'] == True:
+        elif stage['active']:
             
             # We display the message because we are not recovering the stage and it is active           
             display(prompt, messages, variables, color, waitForInputValue)

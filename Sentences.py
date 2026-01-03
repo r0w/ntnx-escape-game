@@ -27,7 +27,7 @@ labOk = {
         "Vous êtes un génie !",
         "Top, vous êtes un pro !",
         "Vous êtes un maître Jedi !",
-        "Facile !",
+        "Facile pour vous !",
     ]
 }
 
