@@ -38,7 +38,8 @@ def deleteVM(variables):
 # deployBlueprint
 # ====================================================================================================
 # To Do : Migrate to v4 API/SDK when available
-def deployBlueprint( variables ):
+def deployBlueprint(variables):
+    
     # Get Blueprint ID
     url = "https://%s:9440/api/nutanix/v3/blueprints/list" % variables['PC']
     headers = {
@@ -48,7 +49,7 @@ def deployBlueprint( variables ):
     payload = {
         "kind": "blueprint"
     }
-    response = requests.post(url,json=payload,verify=False,auth=(variables['PCUser'], variables['PCPassword']),headers=headers)
+    response = requests.post(url, json = payload, verify = False, auth = (variables['PCUser'], variables['PCPassword']), headers = headers)
     response_data = json.loads(response.text)
 
     jsonpath_expr = parse('$.entities[?(@.metadata.name =~ "source$")].metadata.uuid')
@@ -59,13 +60,13 @@ def deployBlueprint( variables ):
     # We clone it
     url = "https://%s:9440/api/nutanix/v3/blueprints/%s/clone" % (variables['PC'], bpUuid)
     payload={
-        "blueprint_name": "bp-blankvm-prd"+variables['Vlanid'],
+        "blueprint_name": "bp-blankvm-prd" + variables['Vlanid'],
         "metadata": {
             "kind": "blueprint",
             "uuid": str(uuid.uuid4()),
             }
         }
-    response = requests.post(url,json=payload,verify=False,auth=(variables['PCUser'], variables['PCPassword']),headers=headers)
+    response = requests.post(url, json = payload, verify = False, auth = (variables['PCUser'], variables['PCPassword']), headers = headers)
 
 
     return True
