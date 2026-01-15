@@ -1,6 +1,5 @@
 {
-    "answers":
-    [
+    "answers": [
         {
             "checkFunction": "NeedRecovery",
             "clues": [
@@ -9,7 +8,6 @@
                     "fr": ""
                 }
             ]
-
         },
         {
             "checkFunction": "CheckTrigram",
@@ -40,7 +38,6 @@
                     "en": "The Authorization Policy #>C:white##>V:Trigram#-auth#>D# exists, but is not correctly assigning the role to the user. Are you sure you've assigned the correct ressources?\n",
                     "fr": "L'Authorization Policy #>C:white##>V:Trigram#-auth#>D# existe, mais n'assigne pas correctement le rôle à l'utilisateur. Êtes-vous sûr d'avoir assigné les bonnes ressources ?\n"
                 }
-                
             ]
         },
         {
@@ -57,7 +54,7 @@
                 {
                     "en": "The project #>C:white##>V:Trigram#-proj#>D# doesn't have any user associated. Can you fix it?",
                     "fr": "Le projet #>C:white##>V:Trigram#-proj#>D# n'a pas d'utilisateur associé. Pouvez-vous corriger ça ?\n"
-                }                
+                }
             ]
         },
         {
@@ -70,7 +67,7 @@
                 {
                     "en": "The subnet #>C:white##>V:Trigram#-subnet#>D# is not correctly configured because, his mode is #>C:white#Basic#>D#. Can you change it to #>C:white#Advanced#>D#?\n",
                     "fr": "Le réseau #>C:white##>V:Trigram#-subnet#>D# n'est pas correctement configuré, car son mode est #>C:white#Basic#>D#. Pouvez-vous le passer en #>C:white#Advanced#>D# ?\n"
-                }               
+                }
             ]
         },
         {
@@ -112,7 +109,7 @@
                 {
                     "en": "The VM #>C:white##>V:Trigram#-vm#>D# is not powered on. Are you sure you started it?\n",
                     "fr": "La VM #>C:white##>V:Trigram#-vm#>D# n'est pas allumée. Êtes-vous sûr de l'avoir démarrée ?\n"
-                }                
+                }
             ]
         },
         {
@@ -178,7 +175,6 @@
                     "en": "The security policy seems not authorize all outbound protocols. Can you check?\n",
                     "fr": "La politique de sécurité ne semble pas autoriser tous les protocoles sortants. Pouvez-vous vérifier ?\n"
                 }
-
             ]
         },
         {
@@ -350,7 +346,6 @@
                     "en": "Have you created the schedule #>C:white##>V:Trigram#-sched#>D#? It seems no... Can you check that?\n",
                     "fr": "Avez-vous créé le schedule #>C:white##>V:Trigram#-sched#>D# ? On ne dirait pas ... Pouvez-vous corriger cela ?\n"
                 }
-                
             ]
         },
         {
@@ -359,11 +354,12 @@
                 {
                     "en": "The blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# is not on the cluster. Have you changed his name?\n",
                     "fr": "Le blueprint #>C:white#bp-blankvm-prd#>V:Vlanid##>D# n'est pas sur le cluster. Avez-vous changé son nom ?\n"
-                },{
+                },
+                {
                     "en": "I do not see the #>C:white#foo#>D# task in the create action of your VM, please check it!\n",
                     "fr": "Je ne vois pas la tâche #>C:white#foo#>D# dans l'action de création de votre VM, merci de vérifier!\n"
                 }
             ]
-        }           
+        }
     ]
 }

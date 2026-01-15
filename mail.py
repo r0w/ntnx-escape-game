@@ -1,8 +1,8 @@
 import sys
 import http.client
 import json
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+# from email.mime.multipart import MIMEMultipart
+# from email.mime.text import MIMEText
 
 
 if len(sys.argv) != 4 and len(sys.argv) != 5:
@@ -11,11 +11,11 @@ if len(sys.argv) != 4 and len(sys.argv) != 5:
 else:
     recipient = sys.argv[1]
     title = sys.argv[2]
-    templateName=sys.argv[3]
-    if(len(sys.argv)==5):
-        user_id=sys.argv[4]
+    templateName = sys.argv[3]
+    if len(sys.argv) == 5:
+        user_id = sys.argv[4]
 
-file = open("email_templates/"+templateName, "r")
+file = open("email_templates/" + templateName, "r")
 html_content = file.read()
 
 # Update Content if {ID}  are in the email content
@@ -27,22 +27,22 @@ conn = http.client.HTTPSConnection("send.api.mailtrap.io")
 
 payload = {
     "to": [
-            {
-                "email": recipient,
-            }
-        ],
+        {
+            "email": recipient,
+        }
+    ],
     "from": {
-                "email": "ego-escapegame@ntnxlab.com",
-                "name": "E.G.O. - The Nutanix Escape Game"
-            },
+        "email": "ego-escapegame@ntnxlab.com",
+        "name": "E.G.O. - The Nutanix Escape Game",
+    },
     "subject": title,
-    "html": html_content
-    }
+    "html": html_content,
+}
 
 headers = {
-    'Content-Type': "application/json",
-    'Accept': "application/json",
-    'Api-Token': "{MAIL_TOKEN}"
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+    "Api-Token": "{MAIL_TOKEN}",
 }
 
 conn.request("POST", "/api/send", json.dumps(payload), headers)
@@ -51,4 +51,3 @@ res = conn.getresponse()
 data = res.read()
 
 print(data.decode("utf-8"))
-    
