@@ -2361,7 +2361,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\nsource .venv/bin/activate\n\nexport I=0\n\nfor EMAIL in `echo @@{RECIPIENTS}@@ | sed 's/,/ /g'`\ndo\n    I=$(($I+1))\n    echo \"Emailing to $EMAIL, id $I\"\n    python mail.py $EMAIL \"I need help right now!\" @@{Template}@@ $I\ndone\n\necho \"Done\"",
+                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\nsource .venv/bin/activate\n\nexport I=0\n\nfor EMAIL in `echo @@{RECIPIENTS}@@ | sed 's/,/ /g'`\ndo\n    I=$(($I+1))\n    echo \"Emailing to $EMAIL, id $I\"\n    python mail.py $EMAIL \"Mission Briefing - Escape Game\" @@{Template}@@ $I\ndone\n\necho \"Done\"",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []

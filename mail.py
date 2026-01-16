@@ -18,11 +18,11 @@ else:
 file = open("email_templates/" + templateName, "r")
 html_content = file.read()
 
-# Update Content if {ID}  are in the email content
+# Update Content if {ID} are in the email content
 if "{ID}" in html_content:
     html_content = html_content.replace("{ID}", f"{int(user_id):02d}")
 
-
+# Send the email via Mailtrap API
 conn = http.client.HTTPSConnection("send.api.mailtrap.io")
 
 payload = {
@@ -33,7 +33,7 @@ payload = {
     ],
     "from": {
         "email": "ntnx-escapegame@ntnxlab.com",
-        "name": "Nutanix Cloud Operations Center - Escape Game",
+        "name": "Nutanix Cloud Operations Command Center - Escape Game",
     },
     "subject": title,
     "html": html_content,
