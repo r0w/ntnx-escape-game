@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mission progress</title>
+    <title>Mission Scoreboard</title>
     <link rel="icon" href="{{ url_for('static', filename='images/logo.png') }}" type="image/png">
 
     <!-- Bootstrap -->
@@ -33,7 +33,7 @@
             container_class='container-md transparent-container' %} {% else %} {% set
             container_class='transparent-container w-100 px-3 px-md-5' %} {% endif %} <div
             class="{{ container_class }}">
-            <h1 class="text-center">Agent status</h1>
+            <h1 class="text-center">Status of Undercover Agents</h1>
 
             <div class="mt-4">
                 {% for row in range(rows) %}
@@ -55,7 +55,7 @@
 
                         <div class="col-12 col-sm-6 col-md-{{ col_md }}">
                             <div class="mb-3">
-                                <h5>{{ idx + 1 }}. Agent: {{ entry.player }} ({{ percent_int }}%)</h5>
+                                <h5>{{ idx + 1 }}. Agent: {{ entry.username }} a.k.a. {{ entry.player }} ({{ percent_int }}%)</h5>
 
                                 <div class="progress" role="progressbar" aria-label="Player {{ entry.player }}'s score"
                                     aria-valuenow="{{ entry.value }}" aria-valuemin="0"
