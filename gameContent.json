@@ -63,14 +63,14 @@
                 "en": [
                     "#>B#\n",
                     "Hi there! I am E.G.O. (Escape Game Officer) and I am here to help you.\n",
-                    "Please tell me your agent name #>C:red#(limit yourself to a maximum of 16 characters)#>D#: #>I:Username#>P:4#\n",
+                    "Please tell me your agent name #>C:red#(limit yourself to a maximum of 24 characters)#>D#: #>I:Username#>P:4#\n",
                     "Hi agent #>C:white##>V:Username##>D#, it's our first time together. Don't be afraid, you are in good hands!#>P:2#\n",
                     "We do not have too much time, I will guide you during this mission. Please follow my instructions closely.#>P:5#\n\n"
                 ],
                 "fr": [
                     "#>B#\n",
                     "Bonjour ! Je suis E.G.O. (Escape Game Officer), je suis là pour vous aider.\n",
-                    "Pouvez-vous me donner votre nom d'agent #>C:red#(limitez-vous à 16 caractères maximum)#>D# : #>I:Username#>P:4#\n",
+                    "Pouvez-vous me donner votre nom d'agent #>C:red#(limitez-vous à 24 caractères maximum)#>D# : #>I:Username#>P:4#\n",
                     "Salut agent #>C:white##>V:Username##>D#, c'est notre première fois ensemble. Pas d'inquiétude, vous êtes entre de bonnes mains !#>P:2#\n",
                     "Nous n'avons pas beaucoup de temps, je vais vous guider tout au long de cette mission. Suivez mes instructions à la lettre.#>P:5#\n\n"
                 ]

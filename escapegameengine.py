@@ -10,6 +10,7 @@ import os
 import re
 import CheckLabs
 import actions
+import unicodedata
 
 # ========================================================================
 # = deleteEnptyStrings
@@ -351,8 +352,15 @@ def updateScoreFile(scoreFolder, trigram, stage, maxStage, variables=None):
     # result = jsonpath_expr.find(score)
 
     # Save the username if available
-    if variables and "Username" in variables and variables["Username"]:
-        username = str(variables["Username"]).strip()
+    if variables and variables.get("Username"):
+        username = str(variables["Username"])
+        username = unicodedata.normalize("NFC", username).strip() # Normalize Unicode and trim
+        username = re.sub(r'[\x00-\x1F\x7F]', '', username) # Remove ASCII control characters (0x00–0x1F, 0x7F)
+        username = username.replace('\u2028', '').replace('\u2029', '') # Remove Unicode line/paragraph separators
+        username = re.sub(r'\s*["\'`]+\s*', '', username) # Remove quotes and surrounding spaces
+        username = re.sub(r'\s+', ' ', username).strip() # Collapse multiple spaces and trim
+        username = username[:24] # Enforce a max length
+
         if username and "username" not in scoreJson:
             scoreJson["username"] = username
 
