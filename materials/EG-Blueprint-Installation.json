@@ -1,7 +1,7 @@
 {
     "status": {},
     "spec": {
-        "name": "BP_Escape-Game",
+        "name": "EG-Blueprint-Installation",
         "description": "Deploy escape game on a brand new HPOC. When deployed :\n\n - Game will be available on  http://@@{VM.address}@@:8080\n - Scoreboard will be available on http://@@{VM.address}@@:8080/scoreboard",
         "resources": {
             "service_definition_list": [
@@ -654,7 +654,7 @@
                             "gpu_list": [],
                             "parent_reference": null,
                             "hardware_clock_timezone": "",
-                            "account_uuid": "624d61c3-2608-4301-9daf-1eda38c6001a",
+                            "account_uuid": "d3310d37-d8f3-45b1-a6e9-30fa0deb4e71",
                             "guest_customization": {
                                 "type": "",
                                 "cloud_init": {
@@ -685,7 +685,7 @@
                                         "type": "",
                                         "kind": "app_package",
                                         "name": "Ubuntu2404",
-                                        "uuid": "ae6e1641-6f51-4f83-b327-2f41d8675753"
+                                        "uuid": "ef36ba6b-3b6d-4942-93ed-f233fa18903f"
                                     },
                                     "volume_group_reference": null,
                                     "device_properties": {
@@ -1809,7 +1809,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\ncp config.env.template config.env\n\nsed -i 's/{PC}/@@{PC_IP}@@/' config.env\nsed -i 's/{PCUSER}/@@{PC_USERNAME}@@/' config.env\nsed -i 's={PCPASSWORD}=@@{PC_PASSWORD}@@=' config.env\nsed -i 's={IMAGEURL}=https://cloud-images.ubuntu.com/daily/server/jammy/current/jammy-server-cloudimg-amd64.img=' config.env\nsed -i 's/{PRODUSERNAME}/thebadguy/' config.env\nsed -i 's/{PRODPASSWORD}/MyPassword4Prod!/' config.env\nsed -i 's/{OLDPC}/@@{OLDPC}@@/' config.env\nsed -i 's/{OLDPCUSERNAME}/@@{OLDPC_USER}@@/' config.env\nsed -i 's/{OLDPCPASSWORD}/@@{PLANNER_PASSWORD}@@/' config.env\nsed -i 's/{FRONTENDHOST}/@@{VM.address}@@/' config.env\nsed -i 's/{FRONTENDPORT}/8080/' config.env\nsed -i 's/{EMAILREPORT}/-secret-message@ntnxlab.com/' config.env\nsed -i 's/{HOSTSSHUSERNAME}/@@{NUTANIX.username}@@/' config.env\nsed -i 's={HOSTSSHPASSWORD}=@@{NUTANIX.secret}@@=' config.env\nsed -i 's/{PLAYERSSHUSERNAME}/@@{PLAYER.username}@@/' config.env\nsed -i 's={PLAYERSSHPASSWORD}=@@{PLAYER.secret}@@=' config.env\nsed -i 's={DOCKERREGISTRY}=@@{DockerRegistry}@@=' config.env",
+                                        "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\ncp config.env.template config.env\n\nsed -i 's/{PC}/@@{PC_IP}@@/' config.env\nsed -i 's/{PCUSER}/@@{PC_USERNAME}@@/' config.env\nsed -i 's={PCPASSWORD}=@@{PC_PASSWORD}@@=' config.env\nsed -i 's={IMAGEURL}=https://cloud-images.ubuntu.com/daily/server/jammy/current/jammy-server-cloudimg-amd64.img=' config.env\nsed -i 's/{PRODUSERNAME}/thebadguy/' config.env\nsed -i 's/{PRODPASSWORD}/MyPassword4Prod!/' config.env\nsed -i 's/{OLDPC}/@@{OLDPC}@@/' config.env\nsed -i 's/{OLDPCUSERNAME}/@@{OLDPC_USER}@@/' config.env\nsed -i 's/{OLDPCPASSWORD}/@@{PLANNER_PASSWORD}@@/' config.env\nsed -i 's/{FRONTENDHOST}/@@{VM.address}@@/' config.env\nsed -i 's/{FRONTENDPORT}/8080/' config.env\nsed -i 's/{EMAILREPORT}/-secret-message@ntnxlab.com/' config.env\nsed -i 's/{HOSTSSHUSERNAME}/@@{NUTANIX.username}@@/' config.env\nsed -i 's={HOSTSSHPASSWORD}=@@{NUTANIX.secret}@@=' config.env\nsed -i 's/{PLAYERSSHUSERNAME}/@@{PLAYER.username}@@/' config.env\nsed -i 's={PLAYERSSHPASSWORD}=@@{PLAYER.secret}@@=' config.env\nsed -i 's={DOCKERREGISTRY}=@@{DockerRegistry}@@=' config.env\nsed -i 's={COMBINEDSCOREBOARDS}=@@{VM.address}@@=' config.env\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -2214,7 +2214,7 @@
                     "action_list": [
                         {
                             "type": "user",
-                            "name": "OnDemand _ Restart servers",
+                            "name": "Restart All Servers",
                             "description": "",
                             "runbook": {
                                 "name": "f5cbd168_runbook",
@@ -2230,11 +2230,11 @@
                                                 {
                                                     "type": "",
                                                     "from_task_reference": {
-                                                        "name": "Start Dashboard",
+                                                        "name": "Restart Dashboard",
                                                         "kind": "app_task"
                                                     },
                                                     "to_task_reference": {
-                                                        "name": "Start WSSH",
+                                                        "name": "Restart WSSH",
                                                         "kind": "app_task"
                                                     },
                                                     "edge_type": "user_defined"
@@ -2243,11 +2243,11 @@
                                         },
                                         "child_tasks_local_reference_list": [
                                             {
-                                                "name": "Start Dashboard",
+                                                "name": "Restart Dashboard",
                                                 "kind": "app_task"
                                             },
                                             {
-                                                "name": "Start WSSH",
+                                                "name": "Restart WSSH",
                                                 "kind": "app_task"
                                             }
                                         ],
@@ -2259,7 +2259,7 @@
                                     },
                                     {
                                         "type": "EXEC",
-                                        "name": "Start Dashboard",
+                                        "name": "Restart Dashboard",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2281,7 +2281,7 @@
                                     },
                                     {
                                         "type": "EXEC",
-                                        "name": "Start WSSH",
+                                        "name": "Restart WSSH",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2312,7 +2312,7 @@
                         },
                         {
                             "type": "user",
-                            "name": "1 _ Send invitation email",
+                            "name": "Send Invitations Emails",
                             "description": "",
                             "runbook": {
                                 "name": "f57c0371_runbook",
@@ -2328,11 +2328,11 @@
                                                 {
                                                     "type": "",
                                                     "from_task_reference": {
-                                                        "name": "Send email",
+                                                        "name": "Send Email",
                                                         "kind": "app_task"
                                                     },
                                                     "to_task_reference": {
-                                                        "name": "Set variable RECIPIENTS_LIST",
+                                                        "name": "Set Variables",
                                                         "kind": "app_task"
                                                     },
                                                     "edge_type": "user_defined"
@@ -2341,11 +2341,11 @@
                                         },
                                         "child_tasks_local_reference_list": [
                                             {
-                                                "name": "Send email",
+                                                "name": "Send Email",
                                                 "kind": "app_task"
                                             },
                                             {
-                                                "name": "Set variable RECIPIENTS_LIST",
+                                                "name": "Set Variables",
                                                 "kind": "app_task"
                                             }
                                         ],
@@ -2357,7 +2357,7 @@
                                     },
                                     {
                                         "type": "EXEC",
-                                        "name": "Send email",
+                                        "name": "Send Email",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2379,7 +2379,7 @@
                                     },
                                     {
                                         "type": "SET_VARIABLE",
-                                        "name": "Set variable RECIPIENTS_LIST",
+                                        "name": "Set Variables",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2438,7 +2438,7 @@
                                     {
                                         "type": "LOCAL",
                                         "name": "RECIPIENTS",
-                                        "description": "Use only email addresses, with coma as separator",
+                                        "description": "Use only email addresses, with comma as separator.",
                                         "options": {
                                             "type": "PREDEFINED",
                                             "choices": []
@@ -2462,7 +2462,7 @@
                         },
                         {
                             "type": "user",
-                            "name": "2 _ Send summary email",
+                            "name": "Send Summary Email",
                             "description": "",
                             "runbook": {
                                 "name": "f57c0371_runbook_cloned_0",
@@ -2478,7 +2478,7 @@
                                         },
                                         "child_tasks_local_reference_list": [
                                             {
-                                                "name": "Send summary",
+                                                "name": "Send Summary Emails",
                                                 "kind": "app_task"
                                             }
                                         ],
@@ -2490,7 +2490,7 @@
                                     },
                                     {
                                         "type": "EXEC",
-                                        "name": "Send summary",
+                                        "name": "Send Summary Emails",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2549,8 +2549,8 @@
                         },
                         {
                             "type": "user",
-                            "name": "OnDemand _ Change user stage",
-                            "description": "Force user stage change",
+                            "name": "Change User Stage",
+                            "description": "Force user stage change. This is in development stage, please do not use it without approval of Escape Game Team.",
                             "runbook": {
                                 "name": "e5215f96_runbook",
                                 "description": "",
@@ -2565,7 +2565,7 @@
                                         },
                                         "child_tasks_local_reference_list": [
                                             {
-                                                "name": "Change stage",
+                                                "name": "Change Stage",
                                                 "kind": "app_task"
                                             }
                                         ],
@@ -2577,7 +2577,7 @@
                                     },
                                     {
                                         "type": "EXEC",
-                                        "name": "Change stage",
+                                        "name": "Change Stage",
                                         "description": "",
                                         "attrs": {
                                             "type": "",
@@ -2655,8 +2655,8 @@
                         },
                         {
                             "type": "user",
-                            "name": "OnDemand _ Update game",
-                            "description": "pull modifications from git repo",
+                            "name": "Update Game",
+                            "description": "Pull modifications from git repository.",
                             "runbook": {
                                 "name": "6e5f1e20_runbook",
                                 "description": "",
@@ -2709,6 +2709,133 @@
                                     "kind": "app_task"
                                 },
                                 "variable_list": []
+                            },
+                            "critical": false
+                        },
+                        {
+                            "type": "user",
+                            "name": "Set Combined Scoreboards",
+                            "description": "Configure the list of all scoreboards to be combined when multiple PCs and Escape Games are deployed.\n\nFor each game deployed, we need the IP address of the URL for accessing the game's scoreboard (not the entire URL). Then simply enter the list of all IP addresses separated by commas.",
+                            "runbook": {
+                                "name": "a963b677_runbook",
+                                "description": "",
+                                "task_definition_list": [
+                                    {
+                                        "type": "DAG",
+                                        "name": "a90bcd08_dag",
+                                        "description": "",
+                                        "attrs": {
+                                            "type": "",
+                                            "edges": [
+                                                {
+                                                    "type": "",
+                                                    "from_task_reference": {
+                                                        "name": "Set Scoreboards IPs List",
+                                                        "kind": "app_task"
+                                                    },
+                                                    "to_task_reference": {
+                                                        "name": "Set Variable",
+                                                        "kind": "app_task"
+                                                    },
+                                                    "edge_type": "user_defined"
+                                                }
+                                            ]
+                                        },
+                                        "child_tasks_local_reference_list": [
+                                            {
+                                                "name": "Set Scoreboards IPs List",
+                                                "kind": "app_task"
+                                            },
+                                            {
+                                                "name": "Set Variable",
+                                                "kind": "app_task"
+                                            }
+                                        ],
+                                        "variable_list": [],
+                                        "timeout_secs": "0",
+                                        "retries": "0",
+                                        "inherit_target": false,
+                                        "status_map_list": []
+                                    },
+                                    {
+                                        "type": "EXEC",
+                                        "name": "Set Scoreboards IPs List",
+                                        "description": "",
+                                        "attrs": {
+                                            "type": "",
+                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\nsed -i 's={COMBINEDSCOREBOARDS}=@@{SCOREBOARDSIPS}@@=' config.env\n",
+                                            "script_type": "sh",
+                                            "command_line_args": "",
+                                            "exit_status": []
+                                        },
+                                        "child_tasks_local_reference_list": [],
+                                        "variable_list": [],
+                                        "target_any_local_reference": {
+                                            "name": "Game",
+                                            "kind": "app_service"
+                                        },
+                                        "timeout_secs": "0",
+                                        "retries": "0",
+                                        "inherit_target": false,
+                                        "status_map_list": []
+                                    },
+                                    {
+                                        "type": "SET_VARIABLE",
+                                        "name": "Set Variable",
+                                        "description": "",
+                                        "attrs": {
+                                            "type": "",
+                                            "script": "#script\n\nprint(\"COMBINEDSCOREBOARDS=@@{SCOREBOARDSIPS}@@\")",
+                                            "script_type": "static_py3",
+                                            "exit_status": [],
+                                            "eval_scope": "local",
+                                            "eval_variables": [
+                                                "COMBINEDSCOREBOARDS"
+                                            ]
+                                        },
+                                        "child_tasks_local_reference_list": [],
+                                        "variable_list": [],
+                                        "target_any_local_reference": {
+                                            "name": "Game",
+                                            "kind": "app_service"
+                                        },
+                                        "timeout_secs": "0",
+                                        "retries": "0",
+                                        "inherit_target": false,
+                                        "status_map_list": []
+                                    }
+                                ],
+                                "main_task_local_reference": {
+                                    "name": "a90bcd08_dag",
+                                    "kind": "app_task"
+                                },
+                                "variable_list": [
+                                    {
+                                        "type": "LOCAL",
+                                        "name": "SCOREBOARDSIPS",
+                                        "description": "Use only IP addresses, with comma as separator.",
+                                        "regex": {
+                                            "value": "^.*$",
+                                            "should_validate": false
+                                        },
+                                        "options": {
+                                            "type": "PREDEFINED",
+                                            "choices": []
+                                        },
+                                        "is_hidden": false,
+                                        "is_mandatory": false,
+                                        "data_type": "BASE",
+                                        "val_type": "STRING",
+                                        "label": "",
+                                        "attrs": {
+                                            "type": ""
+                                        },
+                                        "editables": {
+                                            "value": true
+                                        },
+                                        "value": ""
+                                    }
+                                ]
                             },
                             "critical": false
                         }
@@ -3062,10 +3189,10 @@
     "api_version": "3.0",
     "product_version": "4.3.0",
     "metadata": {
-        "last_update_time": "1767365375165281",
-        "creation_time": "1767084985845412",
-        "spec_version": 6,
-        "name": "BP_Escape-Game",
+        "last_update_time": "1768904840903661",
+        "creation_time": "1768827692864601",
+        "spec_version": 25,
+        "name": "EG-Blueprint-Installation",
         "kind": "blueprint"
     },
     "contains_secrets": false

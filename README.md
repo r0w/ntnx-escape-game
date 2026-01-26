@@ -45,9 +45,10 @@
     - The URL of the scoreboard, that is a sort of dashboard monitoring the progress of all the players. We recommand to display the scoreboard on a screen, cause it will improve game feeling for players.
 
   - Use Day 2 actions of the blueprint to:
-    - Launch invitation email to your players, but you'll have to enter recipients list.
-    - Launch "End of lab" email. Then used recipients list to send invites will be used.
-    - **Note:** Day-2 operations can be found clicking on `Self-Service > Application > {your application} > Manage tab`. You can run them by clicking on play icon, just after the day-2 action name.
+    - **Note:** Day-2 operations can be found clicking on `Self-Service > Application > {your application} > Manage`. You can run them by clicking on play icon, just after the action name.
+    - Send invitation emails to your players. You'll have to enter the recipient list (that will be saved).
+    - Send summary emails to your players. It automatically uses the same recipient list that you configured to send invitations.
+    - Setup the scoreboards URLs to combine into one. The maximum scores that can be displayed is 100.
 
 # Tips
   - Unsuccesfull lab checks may happen even if the exercise is succesfully done. In this case, the player can refresh is web page, use the same trigram, and recovery mode will bring him to the same lab step, that could then be checked again and passed successfully.
