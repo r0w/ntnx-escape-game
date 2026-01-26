@@ -594,7 +594,7 @@
                     "#>B#\n",
                     "Next step, connect with ssh on #>C:white##>V:Trigram#-vm#>D#... As a reminder, the user and password defined in the cloud-init were #>C:white#admin#>D# and #>C:white#MyPassword#>D#. Your turn... #>P:5#\n",
                     "Oh wait, it won't work with our security policy... My bad!#>P:2#\n\n",
-                    "First check if our Security policy is working as we expect, with a simple ping from to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. It will run a new terminal session on a VM on the Nutanix cluster.#>P:4#\n\n",
+                    "First check if our Security policy is working as we expect, with a simple ping to your VM. It should not work.#>P:2# To execute your ping, please open a new webpage on #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. It will run a new terminal session on a VM on the Nutanix cluster.#>P:4#\n\n",
                     "Then update the policy to allow the SSH and icmp traffic.\n",
                     "To do that, #>C:white#allow all inbound traffic#>D# and add the 2 below #>C:white#Traffic Filtering#>D# rules:\n",
                     " - Service #>C:white#ssh#>D# from this IP #>C:white##>V:frontendHost##>D# only\n",
@@ -607,7 +607,7 @@
                     "Oh, attendez, ça ne fonctionnera pas avec notre politique de sécurité... Désolé !#>P:2#\n\n",
                     "Commencez par vérifier si notre politique de sécurité fonctionne comme prévu, avec un simple ping de votre VM. Cela ne devrait pas fonctionner.#>P:2# Pour exécuter votre ping, veuillez ouvrir une nouvelle page web sur #>C:white#http://#>V:frontendHost#:#>V:frontendPort#/ssh#>D#. Cela lancera une nouvelle session de terminal sur une VM du cluster Nutanix.#>P:4#\n\n",
                     "Ensuite, mettez à jour la security policy pour autoriser le trafic SSH et icmp.\n",
-                    "Pour cela, autorisez #>C:white#tout le traffic entrant#>D#, puis ajoutez les 2 #>C:white#filtrages de traffic (Triffic Filtering)#>D# ci-dessous :\n",
+                    "Pour cela, autorisez #>C:white#tout le traffic entrant#>D#, puis ajoutez les 2 #>C:white#filtrages de traffic (Traffic Filtering)#>D# ci-dessous :\n",
                     " - Service #>C:white#ssh#>D# depuis cette IP #>C:white##>V:frontendHost##>D# uniquement\n",
                     " - #>C:white#ICMP (Type : 8 - Code : 0)#>D# depuis partout.#>P:3#\n\n",
                     "Après la mise à jour de la politique de sécurité, vérifiez à nouveau le ping et Envoyez-moi un message #>C:white#Ok#>D# ici : #>I:#"
@@ -689,21 +689,25 @@
             "Prompt": "ego",
             "Messages": {
                 "en": [
-                    "To secure our work, we are going to setup an approval policy for snapshot deletion. It will avoid any deletion from our embarrassing friends.\n\n",
-                    "Please, create an approval policy named #>C:white##>V:Trigram#-appr-policy#>D# requesting validation for deletions of our VM snapshots. Use the below settings:#>P:3#\n",
-                    " - Only one approver set named #>C:white##>V:Trigram#-appr-set#>D#\n",
+                    "To secure our work, we are going to setup an approval policy for snapshot deletion. It will avoid any deletion of our snapshots by our... embarrassing friends!\n\n",
+                    "For that, we must create an approval policy with the below settings:#>P:3#\n",
+                    " - Name of the approval policy: #>C:white#master-appr-policy#>D#\n",
+                    " - Only one approver set named #>C:white#ego-appr-set#>D#\n",
                     " - 3 approvers in this set : #>C:white#Charlie#>D#, #>C:white#Thom#>D# and #>C:white#William#>D# #>C:red#(add them with lowercase names)#>D#.\n",
                     " - Expiry after #>C:white#24h#>D#\n\n",
-                    "When the policy is created, associate it to your protection policy #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n\n",
+                    "#>C:red#Warning: this policy may already exist and only one approval policy is allowed. In this case, simply link it to your protection policy as described below.#>D#.#>P:2#\n\n",
+                    "Then associate your protection policy #>C:white##>V:Trigram#-prot-policy#>D# to the existing or created approval policy.#>P:4#\n\n",
                     "Then, send me a #>C:white#Ok#>D# message here: #>I:#"
                 ],
                 "fr": [
-                    "Pour sécuriser notre travail, nous allons mettre en place une politique d'approbation (Approval Policy) pour la suppression des snapshots. Cela évitera toute suppression de la part de nos amis embarrassants.\n\n",
-                    "Merci de créez une politique d'approbation nommée #>C:white##>V:Trigram#-appr-policy#>D# demandant une validation pour les suppressions de nos snapshots de VM. Utilisez les paramètres ci-dessous :#>P:3#\n",
-                    " - Un seul groupe d'approbateurs nommé #>C:white##>V:Trigram#-appr-set#>D#\n",
+                    "Pour sécuriser notre travail, nous allons mettre en place une politique d'approbation (Approval Policy) pour la suppression des snapshots. Cela évitera toute suppression de nos snapshots par nos amis ... embarrassants !\n\n",
+                    "Pour cela, nous devons créer une politique d'approbation avec les paramètres ci-dessous :#>P:3#\n",
+                    " - Nom de la politique d'approbation : #>C:white#master-appr-policy#>D#\n",
+                    " - Un seul groupe d'approbateurs nommé #>C:white#ego-appr-set#>D#\n",
                     " - 3 validateurs dans ce groupe : #>C:white#Charlie#>D#, #>C:white#Thom#>D# et #>C:white#William#>D# #>C:red#(ajoutez les avec leurs noms en minuscules)#>D#.\n",
                     " - Expiration au bout de #>C:white#24h#>D#\n\n",
-                    "Lorsque la politique est créée, associez-la à votre politique de protection #>C:white##>V:Trigram#-prot-policy#>D#.#>P:4#\n\n",
+                    "#>C:red#Attention : cette politique existe peut-être déjà et il ne peut y avoir qu'une seule politique d'approbation. Si c'est le cas, contentez-vous de l'associer à votre protection policy comme évoqué ci-dessous.#>D#.#>P:2#\n\n",
+                    "Associez ensuite votre politique de protection #>C:white##>V:Trigram#-prot-policy#>D# à la politique d'approbation existante ou créée.#>P:4#\n\n",
                     "Ensuite, envoyez-moi un message #>C:white#Ok#>D# ici : #>I:#"
                 ]
             },

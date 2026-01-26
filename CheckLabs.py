@@ -479,7 +479,7 @@ def CheckProtectionPolicy(variables, recoveryMode):
 # =============================================================================
 def CheckApprovalPolicy(variables, recoveryMode):
     response = functions.retrieveApprovalPolicyInfo(
-        variables["Trigram"] + "-appr-policy", variables=variables
+        "master-appr-policy", variables=variables
     )
 
     # We check if policy is created
