@@ -223,7 +223,7 @@ url = "https://%s:9440/api/iam/v4.0/authz/roles?$filter=startswith(displayName,'
 response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
 response_data = response.json()
 print("Project Roles Available:")
-print(json.dumps(response_data.data, indent=4))
+print(json.dumps(response_data["data"], indent=4))
 
 jsonpath_expr = parse("$.data[?(@.displayName=='Project Admin')].extId")
 
