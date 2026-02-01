@@ -5,15 +5,33 @@ import urllib3
 import uuid
 import json
 import argparse
+import ipaddress
+
+# Functions to validate that an arguement is a subnet in CIDR notation
+def subnet(value: str) -> str:
+    try:
+        net = ipaddress.ip_network(value, strict=True)
+        return str(net)
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"Invalid Subnet: {value}")
+
+# Functions to validate that an arguement is an IPv4 address without CIDR notation
+def ipv4_strict(value: str) -> str:
+    try:
+        if "/" in value:
+            raise ValueError
+        return str(ipaddress.IPv4Address(value))
+    except ValueError:
+        raise argparse.ArgumentTypeError(f"Invalid IPv4 address: {value}")
 
 # Parser arguments
 parser = argparse.ArgumentParser()
 
-parser.add_argument("--pcIp", type=str, required=True)
+parser.add_argument("--pcIp", type=ipv4_strict, required=True)
 parser.add_argument("--pcUser", type=str, required=True)
 parser.add_argument("--pcPassword", type=str, required=True)
-parser.add_argument("--primarySubnet", type=str, required=True)
-parser.add_argument("--secondarySubnet", type=str, required=True)
+parser.add_argument("--primarySubnetName", type=str, required=True)
+parser.add_argument("--secondarySubnetName", type=str, required=True)
 
 args = parser.parse_args()
 
@@ -22,8 +40,8 @@ pc_ip = args.pcIp
 pc_user = args.pcUser
 pc_password = args.pcPassword
 
-primary_subnet_name = args.primarySubnet
-secondary_subnet_name = args.secondarySubnet
+primary_subnet_name = args.primarySubnetName
+secondary_subnet_name = args.secondarySubnetName
 
 projectName = "production"
 projectAdmin = "thebadguy"

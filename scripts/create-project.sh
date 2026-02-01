@@ -3,11 +3,11 @@
 cd ~/.calm
 source venv/bin/activate
 
-pc_ip = "@@{PC_IP}@@"
-pc_user = "@@{PC_USERNAME}@@"
-pc_password = "@@{PC_PASSWORD}@@"
+PCIP="@@{PC_IP}@@"
+PCUSER="@@{PC_USERNAME}@@"
+PCPASSWORD="@@{PC_PASSWORD}@@"
 
-primary_subnet_name = "@@{PRIMARY_SUBNET}@@"
-secondary_subnet_name = "@@{SECONDARY_SUBNET}@@"
+PRIMARY_SUBNET_NAME="@@{PRIMARY_SUBNET}@@"
+SECONDARY_SUBNET_NAME="@@{SECONDARY_SUBNET}@@"
 
-python ~/ntnx-escape-game/scripts/create-project.py --pcIp $pc_ip --pcUser $pc_user --pcPassword $pc_password --primarySubnet $primary_subnet_name --secondarySubnet $secondary_subnet_name
+python ~/ntnx-escape-game/scripts/create-project.py --pcIp "$PCIP" --pcUser "$PCUSER" --pcPassword "$PCPASSWORD" --primarySubnetName "$PRIMARY_SUBNET_NAME" --secondarySubnetName "$SECONDARY_SUBNET_NAME"
