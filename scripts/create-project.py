@@ -3,20 +3,32 @@ import requests
 import time
 import urllib3
 import uuid
-# import json
+import json
+import argparse
 
-urllib3.disable_warnings()
+# Parser arguments
+parser = argparse.ArgumentParser()
 
-pc_ip = "@@{PC_IP}@@"
-pc_user = "@@{PC_USERNAME}@@"
-pc_pwd = "@@{PC_PASSWORD}@@"
+parser.add_argument("--pcIp", type=str, required=True)
+parser.add_argument("--pcUser", type=str, required=True)
+parser.add_argument("--pcPassword", type=str, required=True)
+parser.add_argument("--primarySubnet", type=str, required=True)
+parser.add_argument("--secondarySubnet", type=str, required=True)
 
-primary_subnet_name = "@@{PRIMARY_SUBNET}@@"
-secondary_subnet_name = "@@{SECONDARY_SUBNET}@@"
+args = parser.parse_args()
+
+# Initialize variables and settings
+pc_ip = args.pcIp
+pc_user = args.pcUser
+pc_password = args.pcPassword
+
+primary_subnet_name = args.primarySubnet
+secondary_subnet_name = args.secondarySubnet
 
 projectName = "production"
 projectAdmin = "thebadguy"
 
+urllib3.disable_warnings()
 headers = {"Accept": "application/json", "Content-Type": "application/json"}
 
 # Check if project already exists
@@ -27,15 +39,15 @@ request_result = requests.post(
     json=payload_list,
     headers=headers,
     verify=False,
-    auth=(pc_user, pc_pwd),
+    auth=(pc_user, pc_password),
 )
 request_result_json = request_result.json()
 if request_result_json.get("entities"):
     print(
-        f"Project '{projectName}' already exists! Assuming this script has already been executed."
+        f"Project '{projectName}' already exists! Please delete it manually and run again this task."
     )
-    print("Exiting...")
-    exit(0)
+    print("Exiting with error...")
+    exit(-1)
 
 # Get Account
 url = "https://%s:9440/api/nutanix/v3/accounts/list" % pc_ip
@@ -43,7 +55,7 @@ url = "https://%s:9440/api/nutanix/v3/accounts/list" % pc_ip
 payload = {"kind": "account"}
 
 response = requests.post(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 
@@ -58,7 +70,7 @@ url = "https://%s:9440/api/networking/v4.0/config/subnets" % pc_ip
 payload = {"kind": "subnet"}
 
 response = requests.get(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 
@@ -80,7 +92,7 @@ headers = {"Accept": "application/json", "Content-Type": "application/json"}
 payload = {"kind": "cluster"}
 
 response = requests.post(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 
@@ -115,7 +127,7 @@ payload = {
 }
 
 response = requests.post(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 taskID = response_data["status"]["execution_context"]["task_uuid"]
@@ -126,7 +138,7 @@ ended = False
 url = "https://%s:9440/api/nutanix/v3/tasks/%s" % (pc_ip, taskID)
 
 while not ended:
-    response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))
+    response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
     response_data = response.json()
     if response_data["status"] == "SUCCEEDED":
         projectUUID = response_data["entity_reference_list"][0]["uuid"]
@@ -139,7 +151,7 @@ while not ended:
 
 # Get Spec version
 url = "https://%s:9440/api/nutanix/v3/projects/%s" % (pc_ip, projectUUID)
-response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))
+response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
 response_data = response.json()
 
 projectSpecVersion = response_data["metadata"]["spec_version"]
@@ -151,7 +163,7 @@ print("Project UUID: " + projectUUID + " / Version: " + str(projectSpecVersion))
 # Get AD Service
 url = "https://%s:9440/api/iam/v4.0/authn/directory-services" % pc_ip
 
-response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))
+response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
 response_data = response.json()
 
 directoryType = response_data["data"][0]["directoryType"]
@@ -170,14 +182,14 @@ payload = {
 }
 
 response = requests.post(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 
 # Get UserID
 url = "https://%s:9440/api/iam/v4.0/authn/users" % pc_ip
 
-response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))
+response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
 response_data = response.json()
 
 jsonpath_expr = parse("$.data[?(@.username=='" + projectAdmin + "')].extId")
@@ -188,11 +200,12 @@ for match in jsonpath_expr.find(response_data):
 print("User UUID: " + userUUID)
 
 # We get Project Admin role UUID
-url = "https://%s:9440/api/iam/v4.0/authz/roles" % pc_ip
+url = "https://%s:9440/api/iam/v4.0/authz/roles?$filter=startswith(displayName,'Project')&$orderby=displayName&$select=displayName,extId" % pc_ip
 
-response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))
+response = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_password))
 response_data = response.json()
-# print(json.dumps(response_data, indent=4))
+print("Project Roles Available:")
+print(json.dumps(response_data.data, indent=4))
 
 jsonpath_expr = parse("$.data[?(@.displayName=='Project Admin')].extId")
 
@@ -202,7 +215,6 @@ for match in jsonpath_expr.find(response_data):
 print("Role 'Project Admin' UUID: " + projectAdminRoleUUID)
 
 # Update project to add user
-
 payload = {
     "api_version": "3.1",
     "metadata": {
@@ -518,7 +530,7 @@ payload = {
 url = "https://%s:9440/api/nutanix/v3/projects_internal/%s" % (pc_ip, projectUUID)
 
 response = requests.put(
-    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd)
+    url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password)
 )
 response_data = response.json()
 
