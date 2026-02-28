@@ -218,7 +218,7 @@
                     "Je n'ai pas le temps de vérifier que vous êtes bien connecté avec le compte #>C:white##>V:Trigram#-adm#>D# ! Je vous fais confiance pour cette fois #>C:white##>V:Username##>D#, même si l'erreur est (ou plutôt, n'est que) humaine ...#>P:2#\n\n",
                     "Il vous faut maintenant créer un nouveau projet. Les projets sont utilisés pour regrouper les ressources, gérer les droits d'accès et définir les quotas. C'est l'objet Nutanix qui permet de gérer des tenants. Les utilisateurs des autres projets ne verront pas ce que nous faisons dans notre propre projet.\n\n",
                     "#>C:red#Oh ... J'allais oublié un point important !#>D# Si je vous ai mal orienté dans l'interface, utilisez la #>C:white#barre de recherche#>D# en haut de l'interface de Prism Central ! Elle est très pratique pour aller vite.#>P:3#\n\n",
-                    "Essayons de suite ! Tapez #>C:white#projects#>D#, puis créez un projet nommé #>C:white##>V:Trigram#-proj#>D# avec l'utilisateur#>C:white#TheProjectManager#>D# (utilisateur AD) en tant que #>C:white#Project Admin#>D#.\n\n",
+                    "Essayons de suite ! Tapez #>C:white#projects#>D#, puis créez un projet nommé #>C:white##>V:Trigram#-proj#>D# avec l'utilisateur #>C:white#TheProjectManager#>D# (utilisateur AD) en tant que #>C:white#Project Admin#>D#.\n\n",
                     "Enfin, après avoir créé le projet, allez dans l'onglet #>C:white#Infrastructure#>D# de ce projet, ajoutez une nouvelle infrastructure avec notre cluster Nutanix et utilisez le VLAN nommé #>C:white#secondary#>D#.\n\n",
                     "Envoyez-moi un message #>C:white#Ok#>D# ici lorsque le projet est créé. #>I:#\n"
                 ]
