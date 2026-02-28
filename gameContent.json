@@ -433,7 +433,7 @@
                 "fr": [
                     "#>B#\n",
                     "Dieu merci, ils n'ont pas détecté la VM... Wooow, c'était très chaud !\n\n",
-                    "Maintenant, nous allons commencer les choses sérieuses. Malheureusement, vous n'êtes pas certifié Nutanix, mais ce n'est pas grave. Nutanix simplifie les choses avec leur interface et vous devriez trouver comment faire les chosespar vous-même assez facilement.#>P:4#\n\n",
+                    "Maintenant, nous allons commencer les choses sérieuses. Malheureusement, vous n'êtes pas certifié Nutanix, mais ce n'est pas grave. Nutanix simplifie les choses avec leur interface et vous devriez trouver comment faire les choses par vous-même assez facilement.#>P:4#\n\n",
                     "Dans la page #>C:white#Admin Center#>D#, vous devriez trouver quelque chose pour gérer les catégories. Nutanix utilise les catégories pour gérer toutes les politiques sur le cluster, c'est très efficace.#>P:3#\n",
                     "Créez une nouvelle catégorie #>C:white##>V:Trigram#-cat#>D# avec 2 valeurs : #>C:white#Critical#>D# et #>C:white#Test#>D#.#>P:3#\n\n",
                     "J'attends votre retour ... Envoyez-moi un message #>C:white#Ok#>D# quand c'est fait : #>I:"
