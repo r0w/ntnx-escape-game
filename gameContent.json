@@ -249,7 +249,7 @@
                 ],
                 "fr": [
                     "#>B#\n",
-                    "Vous savez quoi ?#>P:1# Je trouve que nous sommes déjà de supers coéquipiers!#>P:3#\n\n",
+                    "Vous savez quoi ?#>P:1# Je trouve que nous sommes déjà de super coéquipiers!#>P:3#\n\n",
                     "Bob a mis à jour la configuration du switch. Vous devez créer un nouveau subnet dans le cluster Nutanix pour l'utiliser. Cela devrait nous aider à extraire des données à l'extérieur sans être détecté.\n\n",
                     "Allez dans le menu #>C:white#Infrastructure#>D# et créez un nouveau subnet nommé #>C:white##>V:Trigram#-subnet#>D# avec l'ID VLAN #>C:white##>V:Vlanid##>D#.\n",
                     "Le sous-réseau peut fournir une IP aux VM comme un DHCP, ce qui sera très utile pour nous. C'est ce que l'on appelle un #>C:white#Nutanix IPAM#>D# et SVP, assurez-vous de l'utiliser !\n\n",
