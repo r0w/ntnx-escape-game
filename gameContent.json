@@ -916,13 +916,13 @@
             "Messages": {
                 "en": [
                     "There is another point I would like you check for this future mission: the status of the updates.\n\n",
-                    "Look at the #>C:white#Admin Center > LCM#>D# page to check Prism Central updates and take a screenshot of product list and current version.\n",
+                    "Look at the #>C:white#Admin Center > LCM#>D# page to check #>C:white#Prism Central#>D# updates and take a screenshot of product list and current version.\n",
                     "Check also if updates are available for the platform. You'll send me it later. #>P:3#\n\n",
                     "Tell me #>C:white#how many updates#>D# are available : #>I:NumberUpdates#"
                 ],
                 "fr": [
                     "Il y a un autre point que je voudrais que vous vérifiez pour cette future mission : l'état des mises à jour.\n\n",
-                    "Allez jeter un oeil sur la page #>C:white#Admin Center > LCM#>D# pour voir ce qui est intallé dans Prism Central et prenez une capture d'écran de la liste des produits et de la version actuelle.\n",
+                    "Allez jeter un oeil sur la page #>C:white#Admin Center > LCM#>D# pour voir ce qui est intallé dans #>C:white#Prism Central#>D# et prenez une capture d'écran de la liste des produits et de la version actuelle.\n",
                     "Vérifiez également si des mises à jour sont disponibles pour la plateforme. Vous me l'enverrez plus tard. #>P:3#\n\n",
                     "Dites-moi #>C:white#combien de mises à jour#>D# sont disponibles : #>I:NumberUpdates#"
                 ]

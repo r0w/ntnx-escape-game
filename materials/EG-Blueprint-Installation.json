@@ -2,7 +2,7 @@
     "status": {},
     "spec": {
         "name": "EG-Blueprint-Installation",
-        "description": "Deploy escape game on a brand new HPOC. When deployed :\n\n - Game will be available on  http://@@{VM.address}@@:8080\n - Scoreboard will be available on http://@@{VM.address}@@:8080/scoreboard",
+        "description": "Deploy escape game on a brand new HPOC. When deployed :\n\n - Game will be available on  http:\/\/@@{VM.address}@@:8080\n - Scoreboard will be available on http:\/\/@@{VM.address}@@:8080\/scoreboard",
         "resources": {
             "service_definition_list": [
                 {
@@ -189,7 +189,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\nsudo systemctl start eg-dashboard.service",
+                                            "script": "#!\/bin\/bash\n\nsudo systemctl start eg-dashboard.service",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -211,7 +211,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\nsudo systemctl start eg-sshserver.service",
+                                            "script": "#!\/bin\/bash\n\nsudo systemctl start eg-sshserver.service",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -310,7 +310,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\nchmod +x run.sh",
+                                            "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\n\nchmod +x run.sh",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -503,7 +503,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#script\n\nimport requests \n\npc_ip='@@{OLDPC}@@'\npc_user='@@{OLDPC_USER}@@'\npc_pwd='@@{PLANNER_PASSWORD}@@'\n\nheaders = {\n    \"Accept\": \"application/json\",\n    \"Content-Type\": \"application/json\"\n}\n \nurl=\"https://%s:9440/api/nutanix/v3/vms/list\" % pc_ip\n\npayload = {\n    \"kind\": \"vm\"\n}\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nif response.ok:\n    print(\"Ok\")\n    exit(0)\nelse:\n    print(\"Planner password seems to be incorrect. Please delete this app, then redploy it with the good password.\")\n    exit(2)",
+                                            "script": "#script\n\nimport requests \n\npc_ip='@@{OLDPC}@@'\npc_user='@@{OLDPC_USER}@@'\npc_pwd='@@{PLANNER_PASSWORD}@@'\n\nheaders = {\n    \"Accept\": \"application\/json\",\n    \"Content-Type\": \"application\/json\"\n}\n \nurl=\"https:\/\/%s:9440\/api\/nutanix\/v3\/vms\/list\" % pc_ip\n\npayload = {\n    \"kind\": \"vm\"\n}\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nif response.ok:\n    print(\"Ok\")\n    exit(0)\nelse:\n    print(\"Planner password seems to be incorrect. Please delete this app, then redploy it with the good password.\")\n    exit(2)",
                                             "script_type": "static_py3",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -654,13 +654,13 @@
                             "gpu_list": [],
                             "parent_reference": null,
                             "hardware_clock_timezone": "",
-                            "account_uuid": "77407528-de31-433c-b6b5-2a4e4d6b804d",
+                            "account_uuid": "36eefbfa-fecb-44c3-81a4-824e3c614f35",
                             "guest_customization": {
                                 "type": "",
                                 "cloud_init": {
                                     "type": "",
                                     "meta_data": "",
-                                    "user_data": "#cloud-config\ntimezone: @@{TIMEZONE}@@\n\nusers:\n  - name: @@{NUTANIX.username}@@\n    shell: /bin/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n  - name: @@{PLAYER.username}@@\n    shell: /bin/bash\n    sudo: []\nchpasswd:\n  list: |\n    @@{NUTANIX.username}@@:@@{NUTANIX.secret}@@\n    @@{PLAYER.username}@@:@@{PLAYER.secret}@@\n  expire: false\n\nssh_pwauth: true"
+                                    "user_data": "#cloud-config\ntimezone: @@{TIMEZONE}@@\n\nusers:\n  - name: @@{NUTANIX.username}@@\n    shell: \/bin\/bash\n    sudo: ['ALL=(ALL) NOPASSWD:ALL']\n  - name: @@{PLAYER.username}@@\n    shell: \/bin\/bash\n    sudo: []\nchpasswd:\n  list: |\n    @@{NUTANIX.username}@@:@@{NUTANIX.secret}@@\n    @@{PLAYER.username}@@:@@{PLAYER.secret}@@\n  expire: false\n\nssh_pwauth: true"
                                 },
                                 "sysprep": null
                             },
@@ -685,7 +685,7 @@
                                         "type": "",
                                         "kind": "app_package",
                                         "name": "Ubuntu2404",
-                                        "uuid": "a19ddc3f-84ab-4660-8bb6-fd3a82d77528"
+                                        "uuid": "44757e7f-ec98-460e-8b0b-4d374c47fb2b"
                                     },
                                     "volume_group_reference": null,
                                     "device_properties": {
@@ -742,7 +742,7 @@
                                 "checksum_algorithm": "",
                                 "checksum_value": ""
                             },
-                            "source_uri": "https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img",
+                            "source_uri": "https:\/\/cloud-images.ubuntu.com\/noble\/current\/noble-server-cloudimg-amd64.img",
                             "version": {
                                 "type": "",
                                 "product_version": "24.04",
@@ -1247,7 +1247,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#script\n\nimport requests\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\nheaders = {\n        \"Content-Type\": \"application/json\",\n        \"Accept\": \"application/json\"\n    }\n\n\nip_parts = pc_ip.split('.')\nip_parts[3] = \"10\"\n\npolicyIp = '.'.join(ip_parts)\n\n# Get Account\npayload = {\n    \"api_version\": \"3.1\",\n    \"metadata\": {\n        \"spec_version\": 0,\n        \"name\": \"\",\n        \"kind\": \"calm_feature\"\n    },\n    \"spec\": {\n        \"feature_status\": {\n            \"is_enabled\": True,\n            \"config\": {\n                \"data\": {\n                    \"ip_list\": [\n                        policyIp\n                    ]\n                }\n            }\n        }\n    }\n}\n\nurl=\"https://%s:9440/api/calm/v3.0/features/policy\" % (pc_ip)\n\nresponse = requests.put(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data=response.json()\n\nexit(0)",
+                                        "script": "#script\n\nimport requests\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\nheaders = {\n        \"Content-Type\": \"application\/json\",\n        \"Accept\": \"application\/json\"\n    }\n\n\nip_parts = pc_ip.split('.')\nip_parts[3] = \"10\"\n\npolicyIp = '.'.join(ip_parts)\n\n# Get Account\npayload = {\n    \"api_version\": \"3.1\",\n    \"metadata\": {\n        \"spec_version\": 0,\n        \"name\": \"\",\n        \"kind\": \"calm_feature\"\n    },\n    \"spec\": {\n        \"feature_status\": {\n            \"is_enabled\": True,\n            \"config\": {\n                \"data\": {\n                    \"ip_list\": [\n                        policyIp\n                    ]\n                }\n            }\n        }\n    }\n}\n\nurl=\"https:\/\/%s:9440\/api\/calm\/v3.0\/features\/policy\" % (pc_ip)\n\nresponse = requests.put(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data=response.json()\n\nexit(0)",
                                         "script_type": "static_py3",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1269,7 +1269,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#script\n\nimport requests \n\npc_ip='@@{PC_IP}@@'\npc_user='@@{PC_USERNAME}@@'\npc_pwd='@@{PC_PASSWORD}@@'\n\nheaders = {\n    \"Accept\": \"application/json\",\n    \"Content-Type\": \"application/json\"\n}\n \nurl=\"https://%s:9440/api/nutanix/v3/clusters/list\" % pc_ip\n\npayload = {\n    \"kind\": \"cluster\"\n}\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nfor item in response_data['entities']:\n    if item['status']['name'] != \"Unnamed\":\n        print(\"CLUSTERNAME=\"+item['status']['name'])\n        break",
+                                        "script": "#script\n\nimport requests \n\npc_ip='@@{PC_IP}@@'\npc_user='@@{PC_USERNAME}@@'\npc_pwd='@@{PC_PASSWORD}@@'\n\nheaders = {\n    \"Accept\": \"application\/json\",\n    \"Content-Type\": \"application\/json\"\n}\n \nurl=\"https:\/\/%s:9440\/api\/nutanix\/v3\/clusters\/list\" % pc_ip\n\npayload = {\n    \"kind\": \"cluster\"\n}\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nfor item in response_data['entities']:\n    if item['status']['name'] != \"Unnamed\":\n        print(\"CLUSTERNAME=\"+item['status']['name'])\n        break",
                                         "script_type": "static_py3",
                                         "exit_status": [],
                                         "eval_scope": "local",
@@ -1332,7 +1332,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\nsudo apt update -y\nsudo apt install git python3-pip python3-venv -y\n\nmkdir -p /home/nutanix/.calm\ncd /home/nutanix/.calm\n\npython3 -m venv venv\n",
+                                        "script": "#!\/bin\/bash\n\nsudo apt update -y\nsudo apt install git python3-pip python3-venv -y\n\nmkdir -p \/home\/nutanix\/.calm\ncd \/home\/nutanix\/.calm\n\npython3 -m venv venv\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1354,7 +1354,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\necho \"Cloning repository...\"\necho \"Branch : @@{GIT_BRANCH}@@\"\necho \"URL : @@{GIT_URL}@@\"\n\n#git clone https://@@{TOKEN}@@@github.com/Golgautier/ntnx-escape-game.git\ngit clone --depth 1 --branch \"@@{GIT_BRANCH}@@\" \"@@{GIT_URL}@@\"",
+                                        "script": "#!\/bin\/bash\n\necho \"Cloning repository...\"\necho \"Branch : @@{GIT_BRANCH}@@\"\necho \"URL : @@{GIT_URL}@@\"\n\n#git clone https:\/\/@@{TOKEN}@@@github.com\/Golgautier\/ntnx-escape-game.git\ngit clone --depth 1 --branch \"@@{GIT_BRANCH}@@\" \"@@{GIT_URL}@@\"",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1376,7 +1376,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npip install -r /home/nutanix/ntnx-escape-game/requirements.txt\n",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npip install -r \/home\/nutanix\/ntnx-escape-game\/requirements.txt\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1398,7 +1398,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\n\nimport requests\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport uuid\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsourceSubnetName=\"aux-1\"\ntargetSubnetName=\"secondary\"\n\nnetworkFound=False\n\n# Get subnet UUID\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\ntry:\n    api_response = subnets_api.list_subnets()\n    \n    # Get Secondary Network\n    jsonpathExprSecondary = parse('$.data[?(@.name =~ \"secondary\")].name')\n    secondaryNetwork=jsonpathExprSecondary.find(api_response.to_dict())\n    \n    if secondaryNetwork:\n        networkFound=True\n    \nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\n# If no 'secondary' network found, we will try to get the UUID of the source subnet aux-1\nif networkFound==True:\n    print(\"Secondary network found, no need to rename it\")\nelse:\n    response=subnets_api.list_subnets(_filter=\"name eq '%s'\" % sourceSubnetName)\n    myData = response.to_dict()\n\n    # Check if we got an id\n    if myData['data']!=None:\n        subnetUUID=myData['data'][0]['ext_id']\n    else:\n        print(\"No subnet found with name %s or secondary, ERROR\" % sourceSubnetName)\n        exit(2)\n        \n    # Get etag\n    response=subnets_api.get_subnet_by_id(subnetUUID)\n    etag=client.get_etag(response)\n\n    # Change name in payload\n    response._GetSubnetApiResponse__data.name=targetSubnetName\n\n    # Apply playload\n    response=subnets_api.update_subnet_by_id(subnetUUID, body=response._GetSubnetApiResponse__data, if_match=etag)\n\nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\n\nimport requests\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport uuid\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsourceSubnetName=\"aux-1\"\ntargetSubnetName=\"secondary\"\n\nnetworkFound=False\n\n# Get subnet UUID\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\ntry:\n    api_response = subnets_api.list_subnets()\n    \n    # Get Secondary Network\n    jsonpathExprSecondary = parse('$.data[?(@.name =~ \"secondary\")].name')\n    secondaryNetwork=jsonpathExprSecondary.find(api_response.to_dict())\n    \n    if secondaryNetwork:\n        networkFound=True\n    \nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\n# If no 'secondary' network found, we will try to get the UUID of the source subnet aux-1\nif networkFound==True:\n    print(\"Secondary network found, no need to rename it\")\nelse:\n    response=subnets_api.list_subnets(_filter=\"name eq '%s'\" % sourceSubnetName)\n    myData = response.to_dict()\n\n    # Check if we got an id\n    if myData['data']!=None:\n        subnetUUID=myData['data'][0]['ext_id']\n    else:\n        print(\"No subnet found with name %s or secondary, ERROR\" % sourceSubnetName)\n        exit(2)\n        \n    # Get etag\n    response=subnets_api.get_subnet_by_id(subnetUUID)\n    etag=client.get_etag(response)\n\n    # Change name in payload\n    response._GetSubnetApiResponse__data.name=targetSubnetName\n\n    # Apply playload\n    response=subnets_api.update_subnet_by_id(subnetUUID, body=response._GetSubnetApiResponse__data, if_match=etag)\n\nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1420,7 +1420,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\nimport ntnx_clustermgmt_py_client\nimport ntnx_networking_py_client\nimport requests\nfrom jsonpath_ng.ext import parse\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport requests\nimport urllib3\n\nurllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)\n\nimport json\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_pwd = \"@@{PC_PASSWORD}@@\"\n\n\nsubnetName=\"TestNetwork\"\n\nurl=\"https://%s:9440/api/nutanix/v3/clusters/list\" % pc_ip\n\nheaders = {\n    \"Accept\": \"application/json\",\n    \"Content-Type\": \"application/json\"\n}\n\npayload = {\n    \"kind\": \"subnet\"\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.entities[?(@.spec.name!=\"Unnamed\")].metadata.uuid')\n\nfor match in jsonpath_expr.find(response_data):\n    clusterUUID= match.value\n\n\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\n\ntry:\n    api_response = subnets_api.list_subnets()\n    \n    # Get Primary Network\n    jsonpathExprPrimary = parse('$.data[?(@.name =~ \"primary\")].name')\n    primaryNetwork=jsonpathExprPrimary.find(api_response.to_dict())\n    print(\"PRIMARY_SUBNET=\",primaryNetwork[0].value)\n    \n    # GEt Secondary Network\n    jsonpathExprSecondary = parse('$.data[?(@.name =~ \"secondary\")].name')\n    secondaryNetwork=jsonpathExprSecondary.find(api_response.to_dict())\n    print(\"SECONDARY_SUBNET=\",secondaryNetwork[0].value)\n    \nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\nEOF\n",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\nimport ntnx_clustermgmt_py_client\nimport ntnx_networking_py_client\nimport requests\nfrom jsonpath_ng.ext import parse\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport requests\nimport urllib3\n\nurllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)\n\nimport json\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_pwd = \"@@{PC_PASSWORD}@@\"\n\n\nsubnetName=\"TestNetwork\"\n\nurl=\"https:\/\/%s:9440\/api\/nutanix\/v3\/clusters\/list\" % pc_ip\n\nheaders = {\n    \"Accept\": \"application\/json\",\n    \"Content-Type\": \"application\/json\"\n}\n\npayload = {\n    \"kind\": \"subnet\"\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.entities[?(@.spec.name!=\"Unnamed\")].metadata.uuid')\n\nfor match in jsonpath_expr.find(response_data):\n    clusterUUID= match.value\n\n\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\n\ntry:\n    api_response = subnets_api.list_subnets()\n    \n    # Get Primary Network\n    jsonpathExprPrimary = parse('$.data[?(@.name =~ \"primary\")].name')\n    primaryNetwork=jsonpathExprPrimary.find(api_response.to_dict())\n    print(\"PRIMARY_SUBNET=\",primaryNetwork[0].value)\n    \n    # GEt Secondary Network\n    jsonpathExprSecondary = parse('$.data[?(@.name =~ \"secondary\")].name')\n    secondaryNetwork=jsonpathExprSecondary.find(api_response.to_dict())\n    print(\"SECONDARY_SUBNET=\",secondaryNetwork[0].value)\n    \nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\nEOF\n",
                                         "script_type": "sh",
                                         "exit_status": [],
                                         "eval_scope": "local",
@@ -1446,7 +1446,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\n\nimport requests\nimport ntnx_networking_py_client\nimport uuid\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsubnetName=\"@@{SECONDARY_SUBNET}@@\"\n\n# Get subnet UUID\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\nresponse=subnets_api.list_subnets(_filter=\"name eq '\" + subnetName + \"'\")\nmyData = response.to_dict()\n\n# Check if we got an id\nif myData['data']!=None:\n    subnetUUID=myData['data'][0]['ext_id']\n    \n# get etag\nresponse=subnets_api.get_subnet_by_id(subnetUUID)\netag=client.get_etag(response)\n\n# Migrate it\nurl=\"https://%s:9440/api/networking/v4.0.b2/config/\\$actions/migrate-subnets\" % pc_ip\n\nheaders = {\n    \"Content-Type\": \"application/json\",\n    \"Accept\": \"application/json\",\n    \"Ntnx-Request-Id\": str(uuid.uuid4()),\n    \"If-Match\": etag\n}\n\npayload = {\n    \"subnets\":\n        [\n            {\n            \"subnetUuid\": subnetUUID\n            }\n        ]\n    }\n\nresponse = requests.post(url, headers=headers, json=payload, auth=(pc_user, pc_pwd), verify=False)\nprint(\"Call RC :\",response.status_code)\nEOF\n",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\n\nimport requests\nimport ntnx_networking_py_client\nimport uuid\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsubnetName=\"@@{SECONDARY_SUBNET}@@\"\n\n# Get subnet UUID\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\n\nresponse=subnets_api.list_subnets(_filter=\"name eq '\" + subnetName + \"'\")\nmyData = response.to_dict()\n\n# Check if we got an id\nif myData['data']!=None:\n    subnetUUID=myData['data'][0]['ext_id']\n    \n# get etag\nresponse=subnets_api.get_subnet_by_id(subnetUUID)\netag=client.get_etag(response)\n\n# Migrate it\nurl=\"https:\/\/%s:9440\/api\/networking\/v4.0.b2\/config\/\\$actions\/migrate-subnets\" % pc_ip\n\nheaders = {\n    \"Content-Type\": \"application\/json\",\n    \"Accept\": \"application\/json\",\n    \"Ntnx-Request-Id\": str(uuid.uuid4()),\n    \"If-Match\": etag\n}\n\npayload = {\n    \"subnets\":\n        [\n            {\n            \"subnetUuid\": subnetUUID\n            }\n        ]\n    }\n\nresponse = requests.post(url, headers=headers, json=payload, auth=(pc_user, pc_pwd), verify=False)\nprint(\"Call RC :\",response.status_code)\nEOF\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1468,7 +1468,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash -x\n\n# Add Docker's official GPG key:\nsudo apt-get update -y\nsudo apt-get install ca-certificates curl git -y\nsudo install -m 0755 -d /etc/apt/keyrings\nsudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc\nsudo chmod a+r /etc/apt/keyrings/docker.asc\n\n# Add the repository to Apt sources:\necho \\\n  \"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \\\n  $(. /etc/os-release && echo \"$VERSION_CODENAME\") stable\" | \\\n  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null\nsudo apt-get update -y\n\nsudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y\n",
+                                        "script": "#!\/bin\/bash -x\n\n# Add Docker's official GPG key:\nsudo apt-get update -y\nsudo apt-get install ca-certificates curl git -y\nsudo install -m 0755 -d \/etc\/apt\/keyrings\nsudo curl -fsSL https:\/\/download.docker.com\/linux\/ubuntu\/gpg -o \/etc\/apt\/keyrings\/docker.asc\nsudo chmod a+r \/etc\/apt\/keyrings\/docker.asc\n\n# Add the repository to Apt sources:\necho \\\n  \"deb [arch=$(dpkg --print-architecture) signed-by=\/etc\/apt\/keyrings\/docker.asc] https:\/\/download.docker.com\/linux\/ubuntu \\\n  $(. \/etc\/os-release && echo \"$VERSION_CODENAME\") stable\" | \\\n  sudo tee \/etc\/apt\/sources.list.d\/docker.list > \/dev\/null\nsudo apt-get update -y\n\nsudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin -y\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": [],
@@ -1494,7 +1494,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\nmkdir -p ~/nutanix\ncd ~/nutanix\n\ngit clone https://github.com/nutanix/calm-dsl.git",
+                                        "script": "#!\/bin\/bash\n\nmkdir -p ~\/nutanix\ncd ~\/nutanix\n\ngit clone https:\/\/github.com\/nutanix\/calm-dsl.git",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1516,7 +1516,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\n\nimport ntnx_clustermgmt_py_client\nfrom jsonpath_ng.ext import parse\n\n# Configure the client\nconfig = ntnx_clustermgmt_py_client.Configuration()\n# IPv4/IPv6 address or FQDN of the cluster\nconfig.host = \"@@{PC_IP}@@\"\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = \"@@{PC_USERNAME}@@\"\n# Password to connect to the cluster\nconfig.password = \"@@{PC_PASSWORD}@@\"\n# Verify SSL certificates\nconfig.verify_ssl = False\n\nclient = ntnx_clustermgmt_py_client.ApiClient(configuration=config)\nclusters_api = ntnx_clustermgmt_py_client.ClustersApi(api_client=client)\npage = 0\nlimit = 50\n\n# Get Cluster ID\ntry:\n   api_response = clusters_api.list_clusters(_page=page, _limit=limit)\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n\njsonpath_expr=parse('$.data[?(@.name != \"Unnamed\")].ext_id')\n\nd = api_response.to_dict() if api_response else {}\nitems = d.get(\"data\") or []\nif not items:\n    print(\"No cluster found\")\n    exit(0)\nmatches = [m.value for m in jsonpath_expr.find(d)]\nclusterUUID = matches[0] if matches else items[0].get(\"ext_id\")\n\n# Get Node ID finishing by -4\ntry:\n   api_response = clusters_api.list_hosts_by_cluster_id(clusterExtId=clusterUUID,_filter=\"endswith(hostName,'-4')\",  _page=page, _limit=limit)\n   hosts = getattr(api_response, \"_ListHostsByClusterIdApiResponse__data\", None)\n   if not hosts:\n       print(\"No '-4' host found, skipping removal\")\n       exit(0)\n   NodeUUID = hosts[0].ext_id\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n   exit(0)\n\n# Please add authorization information here if needed.\nnodeRemovalParams = ntnx_clustermgmt_py_client.NodeRemovalParams()\n\n# NodeRemovalParams object initializations here...\nnodeRemovalParams.node_uuids = [ NodeUUID ] \n\nprint(\"Launching the node removal. ClusterID : \"+clusterUUID+\" / NodeID : \"+NodeUUID)\n\ntry:\n   api_response = clusters_api.remove_node(clusterExtId=clusterUUID, body=nodeRemovalParams)\n   exit(0)\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n   \nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\n\nimport ntnx_clustermgmt_py_client\nfrom jsonpath_ng.ext import parse\n\n# Configure the client\nconfig = ntnx_clustermgmt_py_client.Configuration()\n# IPv4\/IPv6 address or FQDN of the cluster\nconfig.host = \"@@{PC_IP}@@\"\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = \"@@{PC_USERNAME}@@\"\n# Password to connect to the cluster\nconfig.password = \"@@{PC_PASSWORD}@@\"\n# Verify SSL certificates\nconfig.verify_ssl = False\n\nclient = ntnx_clustermgmt_py_client.ApiClient(configuration=config)\nclusters_api = ntnx_clustermgmt_py_client.ClustersApi(api_client=client)\npage = 0\nlimit = 50\n\n# Get Cluster ID\ntry:\n   api_response = clusters_api.list_clusters(_page=page, _limit=limit)\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n\njsonpath_expr=parse('$.data[?(@.name != \"Unnamed\")].ext_id')\n\nd = api_response.to_dict() if api_response else {}\nitems = d.get(\"data\") or []\nif not items:\n    print(\"No cluster found\")\n    exit(0)\nmatches = [m.value for m in jsonpath_expr.find(d)]\nclusterUUID = matches[0] if matches else items[0].get(\"ext_id\")\n\n# Get Node ID finishing by -4\ntry:\n   api_response = clusters_api.list_hosts_by_cluster_id(clusterExtId=clusterUUID,_filter=\"endswith(hostName,'-4')\",  _page=page, _limit=limit)\n   hosts = getattr(api_response, \"_ListHostsByClusterIdApiResponse__data\", None)\n   if not hosts:\n       print(\"No '-4' host found, skipping removal\")\n       exit(0)\n   NodeUUID = hosts[0].ext_id\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n   exit(0)\n\n# Please add authorization information here if needed.\nnodeRemovalParams = ntnx_clustermgmt_py_client.NodeRemovalParams()\n\n# NodeRemovalParams object initializations here...\nnodeRemovalParams.node_uuids = [ NodeUUID ] \n\nprint(\"Launching the node removal. ClusterID : \"+clusterUUID+\" \/ NodeID : \"+NodeUUID)\n\ntry:\n   api_response = clusters_api.remove_node(clusterExtId=clusterUUID, body=nodeRemovalParams)\n   exit(0)\nexcept ntnx_clustermgmt_py_client.rest.ApiException as e:\n   print(e)\n   \nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1538,7 +1538,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#script \n\nimport requests\n\n# Deactivated (need to wait too long)\nprint(\"Deactivated\")\nexit(0)\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\nurl=\"https://%s:9440/api/clustermgmt/v4.0.b2/config/clusters\" % pc_ip\n\nheaders = {\n    \"Content-Type\": \"application/json\",\n    \"Accept\": \"application/json\"\n}\n\nresponse = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\n\nif response_data['data']:\n    for elt in response_data['data']:\n        if elt['nodes']['numberOfNodes'] == 3:\n            clusterUUID = elt['extId']\n            break\n\n\nurl=\"https://%s:9440/api/clustermgmt/v4.0.b2/config/clusters/%s/rackable-units\" % (pc_ip,clusterUUID)\nheaders = {\n    \"Content-Type\": \"application/json\",\n    \"Accept\": \"application/json\"\n}\n\nresponse = requests.get(url , headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nif len(response_data['data'][0]['nodes']) == 4:\n    exit(0)\nelse:\n    exit(2)",
+                                        "script": "#script \n\nimport requests\n\n# Deactivated (need to wait too long)\nprint(\"Deactivated\")\nexit(0)\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\nurl=\"https:\/\/%s:9440\/api\/clustermgmt\/v4.0.b2\/config\/clusters\" % pc_ip\n\nheaders = {\n    \"Content-Type\": \"application\/json\",\n    \"Accept\": \"application\/json\"\n}\n\nresponse = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\n\nif response_data['data']:\n    for elt in response_data['data']:\n        if elt['nodes']['numberOfNodes'] == 3:\n            clusterUUID = elt['extId']\n            break\n\n\nurl=\"https:\/\/%s:9440\/api\/clustermgmt\/v4.0.b2\/config\/clusters\/%s\/rackable-units\" % (pc_ip,clusterUUID)\nheaders = {\n    \"Content-Type\": \"application\/json\",\n    \"Accept\": \"application\/json\"\n}\n\nresponse = requests.get(url , headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\nif len(response_data['data'][0]['nodes']) == 4:\n    exit(0)\nelse:\n    exit(2)",
                                         "script_type": "static_py3",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1560,7 +1560,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\nfrom jsonpath_ng.ext import parse\nimport json\nimport ntnx_iam_py_client\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_pwd = '@@{PC_PASSWORD}@@'\n\n\n# Configure the client\nconfig = ntnx_iam_py_client.Configuration()\n# IPv4/IPv6 address or FQDN of the cluster\nconfig.host = pc_ip\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = pc_user\n# Password to connect to the cluster\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n# Please add authorization information here if needed.\nclient = ntnx_iam_py_client.ApiClient(configuration=config)\nusers_api = ntnx_iam_py_client.UsersApi(api_client=client)\n\n\nusers = [\n    {\n        \"username\": \"charlie\",\n        \"email\": \"charlie.ugly@others.com\",\n        \"password\": \"Nutanix/4u\",\n        \"displayName\": \"Charlie\",\n        \"firstName\": \"Charlie\",\n        \"lastName\": \"Ugly\"\n    },\n    {\n        \"username\": \"thom\",\n        \"email\": \"thom.cat@others.com\",\n        \"password\": \"Nutanix/4u\",\n        \"displayName\":\"Thom\",\n        \"firstName\":\"Thom\",\n        \"lastName\":\"Cat\"\n    },\n    {\n        \"username\": \"william\",\n        \"email\": \"william.shake@others.com\",\n        \"password\": \"Nutanix/4u\",\n        \"displayName\":\"Willy\",\n        \"firstName\":\"William\",\n        \"lastName\":\"Shake\"\n    }\n]\n\nfor guy in users:\n    user = ntnx_iam_py_client.User()\n    user.username = guy['username']\n    user.email_id = guy['email']\n    user.password = guy['password']\n    user.display_name = guy['displayName']\n    user.first_name = guy['firstName']\n    user.last_name = guy['lastName']\n    user.user_type=\"LOCAL\"\n\n    try:\n        api_response = users_api.create_user(body=user)\n    except ntnx_iam_py_client.rest.ApiException as e:\n        print(e)\n\n\nexit(0)\n\nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\nfrom jsonpath_ng.ext import parse\nimport json\nimport ntnx_iam_py_client\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_pwd = '@@{PC_PASSWORD}@@'\n\n\n# Configure the client\nconfig = ntnx_iam_py_client.Configuration()\n# IPv4\/IPv6 address or FQDN of the cluster\nconfig.host = pc_ip\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = pc_user\n# Password to connect to the cluster\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n# Please add authorization information here if needed.\nclient = ntnx_iam_py_client.ApiClient(configuration=config)\nusers_api = ntnx_iam_py_client.UsersApi(api_client=client)\n\n\nusers = [\n    {\n        \"username\": \"charlie\",\n        \"email\": \"charlie.ugly@others.com\",\n        \"password\": \"Nutanix\/4u\",\n        \"displayName\": \"Charlie\",\n        \"firstName\": \"Charlie\",\n        \"lastName\": \"Ugly\"\n    },\n    {\n        \"username\": \"thom\",\n        \"email\": \"thom.cat@others.com\",\n        \"password\": \"Nutanix\/4u\",\n        \"displayName\":\"Thom\",\n        \"firstName\":\"Thom\",\n        \"lastName\":\"Cat\"\n    },\n    {\n        \"username\": \"william\",\n        \"email\": \"william.shake@others.com\",\n        \"password\": \"Nutanix\/4u\",\n        \"displayName\":\"Willy\",\n        \"firstName\":\"William\",\n        \"lastName\":\"Shake\"\n    }\n]\n\nfor guy in users:\n    user = ntnx_iam_py_client.User()\n    user.username = guy['username']\n    user.email_id = guy['email']\n    user.password = guy['password']\n    user.display_name = guy['displayName']\n    user.first_name = guy['firstName']\n    user.last_name = guy['lastName']\n    user.user_type=\"LOCAL\"\n\n    try:\n        api_response = users_api.create_user(body=user)\n    except ntnx_iam_py_client.rest.ApiException as e:\n        print(e)\n\n\nexit(0)\n\nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1608,7 +1608,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\nsource venv/bin/activate\n\nPCIP=\"@@{PC_IP}@@\"\nPCUSER=\"@@{PC_USERNAME}@@\"\nPCPASSWORD=\"@@{PC_PASSWORD}@@\"\n\nPRIMARY_SUBNET_NAME=\"@@{PRIMARY_SUBNET}@@\"\nSECONDARY_SUBNET_NAME=\"@@{SECONDARY_SUBNET}@@\"\n\npython ~/ntnx-escape-game/scripts/create-project.py --pcIp \"$PCIP\" --pcUser \"$PCUSER\" --pcPassword \"$PCPASSWORD\" --primarySubnetName \"$PRIMARY_SUBNET_NAME\" --secondarySubnetName \"$SECONDARY_SUBNET_NAME\"",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\nsource venv\/bin\/activate\n\nPCIP=\"@@{PC_IP}@@\"\nPCUSER=\"@@{PC_USERNAME}@@\"\nPCPASSWORD=\"@@{PC_PASSWORD}@@\"\n\nPRIMARY_SUBNET_NAME=\"@@{PRIMARY_SUBNET}@@\"\nSECONDARY_SUBNET_NAME=\"@@{SECONDARY_SUBNET}@@\"\n\npython ~\/ntnx-escape-game\/scripts\/create-project.py --pcIp \"$PCIP\" --pcUser \"$PCUSER\" --pcPassword \"$PCPASSWORD\" --primarySubnetName \"$PRIMARY_SUBNET_NAME\" --secondarySubnetName \"$SECONDARY_SUBNET_NAME\"",
                                         "script_type": "sh",
                                         "exit_status": [],
                                         "eval_scope": "local",
@@ -1633,7 +1633,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\nmkdir dockervolume\n\nsudo docker run  -v /home/nutanix/dockervolume:/root/.calm -it @@{DockerRegistry}@@/ntnx/calm-dsl mkdir -p /root/.calm/\n\nsudo docker run  -v /home/nutanix/dockervolume:/root/.calm @@{DockerRegistry}@@/ntnx/calm-dsl calm init dsl --ip @@{PC_IP}@@ --username @@{PC_USERNAME}@@ --password '@@{PC_PASSWORD}@@' --port 9440 -pj \"production\"",
+                                        "script": "#!\/bin\/bash\n\nmkdir dockervolume\n\nsudo docker run  -v \/home\/nutanix\/dockervolume:\/root\/.calm -it @@{DockerRegistry}@@\/ntnx\/calm-dsl mkdir -p \/root\/.calm\/\n\nsudo docker run  -v \/home\/nutanix\/dockervolume:\/root\/.calm @@{DockerRegistry}@@\/ntnx\/calm-dsl calm init dsl --ip @@{PC_IP}@@ --username @@{PC_USERNAME}@@ --password '@@{PC_PASSWORD}@@' --port 9440 -pj \"production\"",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1655,7 +1655,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\nfrom jsonpath_ng.ext import parse\nimport json\nimport ntnx_vmm_py_client.configuration\nimport requests\nimport http.client\nimport ntnx_prism_py_client\nimport ntnx_vmm_py_client\nimport ntnx_networking_py_client\nimport uuid\nimport time\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd='@@{PC_PASSWORD}@@'\ncat_key=\"Environment\"\ncat_value=\"Production\"\nproject_name=\"production\"\nimage_name=\"Ubuntu2404\"\nprojectUUID=\"@@{ProjectUUID}@@\"\n\n# Get categoryID for Environment:Production\nconfig = ntnx_prism_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n\nheaders = {\n    \"Accept\": \"application/json\",\n    \"Content-Type\": \"application/json\"\n}\n\n\nVMSpecs = [\n    {\n        \"name\": \"prd-ransom-probe-1\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-probe-1\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-payment-core\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-payment-front\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"beta-ransom-engine-v2.2\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-mail\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-directory\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-scan\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n]\n\n\n\nclient_prrism = ntnx_prism_py_client.ApiClient(configuration=config)\ncategories_api = ntnx_prism_py_client.CategoriesApi(api_client=client_prrism)\npage = 0\nlimit = 50\n\ntry:\n    api_response = categories_api.list_categories(_filter=\"((key eq '\"+cat_key+\"') and (value eq '\"+cat_value+\"'))\", _page=page, _limit=limit)\n    catUUID=api_response.data[0].ext_id\nexcept ntnx_prism_py_client.rest.ApiException as e:\n    print(e)\n\n# Get Secondary network ID\nurl=\"https://%s:9440/api/networking/v4.0/config/subnets\" % pc_ip\n\npayload = {\n    \"kind\": \"subnet\"\n    }\n\nresponse = requests.get(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.data[?(@.name==\"@@{SECONDARY_SUBNET}@@\")].extId')\n\nfor match in jsonpath_expr.find(response_data):\n    subnetUUID = match.value\n\n# Get Image ID\nurl = \"https://%s:9440/api/nutanix/v3/images/list\" % pc_ip\n\npayload={\n    \"kind\": \"image\",\n    \"length\": 100,\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\nfor image in response_data['entities']:\n    if image['status']['name'] == image_name:\n        imageUUID=image['metadata']['uuid']\n\n# Get ClusterUUID\nurl=\"https://%s:9440/api/clustermgmt/v4.0/config/clusters\" % pc_ip\n\nresponse = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\njson_expr = parse(\"data[?(@.name!='Unnamed')].extId\")\n\nfor match in json_expr.find(response_data):\n    clusterUUID = match.value\n\n# Create the VMs\nclient_vm = ntnx_vmm_py_client.ApiClient(configuration=config)\nvm_api = ntnx_vmm_py_client.VmApi(api_client=client_vm)\n\n# Vm object initializations here...\nfor elt in VMSpecs:\n\n\n    vm=ntnx_vmm_py_client.AhvConfigVm(\n        name=elt['name'],\n        num_sockets=elt['numSockets'],\n        memory_size_bytes=elt['memorySizeGB']*1024*1024*1024,\n        cluster=ntnx_vmm_py_client.AhvConfigClusterReference(\n                        ext_id=clusterUUID\n                    ),\n        categories=[\n            ntnx_vmm_py_client.AhvConfigCategoryReference(\n                ext_id=catUUID\n            )\n        ],\n        nics=[\n            ntnx_vmm_py_client.AhvConfigNic(\n                backing_info=ntnx_vmm_py_client.EmulatedNic(\n                    is_connected=True,\n                    num_queues=1\n                ),\n                network_info=ntnx_vmm_py_client.AhvConfigNicNetworkInfo(\n                    subnet=ntnx_vmm_py_client.SubnetReference(\n                        ext_id=subnetUUID\n                    )\n                )\n            )\n        ],\n        disks=[\n            ntnx_vmm_py_client.AhvConfigDisk(\n                disk_address=ntnx_vmm_py_client.AhvConfigDiskAddress(\n                    bus_type=ntnx_vmm_py_client.AhvConfigDiskBusType.SCSI,\n                    index=0\n                ),\n                backing_info=ntnx_vmm_py_client.AhvConfigVmDisk(\n                    disk_size_bytes=42949672960,\n                    data_source=ntnx_vmm_py_client.DataSource(\n                        reference=ntnx_vmm_py_client.ImageReference(\n                                image_ext_id=imageUUID\n                            )\n                        )\n                    )\n                )\n            ]\n        )\n\n    try:\n        api_response = vm_api.create_vm(body=vm)\n    except ntnx_vmm_py_client.rest.ApiException as e:\n        err=json.loads(e.body)\n        print(err['data']['error']['validationErrorMessages'][0]['message'])\n\n    print(\"VM %s created\" % elt['name'])\n\n    # We change VM Project\n    \n    # Get VM ID\n    response.data=None\n\n    while not response.data:\n        response = vm_api.list_vms(_filter=\"name eq '\"+elt['name']+\"'\")\n    \n        # Sleep\n        time.sleep(10)\n\n\n    vmId= response.data[0].ext_id\n    print(\" - VM ID: %s\" % vmId)\n\n    # Now we change the project\n    # Not found in v4 API, Will be evailable in v4 GA\n    url = \"https://%s:9440/api/nutanix/v3/vms/%s\" % (pc_ip, vmId)\n    \n    response=requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\n    VMInfo = json.loads(response.content)\n\n    # We clean VM status\n    del VMInfo['status']\n\n    # We change Project\n    VMInfo['metadata']['project_reference'] = {\n        \"kind\": \"project\", \n        \"name\": project_name, \n        \"uuid\": projectUUID\n        }\n    \n    #We powerOn th e VM\n    VMInfo['spec']['resources']['power_state']='ON'\n\n    # We apply the changes\n    url = \"https://%s:9440/api/nutanix/v3/vms/%s\" % (pc_ip, vmId)\n    response=requests.put(url, json=VMInfo, headers=headers, verify=False, auth=(pc_user, pc_pwd))\n    \n    if( response.status_code == 202):\n        print(\" - Ownsership changed and VM powered ON\")\n    else:\n        print(\" - Error changing VM ownership ans startup\")\n\n\nexit(0)\n\nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\nfrom jsonpath_ng.ext import parse\nimport json\nimport ntnx_vmm_py_client.configuration\nimport requests\nimport http.client\nimport ntnx_prism_py_client\nimport ntnx_vmm_py_client\nimport ntnx_networking_py_client\nimport uuid\nimport time\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd='@@{PC_PASSWORD}@@'\ncat_key=\"Environment\"\ncat_value=\"Production\"\nproject_name=\"production\"\nimage_name=\"Ubuntu2404\"\nprojectUUID=\"@@{ProjectUUID}@@\"\n\n# Get categoryID for Environment:Production\nconfig = ntnx_prism_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n\nheaders = {\n    \"Accept\": \"application\/json\",\n    \"Content-Type\": \"application\/json\"\n}\n\n\nVMSpecs = [\n    {\n        \"name\": \"prd-ransom-probe-1\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-probe-1\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-payment-core\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-ransom-payment-front\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"beta-ransom-engine-v2.2\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-mail\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-directory\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n    {\n        \"name\": \"prd-scan\",\n        \"numSockets\": 2,\n        \"memorySizeGB\": 4\n    },\n]\n\n\n\nclient_prrism = ntnx_prism_py_client.ApiClient(configuration=config)\ncategories_api = ntnx_prism_py_client.CategoriesApi(api_client=client_prrism)\npage = 0\nlimit = 50\n\ntry:\n    api_response = categories_api.list_categories(_filter=\"((key eq '\"+cat_key+\"') and (value eq '\"+cat_value+\"'))\", _page=page, _limit=limit)\n    catUUID=api_response.data[0].ext_id\nexcept ntnx_prism_py_client.rest.ApiException as e:\n    print(e)\n\n# Get Secondary network ID\nurl=\"https:\/\/%s:9440\/api\/networking\/v4.0\/config\/subnets\" % pc_ip\n\npayload = {\n    \"kind\": \"subnet\"\n    }\n\nresponse = requests.get(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.data[?(@.name==\"@@{SECONDARY_SUBNET}@@\")].extId')\n\nfor match in jsonpath_expr.find(response_data):\n    subnetUUID = match.value\n\n# Get Image ID\nurl = \"https:\/\/%s:9440\/api\/nutanix\/v3\/images\/list\" % pc_ip\n\npayload={\n    \"kind\": \"image\",\n    \"length\": 100,\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\nfor image in response_data['entities']:\n    if image['status']['name'] == image_name:\n        imageUUID=image['metadata']['uuid']\n\n# Get ClusterUUID\nurl=\"https:\/\/%s:9440\/api\/clustermgmt\/v4.0\/config\/clusters\" % pc_ip\n\nresponse = requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = json.loads(response.text)\n\njson_expr = parse(\"data[?(@.name!='Unnamed')].extId\")\n\nfor match in json_expr.find(response_data):\n    clusterUUID = match.value\n\n# Create the VMs\nclient_vm = ntnx_vmm_py_client.ApiClient(configuration=config)\nvm_api = ntnx_vmm_py_client.VmApi(api_client=client_vm)\n\n# Vm object initializations here...\nfor elt in VMSpecs:\n\n\n    vm=ntnx_vmm_py_client.AhvConfigVm(\n        name=elt['name'],\n        num_sockets=elt['numSockets'],\n        memory_size_bytes=elt['memorySizeGB']*1024*1024*1024,\n        cluster=ntnx_vmm_py_client.AhvConfigClusterReference(\n                        ext_id=clusterUUID\n                    ),\n        categories=[\n            ntnx_vmm_py_client.AhvConfigCategoryReference(\n                ext_id=catUUID\n            )\n        ],\n        nics=[\n            ntnx_vmm_py_client.AhvConfigNic(\n                backing_info=ntnx_vmm_py_client.EmulatedNic(\n                    is_connected=True,\n                    num_queues=1\n                ),\n                network_info=ntnx_vmm_py_client.AhvConfigNicNetworkInfo(\n                    subnet=ntnx_vmm_py_client.SubnetReference(\n                        ext_id=subnetUUID\n                    )\n                )\n            )\n        ],\n        disks=[\n            ntnx_vmm_py_client.AhvConfigDisk(\n                disk_address=ntnx_vmm_py_client.AhvConfigDiskAddress(\n                    bus_type=ntnx_vmm_py_client.AhvConfigDiskBusType.SCSI,\n                    index=0\n                ),\n                backing_info=ntnx_vmm_py_client.AhvConfigVmDisk(\n                    disk_size_bytes=42949672960,\n                    data_source=ntnx_vmm_py_client.DataSource(\n                        reference=ntnx_vmm_py_client.ImageReference(\n                                image_ext_id=imageUUID\n                            )\n                        )\n                    )\n                )\n            ]\n        )\n\n    try:\n        api_response = vm_api.create_vm(body=vm)\n    except ntnx_vmm_py_client.rest.ApiException as e:\n        err=json.loads(e.body)\n        print(err['data']['error']['validationErrorMessages'][0]['message'])\n\n    print(\"VM %s created\" % elt['name'])\n\n    # We change VM Project\n    \n    # Get VM ID\n    response.data=None\n\n    while not response.data:\n        response = vm_api.list_vms(_filter=\"name eq '\"+elt['name']+\"'\")\n    \n        # Sleep\n        time.sleep(10)\n\n\n    vmId= response.data[0].ext_id\n    print(\" - VM ID: %s\" % vmId)\n\n    # Now we change the project\n    # Not found in v4 API, Will be evailable in v4 GA\n    url = \"https:\/\/%s:9440\/api\/nutanix\/v3\/vms\/%s\" % (pc_ip, vmId)\n    \n    response=requests.get(url, headers=headers, verify=False, auth=(pc_user, pc_pwd))\n    VMInfo = json.loads(response.content)\n\n    # We clean VM status\n    del VMInfo['status']\n\n    # We change Project\n    VMInfo['metadata']['project_reference'] = {\n        \"kind\": \"project\", \n        \"name\": project_name, \n        \"uuid\": projectUUID\n        }\n    \n    #We powerOn th e VM\n    VMInfo['spec']['resources']['power_state']='ON'\n\n    # We apply the changes\n    url = \"https:\/\/%s:9440\/api\/nutanix\/v3\/vms\/%s\" % (pc_ip, vmId)\n    response=requests.put(url, json=VMInfo, headers=headers, verify=False, auth=(pc_user, pc_pwd))\n    \n    if( response.status_code == 202):\n        print(\" - Ownsership changed and VM powered ON\")\n    else:\n        print(\" - Error changing VM ownership ans startup\")\n\n\nexit(0)\n\nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1677,7 +1677,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\n\nimport ntnx_lifecycle_py_client\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\n# Configure the client\nconfig = ntnx_lifecycle_py_client.Configuration()\n\n# IPv4/IPv6 address or FQDN of the cluster\nconfig.host = pc_ip\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = pc_user\n# Password to connect to the cluster\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n\n# Please add authorization information here if needed.\nclient = ntnx_lifecycle_py_client.ApiClient(configuration=config)\ninventory_api = ntnx_lifecycle_py_client.InventoryApi(api_client=client)\n\ntry:\n    api_response = inventory_api.perform_inventory()\nexcept ntnx_lifecycle_py_client.rest.ApiException as e:\n    print(e)\n\nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\n\nimport ntnx_lifecycle_py_client\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\n\n# Configure the client\nconfig = ntnx_lifecycle_py_client.Configuration()\n\n# IPv4\/IPv6 address or FQDN of the cluster\nconfig.host = pc_ip\n# Port to which to connect to\nconfig.port = 9440\n# Max retry attempts while reconnecting on a loss of connection\nconfig.max_retry_attempts = 3\n# Backoff factor to use during retry attempts\nconfig.backoff_factor = 3\n# UserName to connect to the cluster\nconfig.username = pc_user\n# Password to connect to the cluster\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\n\n# Please add authorization information here if needed.\nclient = ntnx_lifecycle_py_client.ApiClient(configuration=config)\ninventory_api = ntnx_lifecycle_py_client.InventoryApi(api_client=client)\n\ntry:\n    api_response = inventory_api.perform_inventory()\nexcept ntnx_lifecycle_py_client.rest.ApiException as e:\n    print(e)\n\nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1699,7 +1699,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#script\n\nimport requests\nimport uuid\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_password = \"@@{PC_PASSWORD}@@\"\nendpoint_ip = \"@@{VM.address}@@\"\nendpoint_user = '@@{NUTANIX.username}@@'\nendpoint_password = \"@@{NUTANIX.secret}@@\"\nproject_name = \"production\"\ncred_uuid=uuid.uuid4()\ncred_name= \"endpoint_cred_game\"+str(cred_uuid)[0:3]\nendpoint_name = \"jumphost\"\nprojectUUID = \"@@{ProjectUUID}@@\"\n\n# We create endpoint\n\npayload = {\n    \"api_version\": \"3.0\",\n    \"spec\":\n        {\n            \"resources\":\n                {\n                    \"type\":\"Linux\",\n                    \"value_type\":\"IP\",\n                    \"attrs\":\n                        {\n                            \"credential_definition_list\":\n                                [\n                                    {\n                                        \"description\":\"\",\n                                        \"username\": endpoint_user,\n                                        \"type\":\"PASSWORD\",\n                                        \"name\":cred_name,\n                                        \"cred_class\":\"static\",\n                                        \"secret\":\n                                            {\n                                                \"attrs\":\n                                                    {\n                                                        \"is_secret_modified\":True\n                                                    },\n                                                \"value\": endpoint_password\n                                            },\n                                        \"uuid\":str(cred_uuid)\n                                    }\n                                ],\n                        \"login_credential_reference\":\n                            {\n                                \"name\": cred_name,\n                                \"kind\":\"app_credential\",\n                                \"uuid\": str(cred_uuid)\n                            },\n                            \"values\":\n                                [\n                                    endpoint_ip\n                                ],\n                            \"port\":22,\n                        }\n                },\n            \"name\": endpoint_name\n        },\n    \"metadata\":\n        {\n            \"project_reference\":\n                {\n                    \"name\":project_name,\n                    \"kind\":\"project\",\n                    \"uuid\": str(projectUUID)\n                },\n            \"kind\":\"endpoint\"\n        }\n    }\n\nurl=\"https://%s:9440/api/nutanix/v3/endpoints\" % pc_ip\nheaders = {\n  \"Content-Type\": \"application/json\",\n  \"Accept\": \"application/json\"\n}\nresponse = requests.request(\"POST\", url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password))\nprint(response)",
+                                        "script": "#script\n\nimport requests\nimport uuid\n\npc_ip = \"@@{PC_IP}@@\"\npc_user = \"@@{PC_USERNAME}@@\"\npc_password = \"@@{PC_PASSWORD}@@\"\nendpoint_ip = \"@@{VM.address}@@\"\nendpoint_user = '@@{NUTANIX.username}@@'\nendpoint_password = \"@@{NUTANIX.secret}@@\"\nproject_name = \"production\"\ncred_uuid=uuid.uuid4()\ncred_name= \"endpoint_cred_game\"+str(cred_uuid)[0:3]\nendpoint_name = \"jumphost\"\nprojectUUID = \"@@{ProjectUUID}@@\"\n\n# We create endpoint\n\npayload = {\n    \"api_version\": \"3.0\",\n    \"spec\":\n        {\n            \"resources\":\n                {\n                    \"type\":\"Linux\",\n                    \"value_type\":\"IP\",\n                    \"attrs\":\n                        {\n                            \"credential_definition_list\":\n                                [\n                                    {\n                                        \"description\":\"\",\n                                        \"username\": endpoint_user,\n                                        \"type\":\"PASSWORD\",\n                                        \"name\":cred_name,\n                                        \"cred_class\":\"static\",\n                                        \"secret\":\n                                            {\n                                                \"attrs\":\n                                                    {\n                                                        \"is_secret_modified\":True\n                                                    },\n                                                \"value\": endpoint_password\n                                            },\n                                        \"uuid\":str(cred_uuid)\n                                    }\n                                ],\n                        \"login_credential_reference\":\n                            {\n                                \"name\": cred_name,\n                                \"kind\":\"app_credential\",\n                                \"uuid\": str(cred_uuid)\n                            },\n                            \"values\":\n                                [\n                                    endpoint_ip\n                                ],\n                            \"port\":22,\n                        }\n                },\n            \"name\": endpoint_name\n        },\n    \"metadata\":\n        {\n            \"project_reference\":\n                {\n                    \"name\":project_name,\n                    \"kind\":\"project\",\n                    \"uuid\": str(projectUUID)\n                },\n            \"kind\":\"endpoint\"\n        }\n    }\n\nurl=\"https:\/\/%s:9440\/api\/nutanix\/v3\/endpoints\" % pc_ip\nheaders = {\n  \"Content-Type\": \"application\/json\",\n  \"Accept\": \"application\/json\"\n}\nresponse = requests.request(\"POST\", url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_password))\nprint(response)",
                                         "script_type": "static_py3",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1721,7 +1721,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\n# CloneProd BP\n\n#BPURL=\"https://github.com/Golgautier/sharing/raw/refs/heads/main/BP_EG/CloneProd.tgz\"\nBPURL=\"$HOME/ntnx-escape-game/materials/CloneProd.tgz\"\nBPNAME=CloneProd\n\ncd dockervolume\n\n# Download bp from Github\ncp $BPURL CloneProd.tgz\nmd5sum CloneProd.tgz\n\n# Upadte values\ntar xvzf CloneProd.tgz\n\nsed -i s/{PC_IP}/@@{PC_IP}@@/ CloneProd/blueprint.py\nsed -i s/{PC_USER}/@@{PC_USERNAME}@@/ CloneProd/blueprint.py\nsed -i s/{PC_PWD}/@@{PC_PASSWORD}@@/ CloneProd/blueprint.py\nsed -i s/{PROJECT}/production/ CloneProd/blueprint.py\n\n# Push it into Calm\nsudo docker run -v /home/nutanix/dockervolume:/root/.calm @@{DockerRegistry}@@/ntnx/calm-dsl calm create bp -f /root/.calm/CloneProd/blueprint.py -n $BPNAME\n\n# BlankVM\n\nBPURL=\"$HOME/ntnx-escape-game/materials/NewblankVM.tgz\"\nBPNAME=BlankVM-source\n\n# Download bp from Github\ncp $BPURL NewblankVM.tgz\nmd5sum NewblankVM.tgz\n\n# Upadte values\ntar xvzf NewblankVM.tgz\n\nsed -i s/{CLUSTER_NAME}/@@{CLUSTERNAME}@@/ NewblankVM/blueprint.py\nsed -i s/{PROJECT}/production/ NewblankVM/blueprint.py\n\n# Push it into Calm\nsudo docker run -v /home/nutanix/dockervolume:/root/.calm @@{DockerRegistry}@@/ntnx/calm-dsl calm create bp -f /root/.calm/NewblankVM/blueprint.py -n $BPNAME\n",
+                                        "script": "#!\/bin\/bash\n\n# CloneProd BP\n\n#BPURL=\"https:\/\/github.com\/Golgautier\/sharing\/raw\/refs\/heads\/main\/BP_EG\/CloneProd.tgz\"\nBPURL=\"$HOME\/ntnx-escape-game\/materials\/CloneProd.tgz\"\nBPNAME=CloneProd\n\ncd dockervolume\n\n# Download bp from Github\ncp $BPURL CloneProd.tgz\nmd5sum CloneProd.tgz\n\n# Upadte values\ntar xvzf CloneProd.tgz\n\nsed -i s\/{PC_IP}\/@@{PC_IP}@@\/ CloneProd\/blueprint.py\nsed -i s\/{PC_USER}\/@@{PC_USERNAME}@@\/ CloneProd\/blueprint.py\nsed -i s\/{PC_PWD}\/@@{PC_PASSWORD}@@\/ CloneProd\/blueprint.py\nsed -i s\/{PROJECT}\/production\/ CloneProd\/blueprint.py\n\n# Push it into Calm\nsudo docker run -v \/home\/nutanix\/dockervolume:\/root\/.calm @@{DockerRegistry}@@\/ntnx\/calm-dsl calm create bp -f \/root\/.calm\/CloneProd\/blueprint.py -n $BPNAME\n\n# BlankVM\n\nBPURL=\"$HOME\/ntnx-escape-game\/materials\/NewblankVM.tgz\"\nBPNAME=BlankVM-source\n\n# Download bp from Github\ncp $BPURL NewblankVM.tgz\nmd5sum NewblankVM.tgz\n\n# Upadte values\ntar xvzf NewblankVM.tgz\n\nsed -i s\/{CLUSTER_NAME}\/@@{CLUSTERNAME}@@\/ NewblankVM\/blueprint.py\nsed -i s\/{PROJECT}\/production\/ NewblankVM\/blueprint.py\n\n# Push it into Calm\nsudo docker run -v \/home\/nutanix\/dockervolume:\/root\/.calm @@{DockerRegistry}@@\/ntnx\/calm-dsl calm create bp -f \/root\/.calm\/NewblankVM\/blueprint.py -n $BPNAME\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1743,7 +1743,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash \n\ncd ~/.calm\n\nsource venv/bin/activate\n\npython <<EOF\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport requests\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsubnetName=\"TestNetwork\"\n\n\nurl=\"https://%s:9440/api/nutanix/v3/clusters/list\" % pc_ip\n\nheaders = {\n    \"Accept\": \"application/json\",\n    \"Content-Type\": \"application/json\"\n}\n\npayload = {\n    \"kind\": \"cluster\"\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.entities[?(@.spec.name!=\"Unnamed\")].metadata.uuid')\n\nfor match in jsonpath_expr.find(response_data):\n    clusterUUID= match.value\n\n\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\nsubnet = ntnx_networking_py_client.Subnet(\n    name=subnetName,\n    subnet_type = ntnx_networking_py_client.SubnetType.VLAN,\n    network_id = 1,\n    is_advanced_networking=True,\n    cluster_reference=clusterUUID,\n    is_external=True,\n    is_nat_enabled=False,\n    ip_prefix=\"192.168.1.0/25\",\n    ip_config=\n        [\n            ntnx_networking_py_client.IPConfig(\n            ipv4=ntnx_networking_py_client.IPv4Config(\n                ip_subnet=ntnx_networking_py_client.IPv4Subnet(\n                    ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.0\"),\n                    prefix_length=24\n                ),\n                default_gateway_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.1\"),\n                pool_list= [\n                    ntnx_networking_py_client.IPv4Pool(\n                        start_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.2\"),\n                        end_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.250\")\n                    )\n                ],\n            )\n        )\n    ],\n)\n\n\ntry:\n    api_response = subnets_api.create_subnet(body=subnet)\nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\nprint(\"Done\")\nEOF",
+                                        "script": "#!\/bin\/bash \n\ncd ~\/.calm\n\nsource venv\/bin\/activate\n\npython <<EOF\nimport ntnx_networking_py_client\nfrom jsonpath_ng.ext import parse\nimport requests\n\npc_ip=\"@@{PC_IP}@@\"\npc_user=\"@@{PC_USERNAME}@@\"\npc_pwd=\"@@{PC_PASSWORD}@@\"\nsubnetName=\"TestNetwork\"\n\n\nurl=\"https:\/\/%s:9440\/api\/nutanix\/v3\/clusters\/list\" % pc_ip\n\nheaders = {\n    \"Accept\": \"application\/json\",\n    \"Content-Type\": \"application\/json\"\n}\n\npayload = {\n    \"kind\": \"cluster\"\n    }\n\nresponse = requests.post(url, json=payload, headers=headers, verify=False, auth=(pc_user, pc_pwd))\nresponse_data = response.json()\n\njsonpath_expr = parse('$.entities[?(@.spec.name!=\"Unnamed\")].metadata.uuid')\n\nfor match in jsonpath_expr.find(response_data):\n    clusterUUID= match.value\n\n\n# Configure the client\nconfig = ntnx_networking_py_client.Configuration()\nconfig.host = pc_ip\nconfig.port = 9440\nconfig.max_retry_attempts = 3\nconfig.backoff_factor = 3\nconfig.username = pc_user\nconfig.password = pc_pwd\nconfig.verify_ssl = False\n\nclient = ntnx_networking_py_client.ApiClient(configuration=config)\nsubnets_api = ntnx_networking_py_client.SubnetsApi(api_client=client)\nsubnet = ntnx_networking_py_client.Subnet(\n    name=subnetName,\n    subnet_type = ntnx_networking_py_client.SubnetType.VLAN,\n    network_id = 1,\n    is_advanced_networking=True,\n    cluster_reference=clusterUUID,\n    is_external=True,\n    is_nat_enabled=False,\n    ip_prefix=\"192.168.1.0\/25\",\n    ip_config=\n        [\n            ntnx_networking_py_client.IPConfig(\n            ipv4=ntnx_networking_py_client.IPv4Config(\n                ip_subnet=ntnx_networking_py_client.IPv4Subnet(\n                    ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.0\"),\n                    prefix_length=24\n                ),\n                default_gateway_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.1\"),\n                pool_list= [\n                    ntnx_networking_py_client.IPv4Pool(\n                        start_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.2\"),\n                        end_ip=ntnx_networking_py_client.IPv4Address(\"192.168.1.250\")\n                    )\n                ],\n            )\n        )\n    ],\n)\n\n\ntry:\n    api_response = subnets_api.create_subnet(body=subnet)\nexcept ntnx_networking_py_client.rest.ApiException as e:\n    print(e)\n\nprint(\"Done\")\nEOF",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1765,7 +1765,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\nBPNAMES=(\"ApacheServer\" \"PrimaryAD\" \"Wordpress\" \"KubernetesCluster\" \"BlankVM_AnyCloud\" \"HadoopCluster\" \"RansomwareProbe\" \"EmailServer\" \"FW\" \"IPAM\" )\n\n# We gonna copy CloneProd BP to create these fake BP\ncd dockervolume\ncp -R CloneProd FakeBP\n\nfor NAME in ${BPNAMES[@]}\ndo\n    echo \"Creation of BP $NAME\"\n    # Push it into Calm\n    sudo docker run -v /home/nutanix/dockervolume:/root/.calm @@{DockerRegistry}@@/ntnx/calm-dsl calm create bp -f /root/.calm/FakeBP/blueprint.py -n $NAME\ndone\n\nexit 0",
+                                        "script": "#!\/bin\/bash\n\nBPNAMES=(\"ApacheServer\" \"PrimaryAD\" \"Wordpress\" \"KubernetesCluster\" \"BlankVM_AnyCloud\" \"HadoopCluster\" \"RansomwareProbe\" \"EmailServer\" \"FW\" \"IPAM\" )\n\n# We gonna copy CloneProd BP to create these fake BP\ncd dockervolume\ncp -R CloneProd FakeBP\n\nfor NAME in ${BPNAMES[@]}\ndo\n    echo \"Creation of BP $NAME\"\n    # Push it into Calm\n    sudo docker run -v \/home\/nutanix\/dockervolume:\/root\/.calm @@{DockerRegistry}@@\/ntnx\/calm-dsl calm create bp -f \/root\/.calm\/FakeBP\/blueprint.py -n $NAME\ndone\n\nexit 0",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1787,7 +1787,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\npython3 -m venv .venv\n\nsource .venv/bin/activate\n\npip install -r requirements.txt",
+                                        "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\n\npython3 -m venv .venv\n\nsource .venv\/bin\/activate\n\npip install -r requirements.txt",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1809,7 +1809,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\ncp config.env.template config.env\n\nsed -i 's/{PC}/@@{PC_IP}@@/' config.env\nsed -i 's/{PCUSER}/@@{PC_USERNAME}@@/' config.env\nsed -i 's={PCPASSWORD}=@@{PC_PASSWORD}@@=' config.env\nsed -i 's={IMAGEURL}=https://cloud-images.ubuntu.com/daily/server/jammy/current/jammy-server-cloudimg-amd64.img=' config.env\nsed -i 's/{PRODUSERNAME}/thebadguy/' config.env\nsed -i 's/{PRODPASSWORD}/MyPassword4Prod!/' config.env\nsed -i 's/{OLDPC}/@@{OLDPC}@@/' config.env\nsed -i 's/{OLDPCUSERNAME}/@@{OLDPC_USER}@@/' config.env\nsed -i 's/{OLDPCPASSWORD}/@@{PLANNER_PASSWORD}@@/' config.env\nsed -i 's/{FRONTENDHOST}/@@{VM.address}@@/' config.env\nsed -i 's/{FRONTENDPORT}/8080/' config.env\nsed -i 's/{EMAILREPORT}/-secret-message@ntnxlab.com/' config.env\nsed -i 's/{HOSTSSHUSERNAME}/@@{NUTANIX.username}@@/' config.env\nsed -i 's={HOSTSSHPASSWORD}=@@{NUTANIX.secret}@@=' config.env\nsed -i 's/{PLAYERSSHUSERNAME}/@@{PLAYER.username}@@/' config.env\nsed -i 's={PLAYERSSHPASSWORD}=@@{PLAYER.secret}@@=' config.env\nsed -i 's={DOCKERREGISTRY}=@@{DockerRegistry}@@=' config.env\nsed -i 's={COMBINEDSCOREBOARDS}=@@{VM.address}@@=' config.env\n",
+                                        "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\n\ncp config.env.template config.env\n\nsed -i 's\/{PC}\/@@{PC_IP}@@\/' config.env\nsed -i 's\/{PCUSER}\/@@{PC_USERNAME}@@\/' config.env\nsed -i 's={PCPASSWORD}=@@{PC_PASSWORD}@@=' config.env\nsed -i 's={IMAGEURL}=https:\/\/cloud-images.ubuntu.com\/daily\/server\/jammy\/current\/jammy-server-cloudimg-amd64.img=' config.env\nsed -i 's\/{PRODUSERNAME}\/thebadguy\/' config.env\nsed -i 's\/{PRODPASSWORD}\/MyPassword4Prod!\/' config.env\nsed -i 's\/{OLDPC}\/@@{OLDPC}@@\/' config.env\nsed -i 's\/{OLDPCUSERNAME}\/@@{OLDPC_USER}@@\/' config.env\nsed -i 's\/{OLDPCPASSWORD}\/@@{PLANNER_PASSWORD}@@\/' config.env\nsed -i 's\/{FRONTENDHOST}\/@@{VM.address}@@\/' config.env\nsed -i 's\/{FRONTENDPORT}\/8080\/' config.env\nsed -i 's\/{EMAILREPORT}\/-secret-message@ntnxlab.com\/' config.env\nsed -i 's\/{HOSTSSHUSERNAME}\/@@{NUTANIX.username}@@\/' config.env\nsed -i 's={HOSTSSHPASSWORD}=@@{NUTANIX.secret}@@=' config.env\nsed -i 's\/{PLAYERSSHUSERNAME}\/@@{PLAYER.username}@@\/' config.env\nsed -i 's={PLAYERSSHPASSWORD}=@@{PLAYER.secret}@@=' config.env\nsed -i 's={DOCKERREGISTRY}=@@{DockerRegistry}@@=' config.env\nsed -i 's={COMBINEDSCOREBOARDS}=@@{VM.address}@@=' config.env\n",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1831,7 +1831,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash -x\n\n# This script will update some patterns in email and conf file regarding the configuration.\n# - {LISTEN_IP} in htlm files, and email templates\n# - {PASSWORD} in the email templates\n# - {CLUSTER} in the email template\n# - {PARALLEL_URL} in the email templates\n# - {SENDER_EMAIL} in the mail.py file\n#\n# and create sendgrid.env with good token\n\ncd ntnx-escape-game \n\nsource .venv/bin/activate\n\n# Prepare ssh fronted\nsed -i \"s/{LISTEN_IP}/@@{VM.address}@@/\" frontend/templates/*.html\n\n# Create services\nsed -i \"s/{LISTEN_IP}/@@{VM.address}@@/\" daemons/eg-sshserver.service\nsudo cp daemons/eg* /etc/systemd/system/\n\n# Update email templates\nsed -i \"s/{LISTEN_IP}/@@{VM.address}@@/\" email_templates/*\n\n# Update email templates\nsed -i \"s/{PASSWORD}/@@{PC_PASSWORD}@@/\" email_templates/*\n\n# Define VDI parrallel url\nSITE=`echo \"@@{CLUSTERNAME}@@\" | cut -c1-3 | tr A-Z a-z`\n\nPARALLEL_URL=\"https://${SITE}-ras.hpoc.nutanix.com\"\n\n# Update email templates\n\nsed -i \"s#{PARALLEL_URL}#$PARALLEL_URL#\" email_templates/*\nsed -i \"s#{CLUSTER}#@@{CLUSTERNAME}@@#\" email_templates/*\n\n# Update mail.py file\nsed -i \"s#{MAIL_TOKEN}#@@{EMAILTOKEN}@@#\" mail.py\n\nsudo systemctl daemon-reload\n\n# 'Clean' the game\npython3 main.py -clean",
+                                        "script": "#!\/bin\/bash -x\n\n# This script will update some patterns in email and conf file regarding the configuration.\n# - {LISTEN_IP} in htlm files, and email templates\n# - {PASSWORD} in the email templates\n# - {CLUSTER} in the email template\n# - {PARALLEL_URL} in the email templates\n# - {SENDER_EMAIL} in the mail.py file\n#\n# and create sendgrid.env with good token\n\ncd ntnx-escape-game \n\nsource .venv\/bin\/activate\n\n# Prepare ssh fronted\nsed -i \"s\/{LISTEN_IP}\/@@{VM.address}@@\/\" frontend\/templates\/*.html\n\n# Create services\nsed -i \"s\/{LISTEN_IP}\/@@{VM.address}@@\/\" daemons\/eg-sshserver.service\nsudo cp daemons\/eg* \/etc\/systemd\/system\/\n\n# Update email templates\nsed -i \"s\/{LISTEN_IP}\/@@{VM.address}@@\/\" email_templates\/*\n\n# Update email templates\nsed -i \"s\/{PASSWORD}\/@@{PC_PASSWORD}@@\/\" email_templates\/*\n\n# Define VDI parrallel url\nSITE=`echo \"@@{CLUSTERNAME}@@\" | cut -c1-3 | tr A-Z a-z`\n\nPARALLEL_URL=\"https:\/\/${SITE}-ras.hpoc.nutanix.com\"\n\n# Update email templates\n\nsed -i \"s#{PARALLEL_URL}#$PARALLEL_URL#\" email_templates\/*\nsed -i \"s#{CLUSTER}#@@{CLUSTERNAME}@@#\" email_templates\/*\n\n# Update mail.py file\nsed -i \"s#{MAIL_TOKEN}#@@{EMAILTOKEN}@@#\" mail.py\n\nsudo systemctl daemon-reload\n\n# 'Clean' the game\npython3 main.py -clean\n\n# Cache Node Serial Number\npython3 main.py -cacheNodeSerial",
                                         "script_type": "sh",
                                         "command_line_args": "",
                                         "exit_status": []
@@ -1853,7 +1853,7 @@
                                     "description": "",
                                     "attrs": {
                                         "type": "",
-                                        "script": "#!/bin/bash\n\ncd ntnx-escape-game/email_templates\n\nFILES=$(ls -1 | paste -sd, -)\n\necho \"TEMPLATES=$FILES\"\n",
+                                        "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\/email_templates\n\nFILES=$(ls -1 | paste -sd, -)\n\necho \"TEMPLATES=$FILES\"\n",
                                         "script_type": "sh",
                                         "exit_status": [],
                                         "eval_scope": "local",
@@ -1958,7 +1958,7 @@
                             "editables": {
                                 "value": true
                             },
-                            "value": "https://github.com/r0w/ntnx-escape-game"
+                            "value": "https:\/\/github.com\/r0w\/ntnx-escape-game"
                         },
                         {
                             "type": "LOCAL",
@@ -1984,7 +1984,7 @@
                         {
                             "type": "LOCAL",
                             "name": "DockerRegistry",
-                            "description": "Registry path, without end /",
+                            "description": "Registry path, without end \/",
                             "options": {
                                 "type": "PREDEFINED",
                                 "choices": []
@@ -2000,7 +2000,7 @@
                             "editables": {
                                 "value": false
                             },
-                            "value": "registry.nutanixdemo.com/docker.io"
+                            "value": "registry.nutanixdemo.com\/docker.io"
                         },
                         {
                             "type": "SECRET",
@@ -2187,14 +2187,14 @@
                                 "type": "PREDEFINED",
                                 "choices": [
                                     "UTC",
-                                    "Europe/Paris",
-                                    "Europe/London",
-                                    "America/New_York",
-                                    "America/Los_Angeles",
-                                    "America/Sao_Paulo",
-                                    "Asia/Dubai",
-                                    "Asia/Tokyo",
-                                    "Australia/Sydney"
+                                    "Europe\/Paris",
+                                    "Europe\/London",
+                                    "America\/New_York",
+                                    "America\/Los_Angeles",
+                                    "America\/Sao_Paulo",
+                                    "Asia\/Dubai",
+                                    "Asia\/Tokyo",
+                                    "Australia\/Sydney"
                                 ]
                             },
                             "is_hidden": false,
@@ -2263,7 +2263,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\nsudo systemctl status eg-dashboard.service\nsudo systemctl restart eg-dashboard.service",
+                                            "script": "#!\/bin\/bash\n\nsudo systemctl status eg-dashboard.service\nsudo systemctl restart eg-dashboard.service",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2285,7 +2285,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\nsudo systemctl status eg-sshserver.service\nsudo systemctl restart eg-sshserver.service",
+                                            "script": "#!\/bin\/bash\n\nsudo systemctl status eg-sshserver.service\nsudo systemctl restart eg-sshserver.service",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2361,7 +2361,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\nsource .venv/bin/activate\n\nexport I=0\n\nfor EMAIL in `echo @@{RECIPIENTS}@@ | sed 's/,/ /g'`\ndo\n    I=$(($I+1))\n    echo \"Emailing to $EMAIL, id $I\"\n    python mail.py $EMAIL \"Mission Briefing - Escape Game\" @@{Template}@@ $I\ndone\n\necho \"Done\"",
+                                            "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\nsource .venv\/bin\/activate\n\nexport I=0\n\nfor EMAIL in `echo @@{RECIPIENTS}@@ | sed 's\/,\/ \/g'`\ndo\n    I=$(($I+1))\n    echo \"Emailing to $EMAIL, id $I\"\n    python mail.py $EMAIL \"Mission Briefing - Escape Game\" @@{Template}@@ $I\ndone\n\necho \"Done\"",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2416,7 +2416,7 @@
                                             "type": "EXEC",
                                             "attrs": {
                                                 "type": "EXEC",
-                                                "script": "#script\n\ntemplist = \"@@{Game.TEMPLATES}@@\"\nlookingFor = \"start\"\n\n# Découper la chaîne en éléments (ici, séparés par une virgule et un espace)\nelements = [elem.strip() for elem in templist.split(',')]\n\n# Filtrer les éléments contenant 'summary'\ngoodElements = [elem for elem in elements if lookingFor in elem]\n\n# Afficher les éléments filtrés, séparés par une virgule\nprint(', '.join(goodElements))",
+                                                "script": "#script\n\ntemplist = \"@@{Game.TEMPLATES}@@\"\nlookingFor = \"start\"\n\n# D\u00e9couper la cha\u00eene en \u00e9l\u00e9ments (ici, s\u00e9par\u00e9s par une virgule et un espace)\nelements = [elem.strip() for elem in templist.split(',')]\n\n# Filtrer les \u00e9l\u00e9ments contenant 'summary'\ngoodElements = [elem for elem in elements if lookingFor in elem]\n\n# Afficher les \u00e9l\u00e9ments filtr\u00e9s, s\u00e9par\u00e9s par une virgule\nprint(', '.join(goodElements))",
                                                 "script_type": "static_py3",
                                                 "command_line_args": "",
                                                 "exit_status": []
@@ -2494,7 +2494,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\nsource .venv/bin/activate\n\n\nfor EMAIL in `echo @@{Game.RECIPIENTS_LIST}@@ | sed 's/,/ /g'`\ndo\n    echo \"Emailing to $EMAIL\"\n    python mail.py $EMAIL \"Thank you for playing!\" @@{Template}@@\ndone\n\necho \"Done\"",
+                                            "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\nsource .venv\/bin\/activate\n\n\nfor EMAIL in `echo @@{Game.RECIPIENTS_LIST}@@ | sed 's\/,\/ \/g'`\ndo\n    echo \"Emailing to $EMAIL\"\n    python mail.py $EMAIL \"Thank you for playing!\" @@{Template}@@\ndone\n\necho \"Done\"",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2524,7 +2524,7 @@
                                             "type": "EXEC",
                                             "attrs": {
                                                 "type": "EXEC",
-                                                "script": "#script\n\ntemplist = \"@@{Game.TEMPLATES}@@\"\nlookingFor = \"summary\"\n\n# Découper la chaîne en éléments (ici, séparés par une virgule et un espace)\nelements = [elem.strip() for elem in templist.split(',')]\n\n# Filtrer les éléments contenant 'summary'\ngoodElements = [elem for elem in elements if lookingFor in elem]\n\n# Afficher les éléments filtrés, séparés par une virgule\nprint(', '.join(goodElements))",
+                                                "script": "#script\n\ntemplist = \"@@{Game.TEMPLATES}@@\"\nlookingFor = \"summary\"\n\n# D\u00e9couper la cha\u00eene en \u00e9l\u00e9ments (ici, s\u00e9par\u00e9s par une virgule et un espace)\nelements = [elem.strip() for elem in templist.split(',')]\n\n# Filtrer les \u00e9l\u00e9ments contenant 'summary'\ngoodElements = [elem for elem in elements if lookingFor in elem]\n\n# Afficher les \u00e9l\u00e9ments filtr\u00e9s, s\u00e9par\u00e9s par une virgule\nprint(', '.join(goodElements))",
                                                 "script_type": "static_py3",
                                                 "command_line_args": "",
                                                 "exit_status": []
@@ -2581,7 +2581,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\nsource .venv/bin/activate\n\npython main.py -changeStage @@{Trigram}@@ @@{NewStage}@@",
+                                            "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\nsource .venv\/bin\/activate\n\npython main.py -changeStage @@{Trigram}@@ @@{NewStage}@@",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2687,7 +2687,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\nset -euo pipefail\n\ncd ntnx-escape-game\n\ngit pull --rebase --autostash\n\necho \"Done\"",
+                                            "script": "#!\/bin\/bash\nset -euo pipefail\n\ncd ntnx-escape-game\n\ngit pull --rebase --autostash\n\necho \"Done\"",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2763,7 +2763,7 @@
                                         "description": "",
                                         "attrs": {
                                             "type": "",
-                                            "script": "#!/bin/bash\n\ncd ntnx-escape-game\n\nsed -i 's={COMBINEDSCOREBOARDS}=@@{SCOREBOARDSIPS}@@=' config.env\n",
+                                            "script": "#!\/bin\/bash\n\ncd ntnx-escape-game\n\nsed -i 's={COMBINEDSCOREBOARDS}=@@{SCOREBOARDSIPS}@@=' config.env\n",
                                             "script_type": "sh",
                                             "command_line_args": "",
                                             "exit_status": []
@@ -2818,6 +2818,60 @@
                                             "value": "^.*$",
                                             "should_validate": false
                                         },
+                                        "options": {
+                                            "type": "PREDEFINED",
+                                            "choices": []
+                                        },
+                                        "is_hidden": false,
+                                        "is_mandatory": false,
+                                        "data_type": "BASE",
+                                        "val_type": "STRING",
+                                        "label": "",
+                                        "attrs": {
+                                            "type": ""
+                                        },
+                                        "editables": {
+                                            "value": true
+                                        },
+                                        "value": ""
+                                    }
+                                ]
+                            },
+                            "critical": false
+                        },
+                        {
+                            "type": "user",
+                            "name": "Update Node Serial Number",
+                            "description": "#!\/bin\/bash\ncd ntnx-escape-game\nsource .venv\/bin\/activate\npython main.py -setNodeSerial @@{SerialNumber}@@",
+                            "runbook": {
+                                "name": "254790b1_runbook",
+                                "description": "",
+                                "task_definition_list": [
+                                    {
+                                        "type": "DAG",
+                                        "name": "356413d0_dag",
+                                        "description": "",
+                                        "attrs": {
+                                            "type": "",
+                                            "edges": []
+                                        },
+                                        "child_tasks_local_reference_list": [],
+                                        "variable_list": [],
+                                        "timeout_secs": "0",
+                                        "retries": "0",
+                                        "inherit_target": false,
+                                        "status_map_list": []
+                                    }
+                                ],
+                                "main_task_local_reference": {
+                                    "name": "356413d0_dag",
+                                    "kind": "app_task"
+                                },
+                                "variable_list": [
+                                    {
+                                        "type": "LOCAL",
+                                        "name": "SerialNumber",
+                                        "description": "",
                                         "options": {
                                             "type": "PREDEFINED",
                                             "choices": []
@@ -3179,8 +3233,8 @@
             "type": "USER",
             "client_attrs": {
                 "deployment_e777f451": {
-                    "x": -363.0869643184469,
-                    "y": -16791.08288715308
+                    "x": -412.0869643184469,
+                    "y": -17281.08288715308
                 }
             },
             "global_variable_reference_list": []
@@ -3189,8 +3243,8 @@
     "api_version": "3.0",
     "product_version": "4.3.0",
     "metadata": {
-        "last_update_time": "1769968408107951",
-        "creation_time": "1769705518463203",
+        "last_update_time": "1772367113182009",
+        "creation_time": "1772275208865949",
         "spec_version": 4,
         "name": "EG-Blueprint-Installation",
         "kind": "blueprint"

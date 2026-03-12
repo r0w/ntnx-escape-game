@@ -90,7 +90,32 @@ if __name__ == "__main__":
         escapegameengine.updateScoreFile(scoreFolder, trigram, stageId, maxStage)
         print("Stage changed to", stageId, "for user", trigram)
 
-        # Exit
+    # Check for -cacheNodeSerial parameter
+    if "-cacheNodeSerial" in sys.argv:
+        import functions
+        print("Caching new node serial...")
+        serial = functions.getNewNodeSerial(variables)
+        if serial:
+            print(f"Successfully cached node serial: {serial}")
+            sys.exit(0)
+        else:
+            print("Failed to cache node serial.")
+            sys.exit(1)
+
+    # Check for -setNodeSerial parameter
+    if "-setNodeSerial" in sys.argv:
+        try:
+            serial_index = sys.argv.index("-setNodeSerial") + 1
+            if serial_index >= len(sys.argv):
+                raise ValueError("No serial number provided")
+            serial_value = sys.argv[serial_index]
+        except ValueError:
+            print("Error: Please provide a serial number after -setNodeSerial")
+            sys.exit(1)
+
+        with open("serialNumber.txt", "w") as f:
+            f.write(serial_value.strip())
+        print(f"Node serial manually set and cached to: {serial_value.strip()}")
         sys.exit(0)
 
     variables["SupportedLanguages"] = escapegameengine.getSupportedLanguages(contentJsonFile)

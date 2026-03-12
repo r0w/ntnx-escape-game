@@ -614,31 +614,116 @@ def getNumberOfUpdates(variables):
 
 
 # ========================================================================
+# = _wait_for_task
+# ========================================================================
+def _wait_for_task(task_ext_id, variables):
+    task_url = f"https://{variables['PC']}:9440/api/prism/v4.2/config/tasks/{task_ext_id}"
+    headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    
+    start_time = time.time()
+    while True:
+        response = requests.get(
+            task_url,
+            headers=headers,
+            verify=False,
+            auth=(variables["PCUser"], variables["PCPassword"]),
+        )
+        if response.status_code != 200:
+            return None
+            
+        task_data = json.loads(response.text)
+        if not task_data or "data" not in task_data:
+            return None
+            
+        status = task_data["data"].get("status")
+        
+        if status == "SUCCEEDED":
+            return task_data
+        elif status in ["FAILED", "CANCELED"]:
+            return None
+            
+        # Timeout after 3 minutes just to be safe
+        if time.time() - start_time > 180:
+            return None
+            
+        time.sleep(5)
+
+# ========================================================================
 # = GetNewNodeInfo
 # ========================================================================
 # This function is returning the info about nodes available for expansion
-# ToDo : rewrite with SDK when available (seems broken because of authentication)
 def getNewNodeSerial(variables):
+    cache_file = "serialNumber.txt"
+    
+    # Check if we already have the serial cached
+    import os
+    if os.path.exists(cache_file):
+        with open(cache_file, "r") as f:
+            serial = f.read().strip()
+            if serial:
+                return serial
+
     clusterUUID = getClusterUUID(variables)
 
-    url = (
-        "https://%s:9440/api/clustermgmt/v4.0.b2/config/clusters/%s/rackable-units"
+    # Launch discovery
+    discover_url = (
+        "https://%s:9440/api/clustermgmt/v4.0.b2/config/clusters/%s/$actions/discover-unconfigured-nodes"
         % (variables["PC"], clusterUUID)
     )
     headers = {"Content-Type": "application/json", "Accept": "application/json"}
+    payload = {
+        "timeout": 60,
+        "isManualDiscovery": False,
+        "addressType": "IPV4"
+    }
 
-    response = requests.get(
-        url,
-        headers=headers,
-        verify=False,
-        auth=(variables["PCUser"], variables["PCPassword"]),
-    )
-    response_data = json.loads(response.text)
-
-    if len(response_data["data"]):
-        return response_data["data"][0]["serial"]
-    else:
-        return None
+    try:
+        response = requests.post(
+            discover_url,
+            json=payload,
+            headers=headers,
+            verify=False,
+            auth=(variables["PCUser"], variables["PCPassword"]),
+        )
+        discovery_data = json.loads(response.text)
+        
+        if not discovery_data or "data" not in discovery_data:
+            return None
+            
+        task_ext_id = discovery_data["data"].get("extId")
+        if not task_ext_id:
+            return None
+            
+        # Wait for task to complete
+        task_result = _wait_for_task(task_ext_id, variables)
+        if not task_result:
+            return None
+            
+        short_task_id = task_ext_id.split(":")[-1]
+        task_response_url = f"https://{variables['PC']}:9440/api/clustermgmt/v4.2/config/task-response/{short_task_id}?taskResponseType=UNCONFIGURED_NODES"
+        
+        response = requests.get(
+            task_response_url,
+            headers=headers,
+            verify=False,
+            auth=(variables["PCUser"], variables["PCPassword"]),
+        )
+        nodes_data = json.loads(response.text)
+        
+        if nodes_data and "data" in nodes_data and "response" in nodes_data["data"]:
+            node_list = nodes_data["data"]["response"].get("nodeList", [])
+            for node in node_list:
+                serial = node.get("rackableUnitSerial")
+                if serial:
+                    # Cache the serial
+                    with open(cache_file, "w") as f:
+                        f.write(serial)
+                    return serial
+                    
+    except Exception as e:
+        print(f"Error discovering nodes: {e}")
+        
+    return None
 
 
 # ========================================================================
