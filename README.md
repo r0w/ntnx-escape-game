@@ -8,8 +8,8 @@
   - AOS 7.5 (do not use another version).
   - PC 7.5 (do not use another version).
   - Self-Service enabled and version 4.3 (do not use another version).
-  - Leap Enabled.
   - Flow security enabled.
+  - Leap Enabled.
 
 2) In PC > Self-service, upload the **runbook** `materials/EG-Runbook-Prerequisites.json` in the `lab` project.
   - **!!! WARNING !!!** 
