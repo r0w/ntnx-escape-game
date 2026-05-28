@@ -5,8 +5,8 @@
 1) Book a Nutanix HPoC with the following characteristics:
   - DO NOT USE PC SCALE-OUT
   - 4 nodes cluster (no more, no less) cause one node will be removed by the scripts.
-  - AOS 7.5 (do not use another version).
-  - PC 7.5 (do not use another version).
+  - AOS 7.5.x (do not use another version).
+  - PC 7.5.x (do not use another version).
   - Self-Service enabled and version 4.3 (do not use another version).
   - Flow security enabled.
   - Leap Enabled.
