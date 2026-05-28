@@ -11,12 +11,14 @@
   - Flow security enabled.
   - Leap Enabled.
 
-2) In PC > Self-service, upload the **runbook** `materials/EG-Runbook-Prerequisites.json` in the `lab` project.
+2) Enable Intelligent Operations if not enabled
+
+3) In PC > Self-service, upload the **runbook** `materials/EG-Runbook-Prerequisites.json` in the `lab` project.
   - **!!! WARNING !!!** 
     - Ensure you are in the **Runbooks** section (and not in Blueprints) or upload will fail.
   - Launch the runbook.
 
-3) Upload the **blueprint** `materials/EG-Blueprint-Installation.json` in the `lab` project.
+4) Upload the **blueprint** `materials/EG-Blueprint-Installation.json` in the `lab` project.
   - **!!! WARNING !!!**
     - Ensure you have launched the runbook first or you'll have problems.
     - 1st task of the blueprint checks AD credential. If tasks fails, please delete the app, change AD Endpoint credentials, and then redeploy the app from the BP.
